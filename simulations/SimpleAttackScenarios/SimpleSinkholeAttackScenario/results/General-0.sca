@@ -1,0 +1,786 @@
+version 2
+run General-0-20201229-16:10:17-16296
+attr configname General
+attr datetime 20201229-16:10:17
+attr experiment General
+attr inifile SimpleSinkholeRoute.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network SimpleSinkholeRoute
+attr processid 16296
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar SimpleSinkholeRoute.nodeA.networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleSinkholeRoute.nodeA.networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleSinkholeRoute.nodeA.networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleSinkholeRoute.nodeA.networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleSinkholeRoute.nodeA.networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleSinkholeRoute.nodeA.networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleSinkholeRoute.nodeA.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"number of received packets" 	1
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"number of collisions" 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"sent and receive bites" 	1504
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"sent packet within AC 0" 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"sentWithoutRetry AC 0" 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleSinkholeRoute.nodeA.wlan[0].radio 	radioState:count 	49
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleSinkholeRoute.nodeA.wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleSinkholeRoute.nodeA.wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeA.wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeA.wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeA.udpApp[0] 	"packets sent" 	1
+scalar SimpleSinkholeRoute.nodeA.udpApp[0] 	"packets received" 	0
+scalar SimpleSinkholeRoute.nodeA.udpApp[0] 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleSinkholeRoute.nodeA.udpApp[0] 	sentPk:sum(packetBytes) 	512
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeA.udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleSinkholeRoute.nodeA.udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic SimpleSinkholeRoute.nodeA.udpApp[0] 	rcvdPkLifetime:stats
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "received packet lifetime, stats"
+attr unit  s
+scalar SimpleSinkholeRoute.nodeA.udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar SimpleSinkholeRoute.nodeA.udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar SimpleSinkholeRoute.nodeA.udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar SimpleSinkholeRoute.nodeA.udp 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleSinkholeRoute.nodeA.udp 	sentPk:sum(packetBytes) 	520
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeA.udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleSinkholeRoute.nodeA.udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"simulated time" 	0.251834107698
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"Aodv totalSend " 	6
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rreq send" 	4
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rreq rec" 	5
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rrep send" 	2
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rrep rec" 	2
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rrep ack send" 	0
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rrep ack rec" 	0
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rerr send" 	0
+scalar SimpleSinkholeRoute.nodeA.manetrouting 	"rerr rec" 	0
+scalar SimpleSinkholeRoute.nodeB.networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleSinkholeRoute.nodeB.networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleSinkholeRoute.nodeB.networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleSinkholeRoute.nodeB.networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleSinkholeRoute.nodeB.networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleSinkholeRoute.nodeB.networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleSinkholeRoute.nodeB.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"number of received packets" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"number of collisions" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"sent and receive bites" 	752
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"sent packet within AC 0" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"sentWithoutRetry AC 0" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleSinkholeRoute.nodeB.wlan[0].radio 	radioState:count 	49
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleSinkholeRoute.nodeB.wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleSinkholeRoute.nodeB.wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeB.wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeB.wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeB.udpApp[0] 	"packets sent" 	0
+scalar SimpleSinkholeRoute.nodeB.udpApp[0] 	"packets received" 	0
+scalar SimpleSinkholeRoute.nodeB.udpApp[0] 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleSinkholeRoute.nodeB.udpApp[0] 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeB.udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleSinkholeRoute.nodeB.udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic SimpleSinkholeRoute.nodeB.udpApp[0] 	rcvdPkLifetime:stats
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "received packet lifetime, stats"
+attr unit  s
+scalar SimpleSinkholeRoute.nodeB.udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar SimpleSinkholeRoute.nodeB.udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar SimpleSinkholeRoute.nodeB.udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar SimpleSinkholeRoute.nodeB.udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleSinkholeRoute.nodeB.udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeB.udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleSinkholeRoute.nodeB.udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeC.networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleSinkholeRoute.nodeC.networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleSinkholeRoute.nodeC.networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleSinkholeRoute.nodeC.networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleSinkholeRoute.nodeC.networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleSinkholeRoute.nodeC.networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleSinkholeRoute.nodeC.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"number of received packets" 	1
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"number of collisions" 	0
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"sent and receive bites" 	1472
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"sent packet within AC 0" 	1
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleSinkholeRoute.nodeC.wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleSinkholeRoute.nodeC.wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleSinkholeRoute.nodeC.wlan[0].radio 	radioState:count 	57
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleSinkholeRoute.nodeC.wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleSinkholeRoute.nodeC.wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeC.wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeC.wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeD.networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleSinkholeRoute.nodeD.networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleSinkholeRoute.nodeD.networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleSinkholeRoute.nodeD.networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleSinkholeRoute.nodeD.networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleSinkholeRoute.nodeD.networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleSinkholeRoute.nodeD.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"number of received packets" 	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"number of collisions" 	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"sent and receive bites" 	720
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"sent packet within AC 0" 	1
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleSinkholeRoute.nodeD.wlan[0].radio 	radioState:count 	29
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleSinkholeRoute.nodeD.wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleSinkholeRoute.nodeD.wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeD.wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeD.wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	"Total sent" 	0
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	"Total received" 	0
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	"Total deleted" 	0
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleSinkholeRoute.nodeD.udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic SimpleSinkholeRoute.nodeD.udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleSinkholeRoute.nodeD.udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar SimpleSinkholeRoute.nodeD.udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar SimpleSinkholeRoute.nodeD.udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar SimpleSinkholeRoute.nodeD.udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleSinkholeRoute.nodeD.udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleSinkholeRoute.nodeD.udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleSinkholeRoute.nodeD.udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar SimpleSinkholeRoute.attacker.networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleSinkholeRoute.attacker.networkLayer.ip 	rcvdPkt:count 	1
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleSinkholeRoute.attacker.networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleSinkholeRoute.attacker.networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleSinkholeRoute.attacker.networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleSinkholeRoute.attacker.networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleSinkholeRoute.attacker.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleSinkholeRoute.attacker.wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleSinkholeRoute.attacker.wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleSinkholeRoute.attacker.wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleSinkholeRoute.attacker.wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"number of received packets" 	2
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"number of collisions" 	0
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"sent and receive bites" 	1472
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"sent packet within AC 0" 	1
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleSinkholeRoute.attacker.wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleSinkholeRoute.attacker.wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleSinkholeRoute.attacker.wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleSinkholeRoute.attacker.wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleSinkholeRoute.attacker.wlan[0].radio 	radioState:count 	75
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleSinkholeRoute.attacker.wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleSinkholeRoute.attacker.wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleSinkholeRoute.attacker.wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleSinkholeRoute.attacker.wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"simulated time" 	0.251834107698
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"Aodv totalSend " 	2
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rreq send" 	1
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rreq rec" 	4
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rrep send" 	1
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rrep rec" 	1
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rrep ack send" 	0
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rrep ack rec" 	0
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rerr send" 	0
+scalar SimpleSinkholeRoute.attacker.manetrouting 	"rerr rec" 	0

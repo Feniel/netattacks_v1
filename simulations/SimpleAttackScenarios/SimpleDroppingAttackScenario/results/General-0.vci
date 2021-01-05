@@ -1,0 +1,123 @@
+file 18065 1609257825                                           
+version 2
+run General-0-20201229-17:03:13-9400
+attr configname General
+attr datetime 20201229-17:03:13
+attr experiment General
+attr inifile SimpleDropping.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network SimpleDropping
+attr processid 9400
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 15  SimpleDropping.node[0].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 35  SimpleDropping.node[1].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 48  SimpleDropping.attacker[0].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 55  SimpleDropping.node[0].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 54  SimpleDropping.node[0].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 61  SimpleDropping.node[1].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 60  SimpleDropping.node[1].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 67  SimpleDropping.attacker[0].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 66  SimpleDropping.attacker[0].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 17  SimpleDropping.node[0].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 19  SimpleDropping.node[0].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 18  SimpleDropping.node[0].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 37  SimpleDropping.node[1].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 39  SimpleDropping.node[1].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 38  SimpleDropping.node[1].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 50  SimpleDropping.attacker[0].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 52  SimpleDropping.attacker[0].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 51  SimpleDropping.attacker[0].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 1  SimpleDropping.node[0].udpApp[0]  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 3  SimpleDropping.node[0].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 57  SimpleDropping.node[0].wlan[0].mac  "throughput AC0"  ETV
+vector 69  SimpleDropping.attacker[0].wlan[0].mac  "throughput AC0"  ETV
+vector 71  SimpleDropping.attacker[0].wlan[0].radio  snirVector  ETV
+vector 63  SimpleDropping.node[1].wlan[0].mac  "throughput AC0"  ETV
+vector 59  SimpleDropping.node[0].wlan[0].radio  snirVector  ETV
+vector 65  SimpleDropping.node[1].wlan[0].radio  snirVector  ETV
+vector 64  SimpleDropping.node[1].wlan[0].mac  "Mac delay AC0"  ETV
+vector 70  SimpleDropping.attacker[0].wlan[0].mac  "Mac delay AC0"  ETV
+vector 42  SimpleDropping.attacker[0].networkLayer.ip  rcvdPkt:vector  ETV
+attr interpolationmode  none
+attr title  "Number of packet received, vector"
+1	4323 11 5 5 1 1 1 512 512 512 262144
+3	4334 11 9 9 1 1 1 520 520 520 270400
+15	4345 10 0 0 0 0 1 0 0 0 0
+17	4355 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+18	4372 10 0 0 0 0 1 0 0 0 0
+19	4382 1190 0 214 0 1.24662742119 49 0 2 36 60
+35	5572 10 0 0 0 0 1 0 0 0 0
+37	5582 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+38	5599 10 0 0 0 0 1 0 0 0 0
+39	5609 798 0 206 0 1.24650342119 33 0 2 20 28
+42	6407 25 221 221 1.246638087856 1.246638087856 1 1 1 1 1
+48	6432 10 0 0 0 0 1 0 0 0 0
+50	6442 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+51	6459 10 0 0 0 0 1 0 0 0 0
+52	6469 1432 0 222 0 1.246638087856 59 0 2 44 72
+54	7901 2374 0 214 0 1.24662742119 98 0 7 206 1034
+55	10275 1200 0 214 0 1.24662742119 50 0 2 36 60
+57	11475 62 19 42 1.004309728099 1.243137818481 2 0 3148.7083399494 3148.7083399494 9914364.2100671
+59	11537 38 71 71 1.245527087862 1.245527087862 1 26.937691987245 26.937691987245 26.937691987245 725.63924959967
+60	11575 1498 0 209 0 1.24650342119 62 0 7 128 652
+61	13073 808 0 206 0 1.24650342119 34 0 2 20 28
+63	13881 24 68 68 1.245465087862 1.245465087862 1 0 0 0 0
+64	13905 38 138 138 1.245751754526 1.245751754526 1 0.000204666664 0.000204666664 0.000204666664 4.1888443352889e-008
+65	13943 38 72 72 1.245527087862 1.245527087862 1 26.937691987245 26.937691987245 26.937691987245 725.63924959967
+66	13981 2518 0 222 0 1.246638087856 104 0 7 234 1210
+67	16499 1442 0 222 0 1.246638087856 60 0 2 42 68
+69	17941 48 22 45 1.004338394765 1.243166485147 2 0 0 0 0
+70	17989 38 187 187 1.246135754524 1.246135754524 1 0.000408666664 0.000408666664 0.000408666664 1.6700844226489e-007
+71	18027 38 26 26 1.004400394765 1.004400394765 1 26.937691987245 26.937691987245 26.937691987245 725.63924959967

@@ -1,0 +1,3 @@
+# Partial Tkenv config file -- see $HOME/.tkenvrc as well
+inspector "Sinkhole" "Sinkhole" "2" "672x500+52+52:normal"
+

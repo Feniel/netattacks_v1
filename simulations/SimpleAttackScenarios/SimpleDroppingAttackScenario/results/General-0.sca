@@ -1,0 +1,480 @@
+version 2
+run General-0-20201229-17:03:13-9400
+attr configname General
+attr datetime 20201229-17:03:13
+attr experiment General
+attr inifile SimpleDropping.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network SimpleDropping
+attr processid 9400
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar SimpleDropping.node[0].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleDropping.node[0].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleDropping.node[0].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleDropping.node[0].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleDropping.node[0].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleDropping.node[0].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleDropping.node[0].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleDropping.node[0].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleDropping.node[0].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleDropping.node[0].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleDropping.node[0].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleDropping.node[0].wlan[0].mac 	"number of received packets" 	1
+scalar SimpleDropping.node[0].wlan[0].mac 	"number of collisions" 	0
+scalar SimpleDropping.node[0].wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleDropping.node[0].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleDropping.node[0].wlan[0].mac 	"sent and receive bites" 	1504
+scalar SimpleDropping.node[0].wlan[0].mac 	"sent packet within AC 0" 	0
+scalar SimpleDropping.node[0].wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleDropping.node[0].wlan[0].mac 	"sentWithoutRetry AC 0" 	0
+scalar SimpleDropping.node[0].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleDropping.node[0].wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleDropping.node[0].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleDropping.node[0].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleDropping.node[0].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleDropping.node[0].wlan[0].radio 	radioState:count 	49
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleDropping.node[0].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleDropping.node[0].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleDropping.node[0].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleDropping.node[0].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar SimpleDropping.node[0].udpApp[0] 	"packets sent" 	1
+scalar SimpleDropping.node[0].udpApp[0] 	"packets received" 	0
+scalar SimpleDropping.node[0].udpApp[0] 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleDropping.node[0].udpApp[0] 	sentPk:sum(packetBytes) 	512
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleDropping.node[0].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleDropping.node[0].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic SimpleDropping.node[0].udpApp[0] 	rcvdPkLifetime:stats
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "received packet lifetime, stats"
+attr unit  s
+scalar SimpleDropping.node[0].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar SimpleDropping.node[0].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar SimpleDropping.node[0].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar SimpleDropping.node[0].udp 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleDropping.node[0].udp 	sentPk:sum(packetBytes) 	520
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleDropping.node[0].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleDropping.node[0].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar SimpleDropping.node[0].manetrouting 	"simulated time" 	1.246638087856
+scalar SimpleDropping.node[0].manetrouting 	"Aodv totalSend " 	5
+scalar SimpleDropping.node[0].manetrouting 	"rreq send" 	3
+scalar SimpleDropping.node[0].manetrouting 	"rreq rec" 	3
+scalar SimpleDropping.node[0].manetrouting 	"rrep send" 	2
+scalar SimpleDropping.node[0].manetrouting 	"rrep rec" 	2
+scalar SimpleDropping.node[0].manetrouting 	"rrep ack send" 	0
+scalar SimpleDropping.node[0].manetrouting 	"rrep ack rec" 	0
+scalar SimpleDropping.node[0].manetrouting 	"rerr send" 	0
+scalar SimpleDropping.node[0].manetrouting 	"rerr rec" 	0
+scalar SimpleDropping.node[1].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleDropping.node[1].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleDropping.node[1].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleDropping.node[1].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleDropping.node[1].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleDropping.node[1].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleDropping.node[1].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleDropping.node[1].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleDropping.node[1].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleDropping.node[1].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleDropping.node[1].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleDropping.node[1].wlan[0].mac 	"number of received packets" 	0
+scalar SimpleDropping.node[1].wlan[0].mac 	"number of collisions" 	0
+scalar SimpleDropping.node[1].wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleDropping.node[1].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleDropping.node[1].wlan[0].mac 	"sent and receive bites" 	720
+scalar SimpleDropping.node[1].wlan[0].mac 	"sent packet within AC 0" 	1
+scalar SimpleDropping.node[1].wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleDropping.node[1].wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar SimpleDropping.node[1].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleDropping.node[1].wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleDropping.node[1].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleDropping.node[1].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleDropping.node[1].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleDropping.node[1].wlan[0].radio 	radioState:count 	33
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleDropping.node[1].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleDropping.node[1].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleDropping.node[1].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleDropping.node[1].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar SimpleDropping.node[1].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleDropping.node[1].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic SimpleDropping.node[1].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "end-to-end delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleDropping.node[1].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar SimpleDropping.node[1].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar SimpleDropping.node[1].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar SimpleDropping.node[1].udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar SimpleDropping.node[1].udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar SimpleDropping.node[1].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar SimpleDropping.node[1].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar SimpleDropping.attacker[0].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar SimpleDropping.attacker[0].networkLayer.ip 	rcvdPkt:count 	1
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar SimpleDropping.attacker[0].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar SimpleDropping.attacker[0].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar SimpleDropping.attacker[0].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar SimpleDropping.attacker[0].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar SimpleDropping.attacker[0].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar SimpleDropping.attacker[0].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar SimpleDropping.attacker[0].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar SimpleDropping.attacker[0].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar SimpleDropping.attacker[0].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"number of received packets" 	2
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"number of collisions" 	0
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"number of internal collisions" 	0
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"sent and receive bites" 	1472
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"sent packet within AC 0" 	1
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"sent in TXOP " 	0
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar SimpleDropping.attacker[0].wlan[0].mac 	"numDropped AC 0" 	0
+scalar SimpleDropping.attacker[0].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar SimpleDropping.attacker[0].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar SimpleDropping.attacker[0].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar SimpleDropping.attacker[0].wlan[0].radio 	radioState:count 	59
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic SimpleDropping.attacker[0].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar SimpleDropping.attacker[0].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar SimpleDropping.attacker[0].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar SimpleDropping.attacker[0].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps

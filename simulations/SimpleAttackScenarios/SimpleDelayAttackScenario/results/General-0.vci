@@ -1,0 +1,109 @@
+file 6148 1609251192                                            
+version 2
+run General-0-20201229-15:12:57-9540
+attr configname General
+attr datetime 20201229-15:12:57
+attr experiment General
+attr inifile SimpleDelay.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network SimpleDelay
+attr processid 9540
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 15  SimpleDelay.node[0].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 35  SimpleDelay.node[1].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 48  SimpleDelay.attacker[0].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 55  SimpleDelay.node[0].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 54  SimpleDelay.node[0].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 61  SimpleDelay.node[1].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 60  SimpleDelay.node[1].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 67  SimpleDelay.attacker[0].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 66  SimpleDelay.attacker[0].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 17  SimpleDelay.node[0].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 19  SimpleDelay.node[0].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 18  SimpleDelay.node[0].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 37  SimpleDelay.node[1].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 39  SimpleDelay.node[1].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 38  SimpleDelay.node[1].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 50  SimpleDelay.attacker[0].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 52  SimpleDelay.attacker[0].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 51  SimpleDelay.attacker[0].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 1  SimpleDelay.node[0].udpApp[0]  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 3  SimpleDelay.node[0].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 57  SimpleDelay.node[0].wlan[0].mac  "throughput AC0"  ETV
+vector 69  SimpleDelay.attacker[0].wlan[0].mac  "throughput AC0"  ETV
+vector 71  SimpleDelay.attacker[0].wlan[0].radio  snirVector  ETV
+1	3749 11 5 5 1 1 1 512 512 512 262144
+3	3760 11 9 9 1 1 1 520 520 520 270400
+15	3771 10 0 0 0 0 1 0 0 0 0
+17	3781 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+18	3798 10 0 0 0 0 1 0 0 0 0
+19	3808 202 0 48 0 1.243227818481 9 0 2 8 16
+35	4010 10 0 0 0 0 1 0 0 0 0
+37	4020 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+38	4037 10 0 0 0 0 1 0 0 0 0
+39	4047 10 0 0 0 0 1 0 0 0 0
+48	4057 10 0 0 0 0 1 0 0 0 0
+50	4067 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+51	4084 10 0 0 0 0 1 0 0 0 0
+52	4094 250 0 66 0 1.245464421196 11 0 2 8 12
+54	4344 692 0 58 0 1.243462818481 30 0 5 72 272
+55	5036 212 0 48 0 1.243227818481 10 0 2 8 16
+57	5248 62 19 42 1.004309728099 1.243137818481 2 0 3148.7083399494 3148.7083399494 9914364.2100671
+60	5310 20 0 0 0 0 2 0 0 0 0
+61	5330 20 0 0 0 0 2 0 0 0 0
+66	5350 452 0 66 0 1.245464421196 20 0 5 19 83
+67	5802 260 0 66 0 1.245464421196 12 0 2 6 8
+69	6062 48 22 45 1.004338394765 1.243166485147 2 0 0 0 0
+71	6110 38 26 26 1.004400394765 1.004400394765 1 26.937691987245 26.937691987245 26.937691987245 725.63924959967
