@@ -1,0 +1,2162 @@
+version 2
+run General-0-20210106-20:08:59-18240
+attr configname General
+attr datetime 20210106-20:08:59
+attr experiment General
+attr inifile BlackholeRoute.ini
+attr iterationvars "$nAtt=0, $nHosts=10-0, $mobility=5"
+attr iterationvars2 "$nAtt=0, $nHosts=10-0, $mobility=5, $repetition=0"
+attr measurement "$nAtt=0, $nHosts=10-0, $mobility=5"
+attr mobility 5
+attr nAtt 0
+attr nHosts 10-0
+attr network Blackhole
+attr processid 18240
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar . 	mobility 	5
+scalar . 	nAtt 	0
+scalar Blackhole.node[0].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[0].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[0].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[0].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[0].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[0].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[0].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[0].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[0].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[0].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[0].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[0].wlan[0].mac 	"number of received packets" 	0
+scalar Blackhole.node[0].wlan[0].mac 	"number of collisions" 	0
+scalar Blackhole.node[0].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[0].wlan[0].mac 	"number of retry for AC 0" 	1
+scalar Blackhole.node[0].wlan[0].mac 	"sent and receive bites" 	720
+scalar Blackhole.node[0].wlan[0].mac 	"sent packet within AC 0" 	1
+scalar Blackhole.node[0].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[0].wlan[0].mac 	"sentWithoutRetry AC 0" 	0
+scalar Blackhole.node[0].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[0].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[0].wlan[0].radio 	lossRate:min 	0
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[0].wlan[0].radio 	lossRate:max 	0
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[0].wlan[0].radio 	lossRate:timeavg 	0
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[0].wlan[0].radio 	radioState:count 	255
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[0].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[0].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[0].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[0].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[0].udpApp[0] 	"Total sent" 	0
+scalar Blackhole.node[0].udpApp[0] 	"Total received" 	0
+scalar Blackhole.node[0].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[0].udpApp[0] 	hopCount:last 	-1.#IND
+attr title  "Hop count, last"
+scalar Blackhole.node[0].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[0].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[0].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[0].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[0].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[0].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[0].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[0].udpApp[0] 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[0].udpApp[0] 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[0].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[0].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[0].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[0].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[0].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[0].udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[0].udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[0].manetrouting 	"simulated time" 	0.926809307339
+scalar Blackhole.node[0].manetrouting 	"Aodv totalSend " 	17
+scalar Blackhole.node[0].manetrouting 	"rreq send" 	5
+scalar Blackhole.node[0].manetrouting 	"rreq rec" 	28
+scalar Blackhole.node[0].manetrouting 	"rrep send" 	10
+scalar Blackhole.node[0].manetrouting 	"rrep rec" 	7
+scalar Blackhole.node[0].manetrouting 	"rrep ack send" 	2
+scalar Blackhole.node[0].manetrouting 	"rrep ack rec" 	1
+scalar Blackhole.node[0].manetrouting 	"rerr send" 	0
+scalar Blackhole.node[0].manetrouting 	"rerr rec" 	0
+scalar Blackhole.node[1].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[1].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[1].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[1].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[1].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[1].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[1].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[1].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[1].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[1].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[1].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[1].wlan[0].mac 	"number of received packets" 	2
+scalar Blackhole.node[1].wlan[0].mac 	"number of collisions" 	1
+scalar Blackhole.node[1].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[1].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar Blackhole.node[1].wlan[0].mac 	"sent and receive bites" 	5408
+scalar Blackhole.node[1].wlan[0].mac 	"sent packet within AC 0" 	1
+scalar Blackhole.node[1].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[1].wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar Blackhole.node[1].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[1].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[1].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[1].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[1].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[1].wlan[0].radio 	radioState:count 	189
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[1].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[1].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[1].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[1].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[1].udpApp[0] 	"Total sent" 	1
+scalar Blackhole.node[1].udpApp[0] 	"Total received" 	0
+scalar Blackhole.node[1].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[1].udpApp[0] 	hopCount:last 	-1.#IND
+attr title  "Hop count, last"
+scalar Blackhole.node[1].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[1].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[1].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[1].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[1].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[1].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[1].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[1].udpApp[0] 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[1].udpApp[0] 	sentPk:sum(packetBytes) 	512
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[1].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[1].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[1].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[1].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[1].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[1].udp 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[1].udp 	sentPk:sum(packetBytes) 	520
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[2].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[2].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[2].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[2].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[2].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[2].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[2].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[2].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[2].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[2].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[2].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[2].wlan[0].mac 	"number of received packets" 	0
+scalar Blackhole.node[2].wlan[0].mac 	"number of collisions" 	1
+scalar Blackhole.node[2].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[2].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar Blackhole.node[2].wlan[0].mac 	"sent and receive bites" 	752
+scalar Blackhole.node[2].wlan[0].mac 	"sent packet within AC 0" 	0
+scalar Blackhole.node[2].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[2].wlan[0].mac 	"sentWithoutRetry AC 0" 	0
+scalar Blackhole.node[2].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[2].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[2].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[2].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[2].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[2].wlan[0].radio 	radioState:count 	189
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[2].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[2].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[2].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[2].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[2].udpApp[0] 	"Total sent" 	1
+scalar Blackhole.node[2].udpApp[0] 	"Total received" 	0
+scalar Blackhole.node[2].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[2].udpApp[0] 	hopCount:last 	-1.#IND
+attr title  "Hop count, last"
+scalar Blackhole.node[2].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[2].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[2].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[2].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[2].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[2].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[2].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[2].udpApp[0] 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[2].udpApp[0] 	sentPk:sum(packetBytes) 	512
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[2].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[2].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[2].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[2].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[2].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[2].udp 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[2].udp 	sentPk:sum(packetBytes) 	520
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[3].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[3].networkLayer.ip 	rcvdPkt:count 	2
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[3].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[3].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[3].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[3].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[3].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[3].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[3].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[3].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[3].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[3].wlan[0].mac 	"number of received packets" 	2
+scalar Blackhole.node[3].wlan[0].mac 	"number of collisions" 	1
+scalar Blackhole.node[3].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[3].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar Blackhole.node[3].wlan[0].mac 	"sent and receive bites" 	5376
+scalar Blackhole.node[3].wlan[0].mac 	"sent packet within AC 0" 	2
+scalar Blackhole.node[3].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[3].wlan[0].mac 	"sentWithoutRetry AC 0" 	2
+scalar Blackhole.node[3].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[3].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[3].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[3].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[3].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[3].wlan[0].radio 	radioState:count 	193
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[3].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[3].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[3].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[3].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[3].udpApp[0] 	"Total sent" 	1
+scalar Blackhole.node[3].udpApp[0] 	"Total received" 	2
+scalar Blackhole.node[3].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[3].udpApp[0] 	hopCount:last 	1
+attr title  "Hop count, last"
+scalar Blackhole.node[3].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[3].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[3].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[3].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[3].udpApp[0] 	rcvdPk:count 	2
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[3].udpApp[0] 	rcvdPk:sum(packetBytes) 	1024
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[3].udpApp[0] 	endToEndDelay:histogram
+field count 2
+field mean 0.002094077041
+field stddev 0.0026055463828368
+field sum 0.004188154082
+field sqrsum 1.5559189260401e-005
+field min 0.000251677525
+field max 0.003936476557
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.001590721991	0
+bin	-0.0013450687222	0
+bin	-0.0010994154534	0
+bin	-0.0008537621846	0
+bin	-0.0006081089158	0
+bin	-0.000362455647	0
+bin	-0.0001168023782	0
+bin	0.0001288508906	1
+bin	0.0003745041594	0
+bin	0.0006201574282	0
+bin	0.000865810697	0
+bin	0.0011114639658	0
+bin	0.0013571172346	0
+bin	0.0016027705034	0
+bin	0.0018484237722	0
+bin	0.002094077041	0
+bin	0.0023397303098	0
+bin	0.0025853835786	0
+bin	0.0028310368474	0
+bin	0.0030766901162	0
+bin	0.003322343385	0
+bin	0.0035679966538	0
+bin	0.0038136499226	1
+bin	0.0040593031914	0
+bin	0.0043049564602	0
+bin	0.004550609729	0
+bin	0.0047962629978	0
+bin	0.0050419162666	0
+bin	0.0052875695354	0
+bin	0.0055332228042	0
+bin	0.005778876073	0
+scalar Blackhole.node[3].udpApp[0] 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[3].udpApp[0] 	sentPk:sum(packetBytes) 	512
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[3].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[3].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[3].udp 	passedUpPk:count 	2
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[3].udp 	rcvdPk:count 	2
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[3].udp 	rcvdPk:sum(packetBytes) 	1040
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[3].udp 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[3].udp 	sentPk:sum(packetBytes) 	520
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[4].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[4].networkLayer.ip 	rcvdPkt:count 	3
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[4].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[4].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[4].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[4].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[4].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[4].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[4].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[4].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[4].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[4].wlan[0].mac 	"number of received packets" 	5
+scalar Blackhole.node[4].wlan[0].mac 	"number of collisions" 	0
+scalar Blackhole.node[4].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[4].wlan[0].mac 	"number of retry for AC 0" 	1
+scalar Blackhole.node[4].wlan[0].mac 	"sent and receive bites" 	720
+scalar Blackhole.node[4].wlan[0].mac 	"sent packet within AC 0" 	1
+scalar Blackhole.node[4].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[4].wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar Blackhole.node[4].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[4].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[4].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[4].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[4].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[4].wlan[0].radio 	radioState:count 	235
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[4].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[4].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[4].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[4].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[4].udpApp[0] 	"Total sent" 	0
+scalar Blackhole.node[4].udpApp[0] 	"Total received" 	3
+scalar Blackhole.node[4].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[4].udpApp[0] 	hopCount:last 	1.3333333333333
+attr title  "Hop count, last"
+scalar Blackhole.node[4].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[4].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[4].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[4].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[4].udpApp[0] 	rcvdPk:count 	3
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[4].udpApp[0] 	rcvdPk:sum(packetBytes) 	1536
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[4].udpApp[0] 	endToEndDelay:histogram
+field count 3
+field mean 0.002323905954
+field stddev 0.0019095305875942
+field sum 0.006971717862
+field sqrsum 2.3494230779026e-005
+field min 0.000251401366
+field max 0.004011963905
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.0016288799035	0
+bin	-0.0013781757342333	0
+bin	-0.0011274715649667	0
+bin	-0.0008767673957	0
+bin	-0.00062606322643333	0
+bin	-0.00037535905716667	0
+bin	-0.0001246548879	0
+bin	0.00012604928136667	1
+bin	0.00037675345063333	0
+bin	0.0006274576199	0
+bin	0.00087816178916667	0
+bin	0.0011288659584333	0
+bin	0.0013795701277	0
+bin	0.0016302742969667	0
+bin	0.0018809784662333	0
+bin	0.0021316826355	0
+bin	0.0023823868047667	0
+bin	0.0026330909740333	1
+bin	0.0028837951433	0
+bin	0.0031344993125667	0
+bin	0.0033852034818333	0
+bin	0.0036359076511	0
+bin	0.0038866118203667	1
+bin	0.0041373159896333	0
+bin	0.0043880201589	0
+bin	0.0046387243281667	0
+bin	0.0048894284974333	0
+bin	0.0051401326667	0
+bin	0.0053908368359667	0
+bin	0.0056415410052333	0
+bin	0.0058922451745	0
+scalar Blackhole.node[4].udpApp[0] 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[4].udpApp[0] 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[4].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[4].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[4].udp 	passedUpPk:count 	3
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[4].udp 	rcvdPk:count 	3
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[4].udp 	rcvdPk:sum(packetBytes) 	1560
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[4].udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[4].udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[5].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[5].networkLayer.ip 	rcvdPkt:count 	1
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[5].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[5].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[5].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[5].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[5].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[5].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[5].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[5].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[5].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[5].wlan[0].mac 	"number of received packets" 	3
+scalar Blackhole.node[5].wlan[0].mac 	"number of collisions" 	1
+scalar Blackhole.node[5].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[5].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar Blackhole.node[5].wlan[0].mac 	"sent and receive bites" 	10064
+scalar Blackhole.node[5].wlan[0].mac 	"sent packet within AC 0" 	2
+scalar Blackhole.node[5].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[5].wlan[0].mac 	"sentWithoutRetry AC 0" 	2
+scalar Blackhole.node[5].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[5].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[5].wlan[0].radio 	lossRate:min 	0.02
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[5].wlan[0].radio 	lossRate:max 	0.02
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[5].wlan[0].radio 	lossRate:timeavg 	0.02
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[5].wlan[0].radio 	radioState:count 	251
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[5].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[5].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[5].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[5].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[5].udpApp[0] 	"Total sent" 	2
+scalar Blackhole.node[5].udpApp[0] 	"Total received" 	1
+scalar Blackhole.node[5].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[5].udpApp[0] 	hopCount:last 	1
+attr title  "Hop count, last"
+scalar Blackhole.node[5].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[5].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[5].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[5].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[5].udpApp[0] 	rcvdPk:count 	1
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[5].udpApp[0] 	rcvdPk:sum(packetBytes) 	512
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[5].udpApp[0] 	endToEndDelay:histogram
+field count 1
+field mean 0.000251677525
+field stddev -1.#IND
+field sum 0.000251677525
+field sqrsum 6.3341576590126e-008
+field min 0.000251677525
+field max 0.000251677525
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.499748322475	0
+bin	-0.46641498914167	0
+bin	-0.43308165580833	0
+bin	-0.399748322475	0
+bin	-0.36641498914167	0
+bin	-0.33308165580833	0
+bin	-0.299748322475	0
+bin	-0.26641498914167	0
+bin	-0.23308165580833	0
+bin	-0.199748322475	0
+bin	-0.16641498914167	0
+bin	-0.13308165580833	0
+bin	-0.099748322475	0
+bin	-0.066414989141667	0
+bin	-0.033081655808333	0
+bin	0.00025167752499999	1
+bin	0.033585010858333	0
+bin	0.066918344191667	0
+bin	0.100251677525	0
+bin	0.13358501085833	0
+bin	0.16691834419167	0
+bin	0.200251677525	0
+bin	0.23358501085833	0
+bin	0.26691834419167	0
+bin	0.300251677525	0
+bin	0.33358501085833	0
+bin	0.36691834419167	0
+bin	0.400251677525	0
+bin	0.43358501085833	0
+bin	0.46691834419167	0
+bin	0.500251677525	0
+scalar Blackhole.node[5].udpApp[0] 	sentPk:count 	2
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[5].udpApp[0] 	sentPk:sum(packetBytes) 	1024
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[5].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[5].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[5].udp 	passedUpPk:count 	1
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[5].udp 	rcvdPk:count 	1
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[5].udp 	rcvdPk:sum(packetBytes) 	520
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[5].udp 	sentPk:count 	2
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[5].udp 	sentPk:sum(packetBytes) 	1040
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[6].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[6].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[6].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[6].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[6].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[6].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[6].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[6].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[6].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[6].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[6].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[6].wlan[0].mac 	"number of received packets" 	1
+scalar Blackhole.node[6].wlan[0].mac 	"number of collisions" 	1
+scalar Blackhole.node[6].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[6].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar Blackhole.node[6].wlan[0].mac 	"sent and receive bites" 	5408
+scalar Blackhole.node[6].wlan[0].mac 	"sent packet within AC 0" 	1
+scalar Blackhole.node[6].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[6].wlan[0].mac 	"sentWithoutRetry AC 0" 	1
+scalar Blackhole.node[6].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[6].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[6].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[6].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[6].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[6].wlan[0].radio 	radioState:count 	203
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[6].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[6].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[6].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[6].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[6].udpApp[0] 	"Total sent" 	1
+scalar Blackhole.node[6].udpApp[0] 	"Total received" 	0
+scalar Blackhole.node[6].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[6].udpApp[0] 	hopCount:last 	-1.#IND
+attr title  "Hop count, last"
+scalar Blackhole.node[6].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[6].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[6].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[6].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[6].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[6].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[6].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[6].udpApp[0] 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[6].udpApp[0] 	sentPk:sum(packetBytes) 	512
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[6].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[6].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[6].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[6].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[6].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[6].udp 	sentPk:count 	1
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[6].udp 	sentPk:sum(packetBytes) 	520
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[7].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[7].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[7].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[7].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[7].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[7].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[7].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[7].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[7].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[7].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[7].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[7].wlan[0].mac 	"number of received packets" 	0
+scalar Blackhole.node[7].wlan[0].mac 	"number of collisions" 	1
+scalar Blackhole.node[7].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[7].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar Blackhole.node[7].wlan[0].mac 	"sent and receive bites" 	0
+scalar Blackhole.node[7].wlan[0].mac 	"sent packet within AC 0" 	0
+scalar Blackhole.node[7].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[7].wlan[0].mac 	"sentWithoutRetry AC 0" 	0
+scalar Blackhole.node[7].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[7].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[7].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[7].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[7].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[7].wlan[0].radio 	radioState:count 	183
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[7].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[7].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[7].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[7].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[7].udpApp[0] 	"Total sent" 	0
+scalar Blackhole.node[7].udpApp[0] 	"Total received" 	0
+scalar Blackhole.node[7].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[7].udpApp[0] 	hopCount:last 	-1.#IND
+attr title  "Hop count, last"
+scalar Blackhole.node[7].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[7].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[7].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[7].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[7].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[7].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[7].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[7].udpApp[0] 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[7].udpApp[0] 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[7].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[7].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[7].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[7].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[7].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[7].udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[7].udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[8].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[8].networkLayer.ip 	rcvdPkt:count 	0
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[8].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[8].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[8].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[8].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[8].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[8].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[8].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[8].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[8].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[8].wlan[0].mac 	"number of received packets" 	0
+scalar Blackhole.node[8].wlan[0].mac 	"number of collisions" 	1
+scalar Blackhole.node[8].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[8].wlan[0].mac 	"number of retry for AC 0" 	0
+scalar Blackhole.node[8].wlan[0].mac 	"sent and receive bites" 	0
+scalar Blackhole.node[8].wlan[0].mac 	"sent packet within AC 0" 	0
+scalar Blackhole.node[8].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[8].wlan[0].mac 	"sentWithoutRetry AC 0" 	0
+scalar Blackhole.node[8].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[8].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[8].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[8].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[8].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[8].wlan[0].radio 	radioState:count 	95
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[8].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[8].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[8].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[8].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[8].udpApp[0] 	"Total sent" 	0
+scalar Blackhole.node[8].udpApp[0] 	"Total received" 	0
+scalar Blackhole.node[8].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[8].udpApp[0] 	hopCount:last 	-1.#IND
+attr title  "Hop count, last"
+scalar Blackhole.node[8].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[8].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[8].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[8].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[8].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[8].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[8].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[8].udpApp[0] 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[8].udpApp[0] 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[8].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[8].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[8].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[8].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[8].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[8].udp 	sentPk:count 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[8].udp 	sentPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[9].networkLayer.ip 	delayed:count 	0
+attr interpolationmode  none
+attr title  "Number of packet delayed, count"
+scalar Blackhole.node[9].networkLayer.ip 	rcvdPkt:count 	2
+attr interpolationmode  none
+attr title  "Number of packet received, count"
+scalar Blackhole.node[9].networkLayer.ip 	droppings:count 	0
+attr interpolationmode  none
+attr title  "Number of drops, count"
+scalar Blackhole.node[9].networkLayer.arp 	failedResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar Blackhole.node[9].networkLayer.arp 	initiatedResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar Blackhole.node[9].networkLayer.arp 	sentReplies:count 	0
+attr title  "ARP replies sent, count"
+scalar Blackhole.node[9].networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar Blackhole.node[9].wlan[0].mgmt 	dropPkByQueue:count 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, count"
+scalar Blackhole.node[9].wlan[0].mgmt 	dropPkByQueue:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkByQueue
+attr title  "packets dropped by queue, sum(packetBytes)"
+scalar Blackhole.node[9].wlan[0].mgmt 	dataQueueLen:max 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, max"
+scalar Blackhole.node[9].wlan[0].mgmt 	dataQueueLen:timeavg 	0
+attr interpolationmode  sample-hold
+attr title  "data queue length, timeavg"
+scalar Blackhole.node[9].wlan[0].mac 	"number of received packets" 	3
+scalar Blackhole.node[9].wlan[0].mac 	"number of collisions" 	0
+scalar Blackhole.node[9].wlan[0].mac 	"number of internal collisions" 	0
+scalar Blackhole.node[9].wlan[0].mac 	"number of retry for AC 0" 	1
+scalar Blackhole.node[9].wlan[0].mac 	"sent and receive bites" 	18176
+scalar Blackhole.node[9].wlan[0].mac 	"sent packet within AC 0" 	8
+scalar Blackhole.node[9].wlan[0].mac 	"sent in TXOP " 	0
+scalar Blackhole.node[9].wlan[0].mac 	"sentWithoutRetry AC 0" 	7
+scalar Blackhole.node[9].wlan[0].mac 	"numGivenUp AC 0" 	0
+scalar Blackhole.node[9].wlan[0].mac 	"numDropped AC 0" 	0
+scalar Blackhole.node[9].wlan[0].radio 	lossRate:min 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, min"
+scalar Blackhole.node[9].wlan[0].radio 	lossRate:max 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, max"
+scalar Blackhole.node[9].wlan[0].radio 	lossRate:timeavg 	-1.#IND
+attr interpolationmode  backward-sample-hold
+attr title  "packet loss rate, timeavg"
+scalar Blackhole.node[9].wlan[0].radio 	radioState:count 	287
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), count"
+statistic Blackhole.node[9].wlan[0].radio 	channelNo:histogram
+field count 1
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  sample-hold
+attr title  "channel no, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	1
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[9].wlan[0].radio 	bitrate:min 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, min"
+attr unit  bps
+scalar Blackhole.node[9].wlan[0].radio 	bitrate:max 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, max"
+attr unit  bps
+scalar Blackhole.node[9].wlan[0].radio 	bitrate:timeavg 	54000000
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, timeavg"
+attr unit  bps
+scalar Blackhole.node[9].udpApp[0] 	"Total sent" 	2
+scalar Blackhole.node[9].udpApp[0] 	"Total received" 	0
+scalar Blackhole.node[9].udpApp[0] 	"Total deleted" 	0
+scalar Blackhole.node[9].udpApp[0] 	hopCount:last 	-1.#IND
+attr title  "Hop count, last"
+scalar Blackhole.node[9].udpApp[0] 	outOfOrderPk:count 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, count"
+scalar Blackhole.node[9].udpApp[0] 	outOfOrderPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  outOfOrderPk
+attr title  "packets received out of order, sum(packetBytes)"
+scalar Blackhole.node[9].udpApp[0] 	dropPk:count 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, count"
+scalar Blackhole.node[9].udpApp[0] 	dropPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPk
+attr title  "packets dropped, sum(packetBytes)"
+scalar Blackhole.node[9].udpApp[0] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[9].udpApp[0] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic Blackhole.node[9].udpApp[0] 	endToEndDelay:histogram
+field count 0
+field mean 0
+field stddev -1.#IND
+field sum 0
+field sqrsum 0
+field min 0
+field max 0
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	-6.9388939039072e-018	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Blackhole.node[9].udpApp[0] 	sentPk:count 	2
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[9].udpApp[0] 	sentPk:sum(packetBytes) 	1024
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar Blackhole.node[9].udp 	droppedPkBadChecksum:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (checksum error), count"
+scalar Blackhole.node[9].udp 	droppedPkWrongPort:count 	0
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), count"
+scalar Blackhole.node[9].udp 	passedUpPk:count 	0
+attr interpolationmode  none
+attr title  "packets passed up, count"
+scalar Blackhole.node[9].udp 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar Blackhole.node[9].udp 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar Blackhole.node[9].udp 	sentPk:count 	2
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar Blackhole.node[9].udp 	sentPk:sum(packetBytes) 	1040
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"

@@ -59,6 +59,7 @@ INCLUDE_PATH = \
     -Iattacks/controllers/droppingAttack \
     -Iattacks/controllers/sinkholeAttack \
     -Iattacks/controlmessages \
+    -Iattacks/controlmessages/blackholeAttack \
     -Iattacks/controlmessages/delayAttack \
     -Iattacks/controlmessages/droppingAttack \
     -Iattacks/controlmessages/sinkholeAttack \
@@ -90,6 +91,7 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 # Object files for local .cc and .msg files
 OBJS = \
     $O/attacks/controllers/NA_Attack.o \
+    $O/attacks/controllers/blackholeAttack/NA_BlackholeAttack.o \
     $O/attacks/controllers/delayAttack/NA_DelayAttack.o \
     $O/attacks/controllers/droppingAttack/NA_DroppingAttack.o \
     $O/attacks/controllers/sinkholeAttack/NA_SinkholeAttack.o \
@@ -114,6 +116,7 @@ OBJS = \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_routing_table.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_seek_list.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_timer_queue_aodv.o \
+    $O/attacks/controlmessages/blackholeAttack/NA_BlackholeMessage_m.o \
     $O/attacks/controlmessages/delayAttack/NA_DelayMessage_m.o \
     $O/attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.o \
     $O/attacks/controlmessages/sinkholeAttack/NA_SinkholeMessage_m.o \
@@ -121,6 +124,7 @@ OBJS = \
 
 # Message files
 MSGFILES = \
+    attacks/controlmessages/blackholeAttack/NA_BlackholeMessage.msg \
     attacks/controlmessages/delayAttack/NA_DelayMessage.msg \
     attacks/controlmessages/droppingAttack/NA_DroppingMessage.msg \
     attacks/controlmessages/sinkholeAttack/NA_SinkholeMessage.msg \
@@ -225,6 +229,7 @@ clean:
 	$(Q)-rm -f attacks/controllers/droppingAttack/*_m.cc attacks/controllers/droppingAttack/*_m.h
 	$(Q)-rm -f attacks/controllers/sinkholeAttack/*_m.cc attacks/controllers/sinkholeAttack/*_m.h
 	$(Q)-rm -f attacks/controlmessages/*_m.cc attacks/controlmessages/*_m.h
+	$(Q)-rm -f attacks/controlmessages/blackholeAttack/*_m.cc attacks/controlmessages/blackholeAttack/*_m.h
 	$(Q)-rm -f attacks/controlmessages/delayAttack/*_m.cc attacks/controlmessages/delayAttack/*_m.h
 	$(Q)-rm -f attacks/controlmessages/droppingAttack/*_m.cc attacks/controlmessages/droppingAttack/*_m.h
 	$(Q)-rm -f attacks/controlmessages/sinkholeAttack/*_m.cc attacks/controlmessages/sinkholeAttack/*_m.h
@@ -246,7 +251,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc attacks/*.cc attacks/controllers/*.cc attacks/controllers/blackholeAttack/*.cc attacks/controllers/delayAttack/*.cc attacks/controllers/droppingAttack/*.cc attacks/controllers/sinkholeAttack/*.cc attacks/controlmessages/*.cc attacks/controlmessages/delayAttack/*.cc attacks/controlmessages/droppingAttack/*.cc attacks/controlmessages/sinkholeAttack/*.cc common/*.cc common/log/*.cc common/utils/*.cc hackedmodules/*.cc hackedmodules/applications/*.cc hackedmodules/applications/udpapp/*.cc hackedmodules/networklayer/*.cc hackedmodules/networklayer/ipv4/*.cc hackedmodules/networklayer/manetrouting/*.cc hackedmodules/networklayer/manetrouting/aodv/*.cc hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/*.cc nodes/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc attacks/*.cc attacks/controllers/*.cc attacks/controllers/blackholeAttack/*.cc attacks/controllers/delayAttack/*.cc attacks/controllers/droppingAttack/*.cc attacks/controllers/sinkholeAttack/*.cc attacks/controlmessages/*.cc attacks/controlmessages/blackholeAttack/*.cc attacks/controlmessages/delayAttack/*.cc attacks/controlmessages/droppingAttack/*.cc attacks/controlmessages/sinkholeAttack/*.cc common/*.cc common/log/*.cc common/utils/*.cc hackedmodules/*.cc hackedmodules/applications/*.cc hackedmodules/applications/udpapp/*.cc hackedmodules/networklayer/*.cc hackedmodules/networklayer/ipv4/*.cc hackedmodules/networklayer/manetrouting/*.cc hackedmodules/networklayer/manetrouting/aodv/*.cc hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/*.cc nodes/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/attacks/controllers/NA_Attack.o: attacks/controllers/NA_Attack.cc \
@@ -278,6 +283,12 @@ $O/attacks/controllers/NA_Attack.o: attacks/controllers/NA_Attack.cc \
 	common/utils/NA_Utils.h \
 	hackedmodules/NA_HackedModule.h \
 	hackedmodules/networklayer/ipv4/NA_IPv4.h
+$O/attacks/controllers/blackholeAttack/NA_BlackholeAttack.o: attacks/controllers/blackholeAttack/NA_BlackholeAttack.cc \
+	attacks/controllers/NA_Attack.h \
+	attacks/controllers/blackholeAttack/NA_BlackholeAttack.h \
+	attacks/controlmessages/blackholeAttack/NA_BlackholeMessage_m.h \
+	common/log/NA_NesgLog.h \
+	common/utils/NA_Utils.h
 $O/attacks/controllers/delayAttack/NA_DelayAttack.o: attacks/controllers/delayAttack/NA_DelayAttack.cc \
 	attacks/controllers/NA_Attack.h \
 	attacks/controllers/delayAttack/NA_DelayAttack.h \
@@ -296,6 +307,8 @@ $O/attacks/controllers/sinkholeAttack/NA_SinkholeAttack.o: attacks/controllers/s
 	attacks/controlmessages/sinkholeAttack/NA_SinkholeMessage_m.h \
 	common/log/NA_NesgLog.h \
 	common/utils/NA_Utils.h
+$O/attacks/controlmessages/blackholeAttack/NA_BlackholeMessage_m.o: attacks/controlmessages/blackholeAttack/NA_BlackholeMessage_m.cc \
+	attacks/controlmessages/blackholeAttack/NA_BlackholeMessage_m.h
 $O/attacks/controlmessages/delayAttack/NA_DelayMessage_m.o: attacks/controlmessages/delayAttack/NA_DelayMessage_m.cc \
 	attacks/controlmessages/delayAttack/NA_DelayMessage_m.h
 $O/attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.o: attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.cc \
