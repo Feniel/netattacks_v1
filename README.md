@@ -1,10 +1,15 @@
 # netattacks_v1
-extended Roberto Magán's framework (https://github.com/robertomagan/neta_v1) with some of the most common attacks against routing.
+extended Roberto Magán's framework (https://github.com/robertomagan/neta_v1) with some of the most common attacks against routing.<br>
 In addition, defensive measures for the respective attack scenarios are also included.
 
 For the implementation omnetpp-4.3 and inet2.1.0 is used.
 
-Description
+Blackhole<br>
+An attack close to the same as the sinkhole but with a direct attack and not a rising attack<br>
+Countermeasures: 
+
+
+NETA Description
 ===================
 NETwork Attacks (NETA) is a framework devised to simulate attacks in 
 heterogeneous networks using OMNeT++. NETA is aimed to be an useful 
@@ -24,7 +29,7 @@ Additionally,  NETA is intended to be a reference base tool for
 the network attacks simulation and implementation with research 
 purposes. 
 
-Installation
+NETA Installation
 ============
 See INSTALL file.
 
