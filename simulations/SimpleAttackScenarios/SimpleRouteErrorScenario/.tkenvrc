@@ -1,0 +1,4 @@
+# Partial Tkenv config file -- see $HOME/.tkenvrc as well
+inspector "SimpleRouteError" "SimpleRouteError" "2" "813x342+26+26:normal"
+inspector "simulation.scheduled-events.wlan-cts" "AirFrame" "1" "460x314+104+104:normal"
+

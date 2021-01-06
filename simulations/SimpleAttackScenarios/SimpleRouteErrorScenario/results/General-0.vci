@@ -1,0 +1,155 @@
+file 80421 1609947006                                           
+version 2
+run General-0-20210106-16:25:49-16824
+attr configname General
+attr datetime 20210106-16:25:49
+attr experiment General
+attr inifile SimpleRouteError.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network SimpleRouteError
+attr processid 16824
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 15  SimpleRouteError.node[0].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 28  SimpleRouteError.node[1].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 48  SimpleRouteError.node[2].wlan[0].mgmt  dataQueueLen:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "data queue length, vector"
+vector 55  SimpleRouteError.node[0].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 54  SimpleRouteError.node[0].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 61  SimpleRouteError.node[1].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 60  SimpleRouteError.node[1].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 67  SimpleRouteError.node[2].wlan[0].mac  RadioState  ETV
+attr enum  "IDLE=0, RECV=1, SLEEP=3, TRANSMIT=2"
+attr enumname  RadioState
+vector 66  SimpleRouteError.node[2].wlan[0].mac  State  ETV
+attr enum  "BACKOFF=3, DEFER=1, IDLE=0, RECEIVE=8, WAITACK=4, WAITAIFS=2, WAITCTS=6, WAITMULTICAST=5, WAITSIFS=7"
+attr enumname  Ieee80211Mac
+vector 17  SimpleRouteError.node[0].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 19  SimpleRouteError.node[0].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 18  SimpleRouteError.node[0].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 30  SimpleRouteError.node[1].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 32  SimpleRouteError.node[1].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 31  SimpleRouteError.node[1].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 50  SimpleRouteError.node[2].wlan[0].radio  bitrate:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx bitrate, vector"
+attr unit  bps
+vector 52  SimpleRouteError.node[2].wlan[0].radio  radioState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "radio state (enum), vector"
+vector 51  SimpleRouteError.node[2].wlan[0].radio  channelNo:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "channel no, vector"
+vector 1  SimpleRouteError.node[0].udpApp[0]  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 3  SimpleRouteError.node[0].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 65  SimpleRouteError.node[1].wlan[0].radio  snirVector  ETV
+vector 57  SimpleRouteError.node[0].wlan[0].mac  "throughput AC0"  ETV
+vector 63  SimpleRouteError.node[1].wlan[0].mac  "throughput AC0"  ETV
+vector 69  SimpleRouteError.node[2].wlan[0].mac  "throughput AC0"  ETV
+vector 59  SimpleRouteError.node[0].wlan[0].radio  snirVector  ETV
+vector 71  SimpleRouteError.node[2].wlan[0].radio  snirVector  ETV
+vector 70  SimpleRouteError.node[2].wlan[0].mac  "Mac delay AC0"  ETV
+vector 64  SimpleRouteError.node[1].wlan[0].mac  "Mac delay AC0"  ETV
+vector 22  SimpleRouteError.node[1].networkLayer.ip  rcvdPkt:vector  ETV
+attr interpolationmode  none
+attr title  "Number of packet received, vector"
+vector 58  SimpleRouteError.node[0].wlan[0].mac  "Mac delay AC0"  ETV
+vector 42  SimpleRouteError.node[2].networkLayer.ip  rcvdPkt:vector  ETV
+attr interpolationmode  none
+attr title  "Number of packet received, vector"
+vector 37  SimpleRouteError.node[2].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 38  SimpleRouteError.node[2].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 34  SimpleRouteError.node[2].udpApp[0]  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 35  SimpleRouteError.node[2].udpApp[0]  endToEndDelay:vector  ETV
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "end-to-end delay, vector"
+attr unit  s
+vector 56  SimpleRouteError.node[0].wlan[0].mac  "jitter AC0"  ETV
+vector 62  SimpleRouteError.node[1].wlan[0].mac  "jitter AC0"  ETV
+vector 68  SimpleRouteError.node[2].wlan[0].mac  "jitter AC0"  ETV
+1	5478 273 3 1126 0 4.998445693007 11 512 512 5632 2883584
+3	5751 273 5 1127 0 4.998445693007 11 520 520 5720 2974400
+15	6024 10 0 0 0 0 1 0 0 0 0
+17	6034 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+18	6051 10 0 0 0 0 1 0 0 0 0
+19	6061 7326 0 1154 0 4.998687026339 293 0 2 206 326
+22	13387 277 266 1161 0.24701987452 4.998697693005 11 1 11 66 506
+28	13664 10 0 0 0 0 1 0 0 0 0
+30	13674 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+31	13691 10 0 0 0 0 1 0 0 0 0
+32	13701 8096 0 1162 0 4.998697693005 327 0 2 252 428
+34	21797 54 316 418 0.247350294518 0.500823976736 2 512 512 1024 524288
+35	21851 76 316 418 0.247350294518 0.500823976736 2 0.000618449996 0.247350294518 0.247968744514 0.061182550678539
+37	21927 54 315 417 0.247350294518 0.500823976736 2 520 520 1040 540800
+38	21981 50 315 417 0.247350294518 0.500823976736 2 1 2 3 5
+42	22031 50 312 414 0.247350294518 0.500823976736 2 1 2 3 5
+48	22081 10 0 0 0 0 1 0 0 0 0
+50	22091 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+51	22108 10 0 0 0 0 1 0 0 0 0
+52	22118 3298 0 586 0 1.019531211399 133 0 2 82 114
+54	25416 14894 0 1154 0 4.998687026339 596 0 7 1682 8190
+55	40310 7336 0 1154 0 4.998687026339 294 0 2 206 326
+56	47646 252 338 1133 0.50021552674 4.998455693007 10 0 0 0 0
+57	47898 508 40 1133 0.243137818481 4.998455693007 13 3091.5328802096 21067.035396775 133742.91602798 1772623490.523
+58	48406 383 277 1117 0.247054541186 4.498942621087 10 0.000276666664 0.000480666664 0.00297066664 9.1994042860089e-007
+59	48789 38 69 69 0.245527087862 0.245527087862 1 26.937691987245 26.937691987245 26.937691987245 725.63924959967
+60	48827 14430 0 1162 0 4.998697693005 584 0 7 1384 7408
+61	63257 8106 0 1162 0 4.998697693005 328 0 2 250 424
+62	71363 63 341 449 0.500244193406 1.000577726828 2 0 0.000495666664 0.000495666664 2.4568544180089e-007
+63	71426 410 43 1136 0.243166485147 4.998484359673 13 0 26077.718077547 47097.255426613 804581295.83495
+64	71836 152 185 424 0.246132874524 0.500858793402 4 0.000365226664 0.000860893328 0.00203261332 1.1997514231457e-006
+65	71988 38 22 22 0.004400394765 0.004400394765 1 26.937691987245 26.937691987245 26.937691987245 725.63924959967
+66	72026 4898 0 586 0 1.019531211399 198 0 7 212 1240
+67	76924 3308 0 586 0 1.019531211399 134 0 2 82 114
+68	80232 25 350 350 0.500289010072 0.500289010072 1 0 0 0 0
+69	80257 88 66 458 0.245465227862 1.000622560161 3 0 2825.4819615174 2825.4819615174 7983348.3148604
+70	80345 38 142 142 0.245752454526 0.245752454526 1 0.000205226664 0.000205226664 0.000205226664 4.2117983616569e-008
+71	80383 38 73 73 0.245527227862 0.245527227862 1 25.281984580916 25.281984580916 25.281984580916 639.17874434966
