@@ -4,8 +4,12 @@ In addition, defensive measures for the respective attack scenarios are also inc
 
 For the implementation omnetpp-4.3 and inet2.1.0 is used.
 
-Blackhole<br>
-An attack close to the same as the sinkhole but with a direct attack and not a rising attack<br>
+Blackhole Attack<br>
+An attack close to the same as the sinkhole but with a direct approach and not a rising.<br>
+Countermeasures: 
+
+Flooding Attack<br>
+The network is flooded with RREQ so that normal operation is no longer possible.<br>
 Countermeasures: 
 
 

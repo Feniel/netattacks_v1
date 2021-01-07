@@ -17,15 +17,15 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
+//
+// Message interchanged between flooding attack controller and the corresponding hacked
+// module NA_IPv4.
+//
+// @see NA_FloodingAttack, NA_IPv4
+//
+// @author Tim Falkenhahn
+// @date 07/01/2021
 
-//
-// Message interchanged between dropping attack controller and the corresponding hacked
-// modules. In this case NA_IPv4
-//
-// @see NA_DroppingAttack, NA_IPv4
-//
-// @author Gabriel Maciá Fernández, gmacia@ugr.es
-// @date 01/22/2013
 message NA_FloodingMessage {
-    double floodingAttackQuantity; // Attack probability
+    double floodingAttackQuantity; // Quantity of false RREQ's
 }

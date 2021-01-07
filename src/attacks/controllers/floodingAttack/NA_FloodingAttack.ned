@@ -32,5 +32,5 @@ simple NA_FloodingAttack extends NA_Attack
         @display("i=misc/cloud3,red,100;is=l");
 
         attackType = "flooding"; //Should correspond with the tag located in the hackedModules.ned. e.g. @flooding for this attack.
-        double floodingAttackQuantity = default(0); //Quantity of false RREP's sent into the network. Range [0,1].
+        double floodingAttackQuantity = default(0); //Quantity of false RREQ's sent into the network. Range [0,1].
 }
