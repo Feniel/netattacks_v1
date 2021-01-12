@@ -2,8 +2,8 @@
 // Generated file, do not edit! Created by opp_msgc 4.3 from attacks/controlmessages/blackholeAttack/NA_BlackholeMessage.msg.
 //
 
-#ifndef _NA_SINKHOLEMESSAGE_M_H_
-#define _NA_SINKHOLEMESSAGE_M_H_
+#ifndef _NA_BLACKHOLEMESSAGE_M_H_
+#define _NA_BLACKHOLEMESSAGE_M_H_
 
 #include <omnetpp.h>
 
@@ -24,9 +24,7 @@ typedef cPar *ParPtr;
  * Class generated from <tt>attacks/controlmessages/blackholeAttack/NA_BlackholeMessage.msg</tt> by opp_msgc.
  * <pre>
  * message NA_BlackholeMessage {
- *     bool dropOnlyWhenRouteInTable;
- *     								
- *     double blackholeAttackProbability;
+ *     bool dropOnlyWhenRouteInTable; 	
  *     ParPtr seqnoAdded; 					
  *     int numHops;						
  * }
@@ -36,7 +34,6 @@ class NA_BlackholeMessage : public ::cMessage
 {
   protected:
     bool dropOnlyWhenRouteInTable_var;
-    double blackholeAttackProbability_var;
     ParPtr seqnoAdded_var;
     int numHops_var;
 
@@ -57,10 +54,8 @@ class NA_BlackholeMessage : public ::cMessage
     virtual void parsimUnpack(cCommBuffer *b);
 
     // field getter/setter methods
-    virtual bool getSinkOnlyWhenRouteInTable() const;
-    virtual void setSinkOnlyWhenRouteInTable(bool dropOnlyWhenRouteInTable);
-    virtual double getBlackholeAttackProbability() const;
-    virtual void setBlackholeAttackProbability(double blackholeAttackProbability);
+    virtual bool getDropOnlyWhenRouteInTable() const;
+    virtual void setDropOnlyWhenRouteInTable(bool dropOnlyWhenRouteInTable);
     virtual ParPtr& getSeqnoAdded();
     virtual const ParPtr& getSeqnoAdded() const {return const_cast<NA_BlackholeMessage*>(this)->getSeqnoAdded();}
     virtual void setSeqnoAdded(const ParPtr& seqnoAdded);
@@ -72,4 +67,4 @@ inline void doPacking(cCommBuffer *b, NA_BlackholeMessage& obj) {obj.parsimPack(
 inline void doUnpacking(cCommBuffer *b, NA_BlackholeMessage& obj) {obj.parsimUnpack(b);}
 
 
-#endif // _NA_SINKHOLEMESSAGE_M_H_
+#endif // _NA_BLACKHOLEMESSAGE_M_H_

@@ -18,7 +18,7 @@
 //#define NA_DROPPINGATTACK_H_
 
 #include "NA_Attack.h"
-//#include "NA_FloodingMessage_m.h"
+#include "NA_FloodingMessage_m.h"
 
 /**
  * @brief Dropping attack controller implementation

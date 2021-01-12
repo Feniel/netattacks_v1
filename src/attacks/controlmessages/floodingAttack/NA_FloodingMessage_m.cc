@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by opp_msgc 4.3 from attacks/controlmessages/blackholeAttack/NA_BlackholeMessage.msg.
+// Generated file, do not edit! Created by opp_msgc 4.3 from attacks/controlmessages/floodingAttack/NA_FloodingMessage.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:
@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <sstream>
-#include "NA_BlackholeMessage_m.h"
+#include "NA_FloodingMessage_m.h"
 
 // Template rule which fires if a struct or class doesn't have operator<<
 template<typename T>
@@ -30,24 +30,23 @@ void doUnpacking(cCommBuffer *, T& t) {
 
 
 
-Register_Class(NA_BlackholeMessage);
+Register_Class(NA_FloodingMessage);
 
-NA_BlackholeMessage::NA_BlackholeMessage(const char *name, int kind) : cMessage(name,kind)
+NA_FloodingMessage::NA_FloodingMessage(const char *name, int kind) : cMessage(name,kind)
 {
-    this->dropOnlyWhenRouteInTable_var = 0;
-    this->numHops_var = 0;
+    this->floodingAttackQuantity_var = 0;
 }
 
-NA_BlackholeMessage::NA_BlackholeMessage(const NA_BlackholeMessage& other) : cMessage(other)
+NA_FloodingMessage::NA_FloodingMessage(const NA_FloodingMessage& other) : cMessage(other)
 {
     copy(other);
 }
 
-NA_BlackholeMessage::~NA_BlackholeMessage()
+NA_FloodingMessage::~NA_FloodingMessage()
 {
 }
 
-NA_BlackholeMessage& NA_BlackholeMessage::operator=(const NA_BlackholeMessage& other)
+NA_FloodingMessage& NA_FloodingMessage::operator=(const NA_FloodingMessage& other)
 {
     if (this==&other) return *this;
     cMessage::operator=(other);
@@ -55,64 +54,38 @@ NA_BlackholeMessage& NA_BlackholeMessage::operator=(const NA_BlackholeMessage& o
     return *this;
 }
 
-void NA_BlackholeMessage::copy(const NA_BlackholeMessage& other)
+void NA_FloodingMessage::copy(const NA_FloodingMessage& other)
 {
-    this->dropOnlyWhenRouteInTable_var = other.dropOnlyWhenRouteInTable_var;
-    this->seqnoAdded_var = other.seqnoAdded_var;
-    this->numHops_var = other.numHops_var;
+    this->floodingAttackQuantity_var = other.floodingAttackQuantity_var;
 }
 
-void NA_BlackholeMessage::parsimPack(cCommBuffer *b)
+void NA_FloodingMessage::parsimPack(cCommBuffer *b)
 {
     cMessage::parsimPack(b);
-    doPacking(b,this->dropOnlyWhenRouteInTable_var);
-    doPacking(b,this->seqnoAdded_var);
-    doPacking(b,this->numHops_var);
+    doPacking(b,this->floodingAttackQuantity_var);
 }
 
-void NA_BlackholeMessage::parsimUnpack(cCommBuffer *b)
+void NA_FloodingMessage::parsimUnpack(cCommBuffer *b)
 {
     cMessage::parsimUnpack(b);
-    doUnpacking(b,this->dropOnlyWhenRouteInTable_var);
-    doUnpacking(b,this->seqnoAdded_var);
-    doUnpacking(b,this->numHops_var);
+    doUnpacking(b,this->floodingAttackQuantity_var);
 }
 
-bool NA_BlackholeMessage::getDropOnlyWhenRouteInTable() const
+double NA_FloodingMessage::getFloodingAttackQuantity() const
 {
-    return dropOnlyWhenRouteInTable_var;
+    return floodingAttackQuantity_var;
 }
 
-void NA_BlackholeMessage::setDropOnlyWhenRouteInTable(bool dropOnlyWhenRouteInTable)
+void NA_FloodingMessage::setFloodingAttackQuantity(double floodingAttackQuantity)
 {
-    this->dropOnlyWhenRouteInTable_var = dropOnlyWhenRouteInTable;
+    this->floodingAttackQuantity_var = floodingAttackQuantity;
 }
 
-ParPtr& NA_BlackholeMessage::getSeqnoAdded()
-{
-    return seqnoAdded_var;
-}
-
-void NA_BlackholeMessage::setSeqnoAdded(const ParPtr& seqnoAdded)
-{
-    this->seqnoAdded_var = seqnoAdded;
-}
-
-int NA_BlackholeMessage::getNumHops() const
-{
-    return numHops_var;
-}
-
-void NA_BlackholeMessage::setNumHops(int numHops)
-{
-    this->numHops_var = numHops;
-}
-
-class NA_BlackholeMessageDescriptor : public cClassDescriptor
+class NA_FloodingMessageDescriptor : public cClassDescriptor
 {
   public:
-    NA_BlackholeMessageDescriptor();
-    virtual ~NA_BlackholeMessageDescriptor();
+    NA_FloodingMessageDescriptor();
+    virtual ~NA_FloodingMessageDescriptor();
 
     virtual bool doesSupport(cObject *obj) const;
     virtual const char *getProperty(const char *propertyname) const;
@@ -131,34 +104,34 @@ class NA_BlackholeMessageDescriptor : public cClassDescriptor
     virtual void *getFieldStructPointer(void *object, int field, int i) const;
 };
 
-Register_ClassDescriptor(NA_BlackholeMessageDescriptor);
+Register_ClassDescriptor(NA_FloodingMessageDescriptor);
 
-NA_BlackholeMessageDescriptor::NA_BlackholeMessageDescriptor() : cClassDescriptor("NA_BlackholeMessage", "cMessage")
+NA_FloodingMessageDescriptor::NA_FloodingMessageDescriptor() : cClassDescriptor("NA_FloodingMessage", "cMessage")
 {
 }
 
-NA_BlackholeMessageDescriptor::~NA_BlackholeMessageDescriptor()
+NA_FloodingMessageDescriptor::~NA_FloodingMessageDescriptor()
 {
 }
 
-bool NA_BlackholeMessageDescriptor::doesSupport(cObject *obj) const
+bool NA_FloodingMessageDescriptor::doesSupport(cObject *obj) const
 {
-    return dynamic_cast<NA_BlackholeMessage *>(obj)!=NULL;
+    return dynamic_cast<NA_FloodingMessage *>(obj)!=NULL;
 }
 
-const char *NA_BlackholeMessageDescriptor::getProperty(const char *propertyname) const
+const char *NA_FloodingMessageDescriptor::getProperty(const char *propertyname) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     return basedesc ? basedesc->getProperty(propertyname) : NULL;
 }
 
-int NA_BlackholeMessageDescriptor::getFieldCount(void *object) const
+int NA_FloodingMessageDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 3+basedesc->getFieldCount(object) : 3;
+    return basedesc ? 1+basedesc->getFieldCount(object) : 1;
 }
 
-unsigned int NA_BlackholeMessageDescriptor::getFieldTypeFlags(void *object, int field) const
+unsigned int NA_FloodingMessageDescriptor::getFieldTypeFlags(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -168,13 +141,11 @@ unsigned int NA_BlackholeMessageDescriptor::getFieldTypeFlags(void *object, int 
     }
     static unsigned int fieldTypeFlags[] = {
         FD_ISEDITABLE,
-        FD_ISCOMPOUND,
-        FD_ISEDITABLE,
     };
-    return (field>=0 && field<3) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<1) ? fieldTypeFlags[field] : 0;
 }
 
-const char *NA_BlackholeMessageDescriptor::getFieldName(void *object, int field) const
+const char *NA_FloodingMessageDescriptor::getFieldName(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -183,24 +154,20 @@ const char *NA_BlackholeMessageDescriptor::getFieldName(void *object, int field)
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldNames[] = {
-        "dropOnlyWhenRouteInTable",
-        "seqnoAdded",
-        "numHops",
+        "floodingAttackQuantity",
     };
-    return (field>=0 && field<3) ? fieldNames[field] : NULL;
+    return (field>=0 && field<1) ? fieldNames[field] : NULL;
 }
 
-int NA_BlackholeMessageDescriptor::findField(void *object, const char *fieldName) const
+int NA_FloodingMessageDescriptor::findField(void *object, const char *fieldName) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount(object) : 0;
-    if (fieldName[0]=='d' && strcmp(fieldName, "dropOnlyWhenRouteInTable")==0) return base+0;
-    if (fieldName[0]=='s' && strcmp(fieldName, "seqnoAdded")==0) return base+1;
-    if (fieldName[0]=='n' && strcmp(fieldName, "numHops")==0) return base+2;
+    if (fieldName[0]=='f' && strcmp(fieldName, "floodingAttackQuantity")==0) return base+0;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
-const char *NA_BlackholeMessageDescriptor::getFieldTypeString(void *object, int field) const
+const char *NA_FloodingMessageDescriptor::getFieldTypeString(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -209,14 +176,12 @@ const char *NA_BlackholeMessageDescriptor::getFieldTypeString(void *object, int 
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldTypeStrings[] = {
-        "bool",
-        "ParPtr",
-        "int",
+        "double",
     };
-    return (field>=0 && field<3) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<1) ? fieldTypeStrings[field] : NULL;
 }
 
-const char *NA_BlackholeMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
+const char *NA_FloodingMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -229,7 +194,7 @@ const char *NA_BlackholeMessageDescriptor::getFieldProperty(void *object, int fi
     }
 }
 
-int NA_BlackholeMessageDescriptor::getArraySize(void *object, int field) const
+int NA_FloodingMessageDescriptor::getArraySize(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -237,13 +202,13 @@ int NA_BlackholeMessageDescriptor::getArraySize(void *object, int field) const
             return basedesc->getArraySize(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    NA_BlackholeMessage *pp = (NA_BlackholeMessage *)object; (void)pp;
+    NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
         default: return 0;
     }
 }
 
-std::string NA_BlackholeMessageDescriptor::getFieldAsString(void *object, int field, int i) const
+std::string NA_FloodingMessageDescriptor::getFieldAsString(void *object, int field, int i) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -251,16 +216,14 @@ std::string NA_BlackholeMessageDescriptor::getFieldAsString(void *object, int fi
             return basedesc->getFieldAsString(object,field,i);
         field -= basedesc->getFieldCount(object);
     }
-    NA_BlackholeMessage *pp = (NA_BlackholeMessage *)object; (void)pp;
+    NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
-        case 0: return bool2string(pp->getDropOnlyWhenRouteInTable());
-        case 1: {std::stringstream out; out << pp->getSeqnoAdded(); return out.str();}
-        case 2: return long2string(pp->getNumHops());
+        case 0: return double2string(pp->getFloodingAttackQuantity());
         default: return "";
     }
 }
 
-bool NA_BlackholeMessageDescriptor::setFieldAsString(void *object, int field, int i, const char *value) const
+bool NA_FloodingMessageDescriptor::setFieldAsString(void *object, int field, int i, const char *value) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -268,15 +231,14 @@ bool NA_BlackholeMessageDescriptor::setFieldAsString(void *object, int field, in
             return basedesc->setFieldAsString(object,field,i,value);
         field -= basedesc->getFieldCount(object);
     }
-    NA_BlackholeMessage *pp = (NA_BlackholeMessage *)object; (void)pp;
+    NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
-        case 0: pp->setDropOnlyWhenRouteInTable(string2bool(value)); return true;
-        case 2: pp->setNumHops(string2long(value)); return true;
+        case 0: pp->setFloodingAttackQuantity(string2double(value)); return true;
         default: return false;
     }
 }
 
-const char *NA_BlackholeMessageDescriptor::getFieldStructName(void *object, int field) const
+const char *NA_FloodingMessageDescriptor::getFieldStructName(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -286,13 +248,11 @@ const char *NA_BlackholeMessageDescriptor::getFieldStructName(void *object, int 
     }
     static const char *fieldStructNames[] = {
         NULL,
-        "ParPtr",
-        NULL,
     };
-    return (field>=0 && field<3) ? fieldStructNames[field] : NULL;
+    return (field>=0 && field<1) ? fieldStructNames[field] : NULL;
 }
 
-void *NA_BlackholeMessageDescriptor::getFieldStructPointer(void *object, int field, int i) const
+void *NA_FloodingMessageDescriptor::getFieldStructPointer(void *object, int field, int i) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -300,9 +260,8 @@ void *NA_BlackholeMessageDescriptor::getFieldStructPointer(void *object, int fie
             return basedesc->getFieldStructPointer(object, field, i);
         field -= basedesc->getFieldCount(object);
     }
-    NA_BlackholeMessage *pp = (NA_BlackholeMessage *)object; (void)pp;
+    NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
-        case 1: return (void *)(&pp->getSeqnoAdded()); break;
         default: return NULL;
     }
 }

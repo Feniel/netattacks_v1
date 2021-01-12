@@ -53,4 +53,4 @@ protected:
     virtual cMessage *generateAttackMessage(const char* name);
 };
 
-#endif /* NA_SINKHOLEATTACK_H_ */
+#endif /* NA_BLACKHOLEATTACK_H_ */

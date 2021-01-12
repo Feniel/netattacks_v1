@@ -34,7 +34,6 @@ using std::cout;
 simsignal_t NA_IPv4::dropSignal = SIMSIGNAL_NULL;
 simsignal_t NA_IPv4::rcvdPktSignal = SIMSIGNAL_NULL;
 simsignal_t NA_IPv4::delaySignal = SIMSIGNAL_NULL;
-simsignal_t NA_IPv4::floodSignal = SIMSIGNAL_NULL;
 
 Define_Module(NA_IPv4);
 
@@ -53,12 +52,6 @@ void NA_IPv4::initialize() {
     delaySignal = registerSignal("delayed");
     totalDelayTime = 0;
     delayAttackValue = NULL;
-
-    // Dropping attack initialization
-    numRREQ = 0;
-    floodSignal = registerSignal("flooding");
-    floodingAttackQuantity = 0;
-    floodingAttackIsActive = false;
 
     // Number of data packet received
     numRecvPacket = 0;
@@ -116,26 +109,6 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
         delayAttackValue = NULL;
         delete (msg);
     }
-    /*-------------------------- FLOODING ATTACK -------------------------*/
-    if (not strcmp(msg->getFullName(), "floodingActivate")) {
-            NA_FloodingMessage *fmsg;
-            fmsg = check_and_cast<NA_FloodingMessage *>(msg);
-            LOG << "--> Activating module NA_IPv4 for Flooding Attack...\n";
-            LOG << "    Flooding Attack Quantity received: "
-                    << fmsg->getFloodingAttackQuantity() << "\n";
-            //Now dropping attack is activated in this module
-            floodingAttackIsActive = true;
-            floodingAttackQuantity = fmsg->getFloodingAttackQuantity();
-            delete (msg);
-
-        } else if (not strcmp(msg->getFullName(), "floodingDeactivate")) {
-            NA_FloodingMessage *fmsg;
-            fmsg = check_and_cast<NA_FloodingMessage *>(msg);
-            LOG << "Deactivating module NA_IPv4 for Flooding Attack...\n";
-            //Now flooding attack is deactivated
-            floodingAttackIsActive = false;
-            delete (msg);
-        }
 
     else {
         LOG
@@ -216,7 +189,4 @@ simtime_t NA_IPv4::startService(cPacket *msg) {
     }
     return delayAttack + delay;
 }
-
-//TODO
-//IPV4 einfügen
 

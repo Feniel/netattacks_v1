@@ -1,29 +1,3 @@
-//
-// Copyright (C) 2013, NESG (Network Engineering and Security Group), http://nesg.ugr.es,
-// - Gabriel Maciá Fernández (gmacia@ugr.es)
-// - Leovigildo Sánchez Casado (sancale@ugr.es)
-// - Rafael A. Rodríguez Gómez (rodgom@ugr.es)
-// - Roberto Magán Carrión (rmagan@ugr.es)
-// - Pedro García Teodoro (pgteodor@ugr.es)
-// - José Camacho Páez (josecamacho@ugr.es)
-// - Jesús E. Díaz Verdejo (jedv@ugr.es)
-//
-// This file is part of NETA.
-//
-//    NETA is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//    NETA is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with NETA.  If not, see <http://www.gnu.org/licenses/>.
-//
-
 package nesg.netattacks.attacks.controllers.blackholeAttack;
 import nesg.netattacks.attacks.controllers.NA_Attack;
 
@@ -34,8 +8,9 @@ import nesg.netattacks.attacks.controllers.NA_Attack;
 //
 // @see NA_Attack, NA_AODVUU
 //
-// @author Gabriel Maciá Fernández, gmacia@ugr.es
-// @date 01/22/2013
+// @author Tim Falkenhahn
+// @date 11/01/2021
+
 simple NA_BlackholeAttack extends NA_Attack
 {
     parameters:
@@ -43,7 +18,6 @@ simple NA_BlackholeAttack extends NA_Attack
         @display("i=misc/cloud3,red,100;is=l");
 
         attackType = "blackhole";  //Should correspond with the tag located in the hackedModules.ned. e.g. @blackhole for this attack.       
-        double blackholeAttackProbability = default(0); //Probability of answering a RREQ message with a fake route. Range [0,1].
         bool dropOnlyWhenRouteInTable = default(false); //TRUE: Send fake answers to RREQ messages only when requested routes are really in routing table of blackhole node.
 														//FALSE: Send fake answers for any RREQ messages arriving at the blackhole node.
 

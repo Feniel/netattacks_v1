@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-import nesg.netattacks.attacks.controllers.NA_Attack;
 package nesg.netattacks.attacks.controllers.floodingAttack;
+import nesg.netattacks.attacks.controllers.NA_Attack;
 
 //
 // Dropping attack controller module.

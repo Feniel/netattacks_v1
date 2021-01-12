@@ -124,6 +124,7 @@ class NA_AODVUU;
 #include "common/log/NA_NesgLog.h"
 #include "NA_HackedModule.h"
 #include "NA_SinkholeMessage_m.h"
+#include "NA_BlackholeMessage_m.h"
 // ---------------
 
 
@@ -198,6 +199,10 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     int numHops;
 
     // END NA_SINKHOLE - sancale
+    // Addition for Blackhole attack
+    bool blackholeAttackIsActive;
+    bool dropOnlyWhenRouteInTable;
+    // End addition
 
     char nodeName[50];
     ICMPAccess icmpAccess;

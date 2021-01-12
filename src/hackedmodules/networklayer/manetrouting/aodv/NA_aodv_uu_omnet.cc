@@ -113,6 +113,11 @@ void NS_CLASS initialize(int stage)
         sinkOnlyWhenRouteInTable = false;
         numSents = 0;
         // END NA_SINKHOLE - sancale
+        // BEGIN Blackhole attack initialization
+        blackholeAttackIsActive = false;
+        dropOnlyWhenRouteInTable = false;
+        numSents = 0;
+        // END initialization
 
         //sendMessageEvent = new cMessage();
         if ((bool)par("log_to_file"))
@@ -347,6 +352,7 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
 
     LOG << "NA_AODVUU: Received message: "<< msg->getFullName() << "\n";
 
+    /*-------------------------- SINKHOLE ATTACK -------------------------*/
     // BEGIN NA_SINKHOLE - sancale
     // Activate sinkhole
     if (not strcmp(msg->getFullName(), "sinkholeActivate")) {
@@ -374,6 +380,31 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
         numHops = NULL;
         delete(msg);
      // END NA_SINKHOLE - sancale
+
+    /*-------------------------- BLACKHOLE ATTACK -------------------------*/
+    if (not strcmp(msg->getFullName(), "blackholeActivate")) {
+            NA_BlackholeMessage *dmsg;
+            dmsg = check_and_cast<NA_BlackholeMessage *>(msg);
+            LOG << "--> Activating module NA_AODVUU for Blackhole...\n";
+            LOG << "    Sink only when route in table: " << dmsg->getDropOnlyWhenRouteInTable() << "\n";
+            blackholeAttackIsActive = true;
+            dropOnlyWhenRouteInTable = dmsg->getDropOnlyWhenRouteInTable();
+            seqnoAdded = dmsg->getSeqnoAdded();
+            numHops = dmsg->getNumHops();
+            delete(msg);
+
+            // Deactivate sinkhole
+        } else if (not strcmp(msg->getFullName(), "blackholeDeactivate")) {
+            NA_BlackholeMessage *dmsg;
+            dmsg = check_and_cast<NA_BlackholeMessage *>(msg);
+            LOG << "Deactivating module NA_AODVUU for Blackhole...\n";
+            //Now blackholes attack is deactivated
+            blackholeAttackIsActive = false;
+            seqnoAdded = NULL;
+            numHops = NULL;
+            delete(msg);
+    }
+
 
     } else {
         LOG << "ERROR: Message unknown in NA_AODVUU::handleMessageFromAttackController. Msg: " << msg->getFullName() << "\n";
@@ -989,6 +1020,16 @@ void NS_CLASS processPacket(IPv4Datagram * p,unsigned int ifindex)
             }
         }
         // END NA_SINKHOLE - sancale
+        // BEGIN NA_BLACKHOLE
+        if (blackholeAttackIsActive) {
+            if (dropOnlyWhenRouteInTable == false) {
+                LOG << "Blackhole does not send RERR" << endl;
+                cout << simTime() << ": Blackhole does not send RERR " << endl;
+                delete p;
+                return;
+            }
+        }
+        // END NA_BLACKHOLE
 
         if (isLocal)
             goto route_discovery;
