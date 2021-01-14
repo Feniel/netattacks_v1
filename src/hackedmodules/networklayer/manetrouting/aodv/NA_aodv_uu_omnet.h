@@ -162,10 +162,18 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
 
   private:
 
-    /**
-     * Log reference
-     */
-    NA_NesgLog log;
+    // NETA related variables
+        // Log reference
+        NA_NesgLog log;
+
+        // Number of false RREP sent.
+        long numSents;
+
+        // Sequence number for the simulation. Implemented as a pointer to allow random distributions values
+        ParPtr seqnoAdded;
+
+        // Sequence number for the simulation. Implemented as a pointer to allow random distributions values
+        int numHops;
 
     // BEGIN NA_SINKHOLE - sancale
     /**
@@ -183,26 +191,15 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
      */
     bool sinkOnlyWhenRouteInTable;
 
-    /**
-     * Number of false RREP sent.
-     */
-    long numSents;
-
-    /**
-     * Sequence number for the simulation. Implemented as a pointer to allow random distributions values
-     */
-    ParPtr seqnoAdded;
-
-    /**
-    * Sequence number for the simulation. Implemented as a pointer to allow random distributions values
-    */
-    int numHops;
-
     // END NA_SINKHOLE - sancale
-    // Addition for Blackhole attack
-    bool blackholeAttackIsActive;
-    bool dropOnlyWhenRouteInTable;
-    // End addition
+
+    // Begin Blackhole attack
+        // Flag to aktivate the attack
+        bool blackholeAttackIsActive;
+
+        // Drop only if the attacker knows the route.
+        bool dropOnlyWhenRouteInTable;
+    // End Blackhole
 
     char nodeName[50];
     ICMPAccess icmpAccess;

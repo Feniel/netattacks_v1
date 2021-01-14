@@ -393,8 +393,8 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
             numHops = dmsg->getNumHops();
             delete(msg);
 
-            // Deactivate sinkhole
-        } else if (not strcmp(msg->getFullName(), "blackholeDeactivate")) {
+    // Deactivate blackhole
+    } else if (not strcmp(msg->getFullName(), "blackholeDeactivate")) {
             NA_BlackholeMessage *dmsg;
             dmsg = check_and_cast<NA_BlackholeMessage *>(msg);
             LOG << "Deactivating module NA_AODVUU for Blackhole...\n";

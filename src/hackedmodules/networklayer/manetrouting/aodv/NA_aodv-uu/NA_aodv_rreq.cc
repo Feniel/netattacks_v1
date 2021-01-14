@@ -272,6 +272,11 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
     // Seqno sinkhole definition
     u_int32_t seqno_sinkhole;
     // END NA_SINKHOLE - sancale
+    // Begin Blackhole
+        // Seqno sinkhole definition
+        //u_int32_t seqno_sinkhole;
+        //TODO
+    // End Blackhole
 
     ManetAddress aux;
     if (getAp(rreq->dest_addr, aux) && !isBroadcast(rreq->dest_addr))
@@ -358,6 +363,9 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
         }
     }
     // END NA_SINKHOLE - sancale
+    // Begin Blackhole
+        // TODO
+    // End Blackhole
 
 #endif
 
@@ -683,6 +691,9 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
             }
         }
         // END NA_SINKHOLE - sancale
+        // Begin Blackhole
+            // TODO
+        // End Blackhole
 
         if (fwd_rt && (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL) && !rreq->d)
         {
