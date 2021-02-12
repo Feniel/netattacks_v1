@@ -5,7 +5,7 @@ In addition, defensive measures for the respective attack scenarios are also inc
 For the implementation omnetpp-4.3 and inet2.1.0 is used.
 
 Blackhole Attack<br>
-An attack close to the same as the sinkhole but with a direct approach and not a rising.<br>
+An attack similar to the sinkhole attack, but it does not exploit a routing loop, but distributes false information in the network.<br>
 Countermeasures: 
 
 Flooding Attack<br>
