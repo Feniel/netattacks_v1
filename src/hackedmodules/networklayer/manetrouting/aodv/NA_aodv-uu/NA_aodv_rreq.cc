@@ -685,6 +685,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                         rrep = rrep_create(0, 0, num_hops, fwd_rt->dest_addr, seqno_sinkhole, rev_rt->dest_addr, lifetime);
                         rrep_send(rrep, rev_rt, fwd_rt, rrep_size);
                         EV << "Sinkhole knows the route and sends false RREP with seqnoAdded = " << seqno_added << " and numHops = " << num_hops << ".\n";
+                        cout << simTime() << ": Sinkhole does send fake RREP " << endl;
                         return;
                     }
                 }
