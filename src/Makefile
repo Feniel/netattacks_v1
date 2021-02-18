@@ -284,6 +284,7 @@ $O/attacks/controllers/NA_Attack.o: attacks/controllers/NA_Attack.cc \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ControlManetRouting_m.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
 	attacks/controllers/NA_Attack.h \
+	attacks/controlmessages/blackholeAttack/NA_BlackholeMessage_m.h \
 	attacks/controlmessages/delayAttack/NA_DelayMessage_m.h \
 	attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.h \
 	common/log/NA_NesgLog.h \
@@ -376,6 +377,7 @@ $O/hackedmodules/networklayer/ipv4/NA_IPv4.o: hackedmodules/networklayer/ipv4/NA
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ControlManetRouting_m.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	attacks/controlmessages/blackholeAttack/NA_BlackholeMessage_m.h \
 	attacks/controlmessages/delayAttack/NA_DelayMessage_m.h \
 	attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.h \
 	common/log/NA_NesgLog.h \

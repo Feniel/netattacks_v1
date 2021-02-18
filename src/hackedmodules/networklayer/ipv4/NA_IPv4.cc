@@ -34,6 +34,7 @@ using std::cout;
 simsignal_t NA_IPv4::dropSignal = SIMSIGNAL_NULL;
 simsignal_t NA_IPv4::rcvdPktSignal = SIMSIGNAL_NULL;
 simsignal_t NA_IPv4::delaySignal = SIMSIGNAL_NULL;
+simsignal_t NA_IPv4::blackSignal = SIMSIGNAL_NULL;
 
 Define_Module(NA_IPv4);
 
@@ -52,6 +53,12 @@ void NA_IPv4::initialize() {
     delaySignal = registerSignal("delayed");
     totalDelayTime = 0;
     delayAttackValue = NULL;
+
+    // Blackhole attack initialization
+    numDrops = 0;
+    blackSignal = registerSignal("blacked");
+    bool blackholeAttackIsActive = false;
+    double blackholeDropProbability = 1;
 
     // Number of data packet received
     numRecvPacket = 0;
@@ -109,6 +116,26 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
         delayAttackValue = NULL;
         delete (msg);
     }
+    /*-------------------------- Blackhole ATTACK -------------------------*/
+    else if (not strcmp(msg->getFullName(), "blackholeActivate")) {
+        NA_BlackholeMessage *dmsg;
+        dmsg = check_and_cast<NA_BlackholeMessage *>(msg);
+        LOG << "--> Activating module NA_IPv4 for Blackhole Attack...\n";
+        LOG << "    Blackhole Drop Probability is: "
+                << dmsg->getBlackholeDropProbability() << "\n";
+        //Now blackhole attack is activated in this module
+        blackholeAttackIsActive = true;
+        blackholeDropProbability = dmsg->getBlackholeDropProbability();
+        delete (msg);
+
+    } else if (not strcmp(msg->getFullName(), "blackholeDeactivate")) {
+        NA_BlackholeMessage *dmsg;
+        dmsg = check_and_cast<NA_BlackholeMessage *>(msg);
+        LOG << "Deactivating module NA_IPv4 for Blackhole Attack...\n";
+        //Now blackhole attack is deactivated
+        blackholeAttackIsActive = false;
+        delete (msg);
+    }
 
     else {
         LOG
@@ -132,6 +159,31 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
             || !strncmp(datagram->getName(), TCP_DATA, 3)) {
         numRecvPacket++; // The number of packets is updated
         emit(rcvdPktSignal, numRecvPacket); // Sending of the signal indicating that we have received a new data packet.
+    }
+
+    if (blackholeAttackIsActive) {
+            LOG << "Received packet after black hole attack is activated ... " << "\n";
+            //checks if the package is ping, udp or tcp
+            if (!strncmp(datagram->getName(), PING_DATA, 4)
+                || !strncmp(datagram->getName(), UDP_DATA, 3)
+                || !strncmp(datagram->getName(), TCP_DATA, 3)) {
+                    LOG << "Is a valid packet for dropping ..." << "\n";
+                    if (uniform(0, 1) < blackholeDropProbability) {
+                        numDrops++; // The number dropped packages is updated
+                        emit(blackSignal, numDrops); // Sending a signal indicating a drop
+                        LOG << "Discarding packet: " << datagram->getName() << ": "
+                            << numDrops << " dropping times." << endl;
+                        cout << simTime() << ": Discarding packet: "
+                             << datagram->getName() << endl;
+                        delete datagram; //the package is dropped by calling the destructor
+                    }
+                    else {
+                       IPv4::handlePacketFromNetwork(datagram, fromIE);
+                    }
+            }
+            else { //Packet is not a ping, udp or tcp
+                IPv4::handlePacketFromNetwork(datagram, fromIE);
+            }
     }
 
     //Packet is a ping/UDP/TCP (data packet)

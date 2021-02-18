@@ -24,7 +24,7 @@ typedef cPar *ParPtr;
  * Class generated from <tt>attacks/controlmessages/blackholeAttack/NA_BlackholeMessage.msg</tt> by opp_msgc.
  * <pre>
  * message NA_BlackholeMessage {
- *     bool dropOnlyWhenRouteInTable; 	
+ *     double blackholeDropProbability; 	
  *     ParPtr seqnoAdded; 					
  *     int numHops;						
  * }
@@ -33,7 +33,7 @@ typedef cPar *ParPtr;
 class NA_BlackholeMessage : public ::cMessage
 {
   protected:
-    bool dropOnlyWhenRouteInTable_var;
+    double blackholeDropProbability_var;
     ParPtr seqnoAdded_var;
     int numHops_var;
 
@@ -54,8 +54,8 @@ class NA_BlackholeMessage : public ::cMessage
     virtual void parsimUnpack(cCommBuffer *b);
 
     // field getter/setter methods
-    virtual bool getDropOnlyWhenRouteInTable() const;
-    virtual void setDropOnlyWhenRouteInTable(bool dropOnlyWhenRouteInTable);
+    virtual double getBlackholeDropProbability() const;
+    virtual void setBlackholeDropProbability(double blackholeDropProbability);
     virtual ParPtr& getSeqnoAdded();
     virtual const ParPtr& getSeqnoAdded() const {return const_cast<NA_BlackholeMessage*>(this)->getSeqnoAdded();}
     virtual void setSeqnoAdded(const ParPtr& seqnoAdded);

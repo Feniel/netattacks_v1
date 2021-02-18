@@ -33,6 +33,7 @@ import nesg.netattacks.attacks.controllers.NA_Attack;
 import nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack;
 import nesg.netattacks.attacks.controllers.droppingAttack.NA_DroppingAttack;
 import nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack;
+import nesg.netattacks.attacks.controllers.blackholeAttack.NA_BlackholeAttack;
 
 
 //
@@ -75,8 +76,12 @@ module NA_AttackerAdhocHost extends NA_WirelessHost
         sinkholeAttack: NA_SinkholeAttack {
             @display("p=708,205");
         }
+        //# Include blackhole attack controller
+        blackholeAttack: NA_BlackholeAttack {
+            @display("p=708,278");
+        }
     connections:
         networkLayer.manetOut --> manetrouting.from_ip if routingProtocol != "";
         networkLayer.manetIn <-- manetrouting.to_ip if routingProtocol != "";
-        
+
 }

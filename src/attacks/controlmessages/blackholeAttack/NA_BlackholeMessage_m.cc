@@ -34,7 +34,7 @@ Register_Class(NA_BlackholeMessage);
 
 NA_BlackholeMessage::NA_BlackholeMessage(const char *name, int kind) : cMessage(name,kind)
 {
-    this->dropOnlyWhenRouteInTable_var = 0;
+    this->blackholeDropProbability_var = 0;
     this->numHops_var = 0;
 }
 
@@ -57,7 +57,7 @@ NA_BlackholeMessage& NA_BlackholeMessage::operator=(const NA_BlackholeMessage& o
 
 void NA_BlackholeMessage::copy(const NA_BlackholeMessage& other)
 {
-    this->dropOnlyWhenRouteInTable_var = other.dropOnlyWhenRouteInTable_var;
+    this->blackholeDropProbability_var = other.blackholeDropProbability_var;
     this->seqnoAdded_var = other.seqnoAdded_var;
     this->numHops_var = other.numHops_var;
 }
@@ -65,7 +65,7 @@ void NA_BlackholeMessage::copy(const NA_BlackholeMessage& other)
 void NA_BlackholeMessage::parsimPack(cCommBuffer *b)
 {
     cMessage::parsimPack(b);
-    doPacking(b,this->dropOnlyWhenRouteInTable_var);
+    doPacking(b,this->blackholeDropProbability_var);
     doPacking(b,this->seqnoAdded_var);
     doPacking(b,this->numHops_var);
 }
@@ -73,19 +73,19 @@ void NA_BlackholeMessage::parsimPack(cCommBuffer *b)
 void NA_BlackholeMessage::parsimUnpack(cCommBuffer *b)
 {
     cMessage::parsimUnpack(b);
-    doUnpacking(b,this->dropOnlyWhenRouteInTable_var);
+    doUnpacking(b,this->blackholeDropProbability_var);
     doUnpacking(b,this->seqnoAdded_var);
     doUnpacking(b,this->numHops_var);
 }
 
-bool NA_BlackholeMessage::getDropOnlyWhenRouteInTable() const
+double NA_BlackholeMessage::getBlackholeDropProbability() const
 {
-    return dropOnlyWhenRouteInTable_var;
+    return blackholeDropProbability_var;
 }
 
-void NA_BlackholeMessage::setDropOnlyWhenRouteInTable(bool dropOnlyWhenRouteInTable)
+void NA_BlackholeMessage::setBlackholeDropProbability(double blackholeDropProbability)
 {
-    this->dropOnlyWhenRouteInTable_var = dropOnlyWhenRouteInTable;
+    this->blackholeDropProbability_var = blackholeDropProbability;
 }
 
 ParPtr& NA_BlackholeMessage::getSeqnoAdded()
@@ -183,7 +183,7 @@ const char *NA_BlackholeMessageDescriptor::getFieldName(void *object, int field)
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldNames[] = {
-        "dropOnlyWhenRouteInTable",
+        "blackholeDropProbability",
         "seqnoAdded",
         "numHops",
     };
@@ -194,7 +194,7 @@ int NA_BlackholeMessageDescriptor::findField(void *object, const char *fieldName
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount(object) : 0;
-    if (fieldName[0]=='d' && strcmp(fieldName, "dropOnlyWhenRouteInTable")==0) return base+0;
+    if (fieldName[0]=='b' && strcmp(fieldName, "blackholeDropProbability")==0) return base+0;
     if (fieldName[0]=='s' && strcmp(fieldName, "seqnoAdded")==0) return base+1;
     if (fieldName[0]=='n' && strcmp(fieldName, "numHops")==0) return base+2;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
@@ -209,7 +209,7 @@ const char *NA_BlackholeMessageDescriptor::getFieldTypeString(void *object, int 
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldTypeStrings[] = {
-        "bool",
+        "double",
         "ParPtr",
         "int",
     };
@@ -253,7 +253,7 @@ std::string NA_BlackholeMessageDescriptor::getFieldAsString(void *object, int fi
     }
     NA_BlackholeMessage *pp = (NA_BlackholeMessage *)object; (void)pp;
     switch (field) {
-        case 0: return bool2string(pp->getDropOnlyWhenRouteInTable());
+        case 0: return double2string(pp->getBlackholeDropProbability());
         case 1: {std::stringstream out; out << pp->getSeqnoAdded(); return out.str();}
         case 2: return long2string(pp->getNumHops());
         default: return "";
@@ -270,7 +270,7 @@ bool NA_BlackholeMessageDescriptor::setFieldAsString(void *object, int field, in
     }
     NA_BlackholeMessage *pp = (NA_BlackholeMessage *)object; (void)pp;
     switch (field) {
-        case 0: pp->setDropOnlyWhenRouteInTable(string2bool(value)); return true;
+        case 0: pp->setBlackholeDropProbability(string2double(value)); return true;
         case 2: pp->setNumHops(string2long(value)); return true;
         default: return false;
     }

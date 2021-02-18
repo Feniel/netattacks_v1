@@ -33,6 +33,7 @@
 #include "NA_HackedModule.h"
 #include "NA_DroppingMessage_m.h"
 #include "NA_DelayMessage_m.h"
+#include "NA_BlackholeMessage_m.h"
 
 /**
  * Constant to distinguish TCP packet data payload instead of ACK or SYN packets
@@ -88,11 +89,6 @@ private:
      */
     double droppingAttackProbability;
 
-    /**
-     * Count the number of packet discarded. For dropping statistics
-     */
-    long numDrops;
-
     /*----------------- DELAY ATTACK  -------------------------*/
     /**
      * Flag to activate delay attack
@@ -118,6 +114,21 @@ private:
      * elayValue for the simulation. Implemented as a pointer to allow functions as values
      */
     ParPtr delayAttackValue;
+
+    /*----------------- Blackhole ATTACK  -------------------------*/
+    /**
+     * Flag to activate dropping attack
+     */
+    bool blackholeAttackIsActive;
+
+    /**
+     * Probability for dropping packets when dropping attack is active
+     */
+    double blackholeDropProbability;
+    /**
+     * Count the number of packet discarded. For dropping statistics
+     */
+    long numDrops;
 
     /*---------------------OTHERs-------------------------------*/
     /**
@@ -151,7 +162,7 @@ protected:
      * First check if the dropping behavior is active. Then check if the received packet is
      * a valid packet to drop (PING, UDP and/or TCP). Finally discard it or not randomly.
      */
-    virtual void handlePacketFromNetwork(IPv4Datagram *datagram, InterfaceEntry *fromIE);
+    //virtual void handlePacketFromNetwork(IPv4Datagram *datagram, InterfaceEntry *fromIE);
 
     /*----------------- DELAY ATTACK  -------------------------*/
     /**
@@ -165,6 +176,18 @@ protected:
      * Delay signal for statistics
      */
     static simsignal_t delaySignal;
+
+    /*----------------- Blackhole ATTACK  -------------------------*/
+    /**
+     * Drop signal for statistics
+     */
+    static simsignal_t blackSignal;
+
+    /**
+     * the function which is overridden to implement the blackhole behavior
+     */
+    virtual void handlePacketFromNetwork(IPv4Datagram *datagram, InterfaceEntry *fromIE);
+
 
     /*------------------OTHERs ---------------------------------*/
     /**

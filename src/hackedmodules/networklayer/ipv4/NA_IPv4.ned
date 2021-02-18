@@ -44,6 +44,7 @@ simple NA_IPv4 extends IPv4
         //#Labels for the potential attacks that affect this module
         @dropping;	// Dropping attack in IPv4 Layer
         @delay;		// Delay attack in IPv4 Layer
+        @example;	// Blackhole attack in IPv4 Layer
         
         //# Normal parameters
         @display("i=block/routing,red;i2=status/excl3");

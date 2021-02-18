@@ -11,7 +11,7 @@ cMessage *NA_BlackholeAttack::generateAttackMessage(const char *cmsg) {
 
     // Specific message for the specifics hacked modules.
     NA_BlackholeMessage *msg = new NA_BlackholeMessage(cmsg);
-    msg->setDropOnlyWhenRouteInTable(par("dropOnlyWhenRouteInTable").boolValue());
+    msg->setBlackholeDropProbability(par("blackholeDropProbability").doubleValue());
     msg->setSeqnoAdded(&par("seqnoAdded"));
     msg->setNumHops(par("numHops"));
     return msg;
