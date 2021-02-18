@@ -272,11 +272,6 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
     // Seqno sinkhole definition
     u_int32_t seqno_sinkhole;
     // END NA_SINKHOLE - sancale
-    // Begin Blackhole
-        // Seqno sinkhole definition
-        //u_int32_t seqno_sinkhole;
-        //TODO
-    // End Blackhole
 
     ManetAddress aux;
     if (getAp(rreq->dest_addr, aux) && !isBroadcast(rreq->dest_addr))
@@ -363,9 +358,6 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
         }
     }
     // END NA_SINKHOLE - sancale
-    // Begin Blackhole
-        // TODO
-    // End Blackhole
 
 #endif
 
@@ -685,16 +677,12 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                         rrep = rrep_create(0, 0, num_hops, fwd_rt->dest_addr, seqno_sinkhole, rev_rt->dest_addr, lifetime);
                         rrep_send(rrep, rev_rt, fwd_rt, rrep_size);
                         EV << "Sinkhole knows the route and sends false RREP with seqnoAdded = " << seqno_added << " and numHops = " << num_hops << ".\n";
-                        cout << simTime() << ": Sinkhole does send fake RREP " << endl;
                         return;
                     }
                 }
             }
         }
         // END NA_SINKHOLE - sancale
-        // Begin Blackhole
-            // TODO
-        // End Blackhole
 
         if (fwd_rt && (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL) && !rreq->d)
         {
