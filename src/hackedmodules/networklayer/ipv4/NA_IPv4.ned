@@ -44,7 +44,7 @@ simple NA_IPv4 extends IPv4
         //#Labels for the potential attacks that affect this module
         @dropping;	// Dropping attack in IPv4 Layer
         @delay;		// Delay attack in IPv4 Layer
-        @example;	// Blackhole attack in IPv4 Layer
+        @blackhole;	// Blackhole attack in IPv4 Layer
         
         //# Normal parameters
         @display("i=block/routing,red;i2=status/excl3");
@@ -61,4 +61,8 @@ simple NA_IPv4 extends IPv4
 	    //# Delay attack statistics
 	    @signal[delayed](type=long); // Signal for number of packet delayed
 	    @statistic[delayed](title="Number of packet delayed"; record=count, vector; interpolationmode=none); // Record the number of packet delayed
+	    
+	    //Blackhole statistics
+	    @signal[blacked](type=long);
+	    @statistic[blacked](title="Number of blackhole drops"; record=count, vector; interpolationmode=none);
 }

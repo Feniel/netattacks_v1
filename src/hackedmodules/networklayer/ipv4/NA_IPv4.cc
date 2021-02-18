@@ -195,7 +195,7 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
     }
 
     //Packet is a ping/UDP/TCP (data packet)
-    if (droppingAttackIsActive) {
+    else if (droppingAttackIsActive) {
         LOG << "Received packet after activating dropping attack ... " << "\n";
         if (!strncmp(datagram->getName(), PING_DATA, 4)
                 || !strncmp(datagram->getName(), UDP_DATA, 3)
