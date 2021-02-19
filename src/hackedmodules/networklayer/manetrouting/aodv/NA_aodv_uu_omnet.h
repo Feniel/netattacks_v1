@@ -124,6 +124,7 @@ class NA_AODVUU;
 #include "common/log/NA_NesgLog.h"
 #include "NA_HackedModule.h"
 #include "NA_SinkholeMessage_m.h"
+#include "NA_BlackholeMessage_m.h"
 // ---------------
 
 
@@ -187,17 +188,22 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
      */
     long numSents;
 
+    // END NA_SINKHOLE - sancale
+
     /**
-     * Sequence number for the simulation. Implemented as a pointer to allow random distributions values
+     *  Flag to activate blackhole attack
+     */
+    bool blackholeAttackIsActive;
+    /**
+     * Sequence number
      */
     ParPtr seqnoAdded;
 
     /**
-    * Sequence number for the simulation. Implemented as a pointer to allow random distributions values
+    * Hop Count
     */
     int numHops;
 
-    // END NA_SINKHOLE - sancale
 
     char nodeName[50];
     ICMPAccess icmpAccess;

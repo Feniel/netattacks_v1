@@ -117,7 +117,7 @@ private:
 
     /*----------------- Blackhole ATTACK  -------------------------*/
     /**
-     * Flag to activate dropping attack
+     * Flag to activate blackhole attack
      */
     bool blackholeAttackIsActive;
 

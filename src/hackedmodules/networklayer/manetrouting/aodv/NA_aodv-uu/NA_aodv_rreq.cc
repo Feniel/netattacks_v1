@@ -272,6 +272,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
     // Seqno sinkhole definition
     u_int32_t seqno_sinkhole;
     // END NA_SINKHOLE - sancale
+    u_int32_t seqno_blackhole;
 
     ManetAddress aux;
     if (getAp(rreq->dest_addr, aux) && !isBroadcast(rreq->dest_addr))
@@ -358,6 +359,37 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
         }
     }
     // END NA_SINKHOLE - sancale
+
+    //  Blackhole Attack
+    if (blackholeAttackIsActive) {
+        u_int32_t seqno_added = seqnoAdded->doubleValue();
+        int num_hops = numHops;
+        seqno_blackhole = rreq_dest_seqno + seqno_added;
+        EV << "Blackhole sends forged RREP with seqnoAdded = " << seqno_added << " and numHops = " << num_hops << ".\n";
+        // create reverse route entry
+        rev_rt = rt_table_find(rreq_orig);
+        life = PATH_DISCOVERY_TIME - 2 * rreq_new_hcnt * NODE_TRAVERSAL_TIME;
+        if (rev_rt == NULL) {
+            DEBUG(LOG_DEBUG, 0, "Creating REVERSE route entry, RREQ origin: %s", ip_to_str(rreq_orig));
+            rev_rt = rt_table_insert(rreq_orig, ip_src, rreq_new_hcnt, rreq_orig_seqno, life, VALID, 0, ifindex,cost,hopfix);
+        }
+        else {
+            if (!useHover && (rev_rt->dest_seqno == 0 || (int32_t) rreq_orig_seqno > (int32_t) rev_rt->dest_seqno ||
+                    (rreq_orig_seqno == rev_rt->dest_seqno && (rev_rt->state == INVALID || rreq_new_hcnt < rev_rt->hcnt)))) {
+                rev_rt = rt_table_update(rev_rt, ip_src, rreq_new_hcnt, rreq_orig_seqno, life, VALID, rev_rt->flags,ifindex,cost,hopfix);
+            } else if (useHover && (rev_rt->dest_seqno == 0 || (int32_t) rreq_orig_seqno > (int32_t) rev_rt->dest_seqno ||
+                    (rreq_orig_seqno == rev_rt->dest_seqno && (rev_rt->state == INVALID || cost < rev_rt->cost)))) {
+                rev_rt = rt_table_update(rev_rt, ip_src, rreq_new_hcnt, rreq_orig_seqno, life, VALID, rev_rt->flags,ifindex,cost,hopfix);
+            }
+        }
+
+        //  generate and send forged RREP
+        rrep = rrep_create(0, 0, num_hops, rreq_dest, seqno_blackhole, rreq_orig, ACTIVE_ROUTE_TIMEOUT);
+        rrep_send(rrep, rev_rt, NULL, RREP_SIZE);
+        cout << simTime() << ": Forged RREP send " << endl;
+        return;
+    }
+
 
 #endif
 
@@ -680,6 +712,31 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                         return;
                     }
                 }
+
+                // Blackhole Attack
+                if (blackholeAttackIsActive) {
+                    struct timeval now;
+                    u_int32_t lifetime;
+                    gettimeofday(&now, NULL);
+                    if (fwd_rt->state == IMMORTAL)
+                        lifetime = 10000;
+                    else {
+                        #ifdef AODV_USE_STL
+                            double val = SIMTIME_DBL(fwd_rt->rt_timer.timeout - simTime());
+                            lifetime = (val * 1000.0);
+                        #else
+                            lifetime = timeval_diff(&fwd_rt->rt_timer.timeout, &now);
+                        #endif
+                    }
+                    u_int32_t seqno_added = seqnoAdded->doubleValue();
+                    int num_hops = numHops;
+                    seqno_blackhole = rreq_dest_seqno + seqno_added;
+                    rrep = rrep_create(0, 0, num_hops, fwd_rt->dest_addr, seqno_blackhole, rev_rt->dest_addr, lifetime);
+                    rrep_send(rrep, rev_rt, fwd_rt, rrep_size);
+                    EV << "Blackhole knows the route and sends forged RREP with seqnoAdded = " << seqno_added << " and numHops = " << num_hops << ".\n";
+                    return;
+                }
+
             }
         }
         // END NA_SINKHOLE - sancale

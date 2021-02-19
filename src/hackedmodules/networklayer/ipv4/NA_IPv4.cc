@@ -73,7 +73,7 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
     Enter_Method("NA_IPv4: handle message from attack controller");
 
     LOG << "NA_IPv4: Received message: " << msg->getFullName() << "\n";
-    cout << simTime() << ": aktive attack check " << endl;
+
 
     /*-------------------------- DROPPING ATTACK -------------------------*/
     if (not strcmp(msg->getFullName(), "droppingActivate")) {
@@ -85,7 +85,7 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
         //Now dropping attack is activated in this module
         droppingAttackIsActive = true;
         droppingAttackProbability = dmsg->getDroppingAttackProbability();
-        delete (msg);
+        //delete (msg);
 
     } else if (not strcmp(msg->getFullName(), "droppingDeactivate")) {
         NA_DroppingMessage *dmsg;
@@ -93,7 +93,7 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
         LOG << "Deactivating module NA_IPv4 for Dropping Attack...\n";
         //Now dropping attack is deactivated
         droppingAttackIsActive = false;
-        delete (msg);
+        //delete (msg);
     }
     /*-------------------------- DELAY ATTACK -------------------------*/
     else if (not strcmp(msg->getFullName(), "delayActivate")) {
@@ -129,7 +129,7 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
         blackholeDropProbability = dmsg->getBlackholeDropProbability();
         delete (msg);
         // for debugging
-        cout << simTime() << ": Blackhole aktivated " << endl;
+        cout << simTime() << ": Blackhole IPV4 aktivated " << endl;
 
     } else if (not strcmp(msg->getFullName(), "blackholeDeactivate")) {
         NA_BlackholeMessage *dmsg;
@@ -139,7 +139,7 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
         blackholeAttackIsActive = false;
         delete (msg);
         // for debugging
-        cout << simTime() << ": Blackhole deaktivated " << endl;
+        cout << simTime() << ": Blackhole IPV4 deaktivated " << endl;
     }
 
     else {
@@ -147,6 +147,7 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
                 << "ERROR: Message unknown in NA_IPv4::handleMessageFromAttackController. Msg: "
                 << msg->getFullName() << "\n";
     }
+    cout << simTime() << ": ipv4 aktive attack check -> " << blackholeAttackIsActive << endl;
 }
 
 void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
@@ -168,13 +169,13 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
 
     if (blackholeAttackIsActive) {
             LOG << "Received packet after black hole attack is activated ... " << "\n";
-            cout << simTime() << ": Received packet " << endl;
+            cout << simTime() << ": Blackhole Received packet " << endl;
             //checks if the package is ping, udp or tcp
             if (!strncmp(datagram->getName(), PING_DATA, 4)
                 || !strncmp(datagram->getName(), UDP_DATA, 3)
                 || !strncmp(datagram->getName(), TCP_DATA, 3)) {
                     LOG << "Is a valid packet for dropping ..." << "\n";
-                    cout << simTime() << ": packet is valid " << endl;
+                    cout << simTime() << ": packet is valid for dropping " << endl;
                     if (uniform(0, 1) < blackholeDropProbability) {
                         numDrops++; // The number dropped packages is updated
                         emit(blackSignal, numDrops); // Sending a signal indicating a drop
@@ -183,7 +184,6 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
                         cout << simTime() << ": Discarding packet: "
                              << datagram->getName() << endl;
                         delete datagram; //the package is dropped by calling the destructor
-                        cout << simTime() << ": packet dropped " << endl;
                     }
                     else {
                        IPv4::handlePacketFromNetwork(datagram, fromIE);

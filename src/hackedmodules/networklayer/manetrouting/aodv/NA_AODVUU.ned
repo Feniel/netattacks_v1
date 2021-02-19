@@ -46,7 +46,8 @@ simple NA_AODVUU extends BaseRouting like IManetRouting
 
         //#NETATTACKS: Labels for the potential attacks that affect this module
         //#NA_SINKHOLE: labe for sinkhole attack
-        @sinkhole;	// Sinkhole attack in AODV       
+        @sinkhole;	// Sinkhole attack in AODV   
+        @blackhole;    
         // --------------------------------------------------------------------
 
         //# Normal parameters.
