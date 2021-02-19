@@ -198,11 +198,15 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
      * Sequence number
      */
     ParPtr seqnoAdded;
-
     /**
     * Hop Count
     */
     int numHops;
+    /**
+    * Forged RREQs
+    */
+    int numForged;
+
 
 
     char nodeName[50];

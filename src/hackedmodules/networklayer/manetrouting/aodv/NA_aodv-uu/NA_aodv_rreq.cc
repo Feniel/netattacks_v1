@@ -386,6 +386,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
         //  generate and send forged RREP
         rrep = rrep_create(0, 0, num_hops, rreq_dest, seqno_blackhole, rreq_orig, ACTIVE_ROUTE_TIMEOUT);
         rrep_send(rrep, rev_rt, NULL, RREP_SIZE);
+        numForged = numForged + 1;
         cout << simTime() << ": Forged RREP send " << endl;
         return;
     }
@@ -733,6 +734,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                     seqno_blackhole = rreq_dest_seqno + seqno_added;
                     rrep = rrep_create(0, 0, num_hops, fwd_rt->dest_addr, seqno_blackhole, rev_rt->dest_addr, lifetime);
                     rrep_send(rrep, rev_rt, fwd_rt, rrep_size);
+                    numForged = numForged + 1;
                     EV << "Blackhole knows the route and sends forged RREP with seqnoAdded = " << seqno_added << " and numHops = " << num_hops << ".\n";
                     return;
                 }

@@ -11,8 +11,8 @@ cMessage *NA_FloodingAttack::generateAttackMessage(const char* cmsg) {
 
     // Specific message for the specifics hacked modules.
     NA_FloodingMessage *msg = new NA_FloodingMessage(cmsg);
-    msg->setFloodingAttackQuantity(
-            par("floodingAttackQuantity").doubleValue());
+    msg->setFloodingGradeIndicator(
+            par("floodingGradeIndicator").doubleValue());
 
     return msg;
 }

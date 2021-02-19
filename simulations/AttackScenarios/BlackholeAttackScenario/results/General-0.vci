@@ -1,8 +1,8 @@
-file 900281 1613757398                                          
+file 14387 1613776133                                           
 version 2
-run General-0-20210219-18:27:26-2156
+run General-0-20210220-00:08:46-16712
 attr configname General
-attr datetime 20210219-18:27:26
+attr datetime 20210220-00:08:46
 attr experiment General
 attr inifile Blackhole.ini
 attr iterationvars $mobility=5
@@ -10,7 +10,7 @@ attr iterationvars2 "$mobility=5, $repetition=0"
 attr measurement $mobility=5
 attr mobility 5
 attr network Blackhole_Network
-attr processid 2156
+attr processid 16712
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -264,383 +264,81 @@ attr title  "radio state (enum), vector"
 vector 294  Blackhole_Network.node[9].wlan[0].radio  channelNo:vector  ETV
 attr interpolationmode  sample-hold
 attr title  "channel no, vector"
-vector 129  Blackhole_Network.node[3].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 134  Blackhole_Network.node[3].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 336  Blackhole_Network.node[3].wlan[0].mac  "throughput AC0"  ETV
-vector 360  Blackhole_Network.node[7].wlan[0].mac  "throughput AC0"  ETV
-vector 306  Blackhole_Network.originator[0].wlan[0].mac  "throughput AC0"  ETV
-vector 362  Blackhole_Network.node[7].wlan[0].radio  snirVector  ETV
-vector 308  Blackhole_Network.originator[0].wlan[0].radio  snirVector  ETV
-vector 201  Blackhole_Network.node[6].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 206  Blackhole_Network.node[6].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 354  Blackhole_Network.node[6].wlan[0].mac  "throughput AC0"  ETV
-vector 312  Blackhole_Network.destination[0].wlan[0].mac  "throughput AC0"  ETV
-vector 300  Blackhole_Network.blackhole[0].wlan[0].mac  "throughput AC0"  ETV
-vector 314  Blackhole_Network.destination[0].wlan[0].radio  snirVector  ETV
-vector 302  Blackhole_Network.blackhole[0].wlan[0].radio  snirVector  ETV
-vector 318  Blackhole_Network.node[0].wlan[0].mac  "throughput AC0"  ETV
-vector 320  Blackhole_Network.node[0].wlan[0].radio  snirVector  ETV
-vector 356  Blackhole_Network.node[6].wlan[0].radio  snirVector  ETV
-vector 301  Blackhole_Network.blackhole[0].wlan[0].mac  "Mac delay AC0"  ETV
-vector 1  Blackhole_Network.blackhole[0].networkLayer.ip  rcvdPkt:vector  ETV
-attr interpolationmode  none
-attr title  "Number of packet received, vector"
-vector 3  Blackhole_Network.blackhole[0].networkLayer.ip  blacked:vector  ETV
-attr interpolationmode  none
-attr title  "Number of blackhole drops, vector"
-vector 355  Blackhole_Network.node[6].wlan[0].mac  "Mac delay AC0"  ETV
-vector 273  Blackhole_Network.node[9].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 278  Blackhole_Network.node[9].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 372  Blackhole_Network.node[9].wlan[0].mac  "throughput AC0"  ETV
-vector 366  Blackhole_Network.node[8].wlan[0].mac  "throughput AC0"  ETV
-vector 342  Blackhole_Network.node[4].wlan[0].mac  "throughput AC0"  ETV
-vector 368  Blackhole_Network.node[8].wlan[0].radio  snirVector  ETV
-vector 344  Blackhole_Network.node[4].wlan[0].radio  snirVector  ETV
-vector 81  Blackhole_Network.node[1].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 86  Blackhole_Network.node[1].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 324  Blackhole_Network.node[1].wlan[0].mac  "throughput AC0"  ETV
-vector 348  Blackhole_Network.node[5].wlan[0].mac  "throughput AC0"  ETV
-vector 350  Blackhole_Network.node[5].wlan[0].radio  snirVector  ETV
-vector 15  Blackhole_Network.originator[0].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 17  Blackhole_Network.originator[0].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 330  Blackhole_Network.node[2].wlan[0].mac  "throughput AC0"  ETV
-vector 332  Blackhole_Network.node[2].wlan[0].radio  snirVector  ETV
-vector 338  Blackhole_Network.node[3].wlan[0].radio  snirVector  ETV
-vector 105  Blackhole_Network.node[2].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 110  Blackhole_Network.node[2].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 299  Blackhole_Network.blackhole[0].wlan[0].mac  "jitter AC0"  ETV
-vector 353  Blackhole_Network.node[6].wlan[0].mac  "jitter AC0"  ETV
-vector 361  Blackhole_Network.node[7].wlan[0].mac  "Mac delay AC0"  ETV
-vector 236  Blackhole_Network.node[7].networkLayer.ip  rcvdPkt:vector  ETV
-attr interpolationmode  none
-attr title  "Number of packet received, vector"
-vector 337  Blackhole_Network.node[3].wlan[0].mac  "Mac delay AC0"  ETV
-vector 359  Blackhole_Network.node[7].wlan[0].mac  "jitter AC0"  ETV
-vector 374  Blackhole_Network.node[9].wlan[0].radio  snirVector  ETV
-vector 225  Blackhole_Network.node[7].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 230  Blackhole_Network.node[7].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 335  Blackhole_Network.node[3].wlan[0].mac  "jitter AC0"  ETV
-vector 326  Blackhole_Network.node[1].wlan[0].radio  snirVector  ETV
-vector 116  Blackhole_Network.node[2].networkLayer.ip  rcvdPkt:vector  ETV
-attr interpolationmode  none
-attr title  "Number of packet received, vector"
-vector 111  Blackhole_Network.node[2].udp  rcvdPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  rcvdPk
-attr title  "packets received, vector(packetBytes)"
-vector 112  Blackhole_Network.node[2].udp  passedUpPk:vector(count)  ETV
-attr interpolationmode  none
-attr title  "packets passed up, vector(count)"
-vector 106  Blackhole_Network.node[2].udpApp[0]  rcvdPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  rcvdPk
-attr title  "packets received, vector(packetBytes)"
-vector 109  Blackhole_Network.node[2].udpApp[0]  endToEndDelay:vector  ETV
-attr interpolationmode  none
-attr source  messageAge(rcvdPk)
-attr title  "delay, vector"
-attr unit  s
-vector 307  Blackhole_Network.originator[0].wlan[0].mac  "Mac delay AC0"  ETV
-vector 35  Blackhole_Network.originator[0].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 331  Blackhole_Network.node[2].wlan[0].mac  "Mac delay AC0"  ETV
-vector 248  Blackhole_Network.node[7].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 153  Blackhole_Network.node[4].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 158  Blackhole_Network.node[4].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 305  Blackhole_Network.originator[0].wlan[0].mac  "jitter AC0"  ETV
-vector 329  Blackhole_Network.node[2].wlan[0].mac  "jitter AC0"  ETV
-vector 128  Blackhole_Network.node[2].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 152  Blackhole_Network.node[3].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 13  Blackhole_Network.blackhole[0].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 177  Blackhole_Network.node[5].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 182  Blackhole_Network.node[5].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 57  Blackhole_Network.node[0].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 62  Blackhole_Network.node[0].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 319  Blackhole_Network.node[0].wlan[0].mac  "Mac delay AC0"  ETV
-vector 249  Blackhole_Network.node[8].udpApp[0]  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 254  Blackhole_Network.node[8].udp  sentPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  sentPk
-attr title  "packets sent, vector(packetBytes)"
-vector 164  Blackhole_Network.node[4].networkLayer.ip  rcvdPkt:vector  ETV
-attr interpolationmode  none
-attr title  "Number of packet received, vector"
-vector 159  Blackhole_Network.node[4].udp  rcvdPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  rcvdPk
-attr title  "packets received, vector(packetBytes)"
-vector 160  Blackhole_Network.node[4].udp  passedUpPk:vector(count)  ETV
-attr interpolationmode  none
-attr title  "packets passed up, vector(count)"
-vector 154  Blackhole_Network.node[4].udpApp[0]  rcvdPk:vector(packetBytes)  ETV
-attr interpolationmode  none
-attr source  rcvdPk
-attr title  "packets received, vector(packetBytes)"
-vector 157  Blackhole_Network.node[4].udpApp[0]  endToEndDelay:vector  ETV
-attr interpolationmode  none
-attr source  messageAge(rcvdPk)
-attr title  "delay, vector"
-attr unit  s
-vector 367  Blackhole_Network.node[8].wlan[0].mac  "Mac delay AC0"  ETV
-vector 317  Blackhole_Network.node[0].wlan[0].mac  "jitter AC0"  ETV
-vector 56  Blackhole_Network.destination[0].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 365  Blackhole_Network.node[8].wlan[0].mac  "jitter AC0"  ETV
-vector 80  Blackhole_Network.node[0].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 224  Blackhole_Network.node[6].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 200  Blackhole_Network.node[5].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 296  Blackhole_Network.node[9].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 176  Blackhole_Network.node[4].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-vector 272  Blackhole_Network.node[8].wlan[0].radio  lossRate:vector  ETV
-attr interpolationmode  backward-sample-hold
-attr title  "packet loss rate, vector"
-1	24313 1206 479 19254 0.964393434816 3.461862165139 46 1 46 1081 33511
-3	25519 1206 479 19254 0.964393434816 3.461862165139 46 1 46 1081 33511
-8	26725 9 0 0 0 0 1 0 0 0 0
-10	26734 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-11	26751 10 0 0 0 0 1 0 0 0 0
-12	26761 30830 0 19327 0 3.473328445496 1173 0 2 794 1210
-13	57591 83 4855 15287 1.339025219569 2.839368362978 3 0 0.04 0.04 0.0016
-15	57674 142 643 16296 1.044883177382 3.047708117502 5 512 512 2560 1310720
-17	57816 142 644 16297 1.044883177382 3.047708117502 5 520 520 2600 1352000
-30	57958 10 0 0 0 0 1 0 0 0 0
-32	57968 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-33	57985 10 0 0 0 0 1 0 0 0 0
-34	57995 22858 0 19319 0 3.473327991653 869 0 2 466 530
-35	80853 82 3935 14052 1.310237111268 2.589727101647 3 0 0.04 0.04 0.0016
-51	80935 10 0 0 0 0 1 0 0 0 0
-53	80945 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-54	80962 10 0 0 0 0 1 0 0 0 0
-55	80972 15798 0 19272 0 3.461896629355 601 0 1 300 300
-56	96770 80 6410 19272 1.569038062125 3.461896629355 3 0 0 0 0
-57	96850 258 5069 18859 1.391773001756 3.395950012345 9 512 512 4608 2359296
-62	97108 258 5070 18860 1.391773001756 3.395950012345 9 520 520 4680 2433600
-75	97366 10 0 0 0 0 1 0 0 0 0
-77	97376 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-78	97393 10 0 0 0 0 1 0 0 0 0
-79	97403 13202 0 19274 0 3.461896893546 501 0 2 292 376
-80	110605 53 9344 18837 1.963055422365 3.339316941622 2 0 0 0 0
-81	110658 283 569 17754 0.977665111655 3.227758748518 10 512 512 5120 2621440
-86	110941 283 570 17755 0.977665111655 3.227758748518 10 520 520 5200 2704000
-99	111224 10 0 0 0 0 1 0 0 0 0
-101	111234 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-102	111252 11 0 0 0 0 1 0 0 0 0
-103	111263 3281 0 18088 0 3.294939108551 121 0 2 90 150
-105	114544 295 703 18278 1.068044563755 3.315790279722 10 512 512 5120 2621440
-106	114839 264 2587 17721 1.222513157397 3.223279701135 9 512 512 4608 2359296
-109	115103 362 2587 17721 1.222513157397 3.223279701135 9 0.000251454547 0.00188050581 0.003892318364 4.0422258221025e-006
-110	115465 295 704 18279 1.068044563755 3.315790279722 10 520 520 5200 2704000
-111	115760 264 2586 17720 1.222513157397 3.223279701135 9 520 520 4680 2433600
-112	116024 246 2586 17720 1.222513157397 3.223279701135 9 1 9 45 285
-116	116270 246 2583 17717 1.222513157397 3.223279701135 9 1 9 45 285
-123	116516 11 0 0 0 0 1 0 0 0 0
-125	116527 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-126	116545 11 0 0 0 0 1 0 0 0 0
-127	116556 22215 0 19322 0 3.473328134058 813 0 2 496 676
-128	138771 85 4779 18333 1.338855467935 3.31590724779 3 0 0.02 0.02 0.0004
-129	138856 323 119 18570 0.83739616163 3.338510635342 11 512 512 5632 2883584
-134	139179 323 120 18571 0.83739616163 3.338510635342 11 520 520 5720 2974400
-147	139502 11 0 0 0 0 1 0 0 0 0
-149	139513 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-150	139531 11 0 0 0 0 1 0 0 0 0
-151	139542 19687 0 19324 0 3.473328381653 721 0 2 416 528
-152	159229 86 4782 19324 1.338855687396 3.473328381653 3 0 0.02 0.02 0.0004
-153	159315 266 4664 18564 1.33261984284 3.330161060019 9 512 512 4608 2359296
-154	159581 266 5518 19118 1.444920282391 3.446762289773 9 512 512 4608 2359296
-157	159847 365 5518 19118 1.444920282391 3.446762289773 9 0.000251315485 0.000251363776 0.002262061257 5.6854679445882e-007
-158	160212 266 4665 18565 1.33261984284 3.330161060019 9 520 520 4680 2433600
-159	160478 266 5517 19117 1.444920282391 3.446762289773 9 520 520 4680 2433600
-160	160744 248 5517 19117 1.444920282391 3.446762289773 9 1 9 45 285
-164	160992 248 5514 19114 1.444920282391 3.446762289773 9 1 9 45 285
-171	161240 11 0 0 0 0 1 0 0 0 0
-173	161251 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-174	161269 11 0 0 0 0 1 0 0 0 0
-175	161280 10091 0 19132 0 3.446796289773 369 0 2 248 376
-176	171371 31 15924 15924 2.945609424228 2.945609424228 1 0.02 0.02 0.02 0.0004
-177	171402 267 5009 18853 1.370087251067 3.371239626336 9 512 512 4608 2359296
-182	171669 267 5010 18854 1.370087251067 3.371239626336 9 520 520 4680 2433600
-195	171936 11 0 0 0 0 1 0 0 0 0
-197	171947 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-198	171965 11 0 0 0 0 1 0 0 0 0
-199	171976 10099 0 19138 0 3.446796850624 369 0 2 212 268
-200	182075 30 13077 13077 2.53858552172 2.53858552172 1 0.02 0.02 0.02 0.0004
-201	182105 324 186 19151 0.961479362798 3.461609722329 11 512 512 5632 2883584
-206	182429 324 187 19152 0.961479362798 3.461609722329 11 520 520 5720 2974400
-219	182753 11 0 0 0 0 1 0 0 0 0
-221	182764 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-222	182782 11 0 0 0 0 1 0 0 0 0
-223	182793 14135 0 19278 0 3.461896979409 517 0 2 308 408
-224	196928 55 9346 18841 1.963055461965 3.339317024464 2 0 0 0 0
-225	196983 295 2283 19296 1.220632651587 3.47325565084 10 512 512 5120 2621440
-230	197278 295 2284 19297 1.220632651587 3.47325565084 10 520 520 5200 2704000
-236	197573 734 1505 18671 1.085675383489 3.338762826206 26 1 26 351 6201
-243	198307 11 0 0 0 0 1 0 0 0 0
-245	198318 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-246	198336 11 0 0 0 0 1 0 0 0 0
-247	198347 36675 0 19318 0 3.47332765084 1341 0 2 954 1522
-248	235022 86 4324 14855 1.311528948652 2.816786443234 3 0 0.02 0.02 0.0004
-249	235108 266 5411 19011 1.444668918615 3.446510974288 9 512 512 4608 2359296
-254	235374 266 5412 19012 1.444668918615 3.446510974288 9 520 520 4680 2433600
-267	235640 11 0 0 0 0 1 0 0 0 0
-269	235651 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-270	235669 11 0 0 0 0 1 0 0 0 0
-271	235680 10103 0 19134 0 3.446796728268 369 0 2 248 376
-272	245783 31 15960 15960 2.945653866735 2.945653866735 1 0.02 0.02 0.02 0.0004
-273	245814 322 515 19290 0.97360042273 3.472510324736 11 512 512 5632 2883584
-278	246136 322 516 19291 0.97360042273 3.472510324736 11 520 520 5720 2974400
-291	246458 11 0 0 0 0 1 0 0 0 0
-293	246469 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
-294	246487 11 0 0 0 0 1 0 0 0 0
-295	246498 8559 0 19136 0 3.446796779586 313 0 2 184 240
-296	255057 31 15894 15894 2.945485031743 2.945485031743 1 0.02 0.02 0.02 0.0004
-297	255088 52900 0 19327 0 3.473328445496 1940 0 7 1994 12538
-298	307988 32014 0 19327 0 3.473328445496 1174 0 2 794 1210
-299	340002 116 919 5562 1.084453369112 1.461800978048 4 0 3.492e-009 3.492e-009 1.2194064e-017
-300	340118 630 201 19162 0.963783912574 3.461648536599 21 0 13515.471141739 30155.672385693 275436512.43961
-301	340748 199 371 5254 0.964070927402 1.394183000341 5 0.000204971388 0.000205259964 0.0010257486 2.1043212083882e-007
-302	340947 40 218 218 0.963845912574 0.963845912574 1 25.871808304268 25.871808304268 25.871808304268 669.35046493277
-303	340987 44266 0 19321 0 3.473327991653 1622 0 7 872 4112
-304	385253 23738 0 19319 0 3.473327991653 870 0 2 466 530
-305	408991 138 4735 16910 1.338777080281 3.087931641464 5 0 0 0 0
-306	409129 661 134 19306 0.842327288035 3.473293991653 21 0 52156.495705985 221050.79740954 9212716497.4193
-307	409790 202 3420 16422 1.291152953041 3.047993476074 5 0.000275341076 0.000479337592 0.001580736864 5.3303461636495e-007
-308	409992 40 151 151 0.842389288035 0.842389288035 1 25.043942502603 25.043942502603 25.043942502603 627.19905607371
-309	410032 30302 0 19273 0 3.461896629355 1110 0 0 0 0
-310	440334 16410 0 19272 0 3.461896629355 602 0 1 300 300
-312	456744 575 200 19161 0.96378376618 3.461648326882 21 0 0 0 0
-314	457319 39 214 214 0.96384576618 0.96384576618 1 27.747613935243 27.747613935243 27.747613935243 769.93007909928
-315	457358 26864 0 19275 0 3.461896893546 982 0 7 1230 6230
-316	484222 13714 0 19274 0 3.461896893546 502 0 2 292 376
-317	497936 247 5592 19192 1.461845720114 3.461693265006 9 0 0 0 0
-318	498183 698 248 19192 0.963894658637 3.461693265006 21 0 37782.355609422 295635.91096487 9738768410.6293
-319	498881 363 5383 18983 1.394639228882 3.396236928345 9 0.000276916 0.000480971388 0.00269647782 8.4489207175555e-007
-320	499244 40 263 263 0.963928658637 0.963928658637 1 25.960351586909 25.960351586909 25.960351586909 673.93985451594
-321	499284 8154 0 18108 0 3.295039108551 300 0 5 540 2040
-322	507438 3292 0 18088 0 3.294939108551 122 0 2 90 150
-324	510730 341 580 17873 0.981361081757 3.25853156596 9 0 7516.945291942 33428.36097247 184670610.53398
-326	511071 41 2464 2464 1.222189416675 1.222189416675 1 25.862990911537 25.862990911537 25.862990911537 668.89429889023
-327	511112 41370 0 19323 0 3.473328134058 1514 0 7 1837 9375
-328	552482 22226 0 19322 0 3.473328134058 814 0 2 496 676
-329	574708 256 4765 18609 1.338821467935 3.338593849664 9 0 0.000132 0.000132 1.7424e-008
-330	574964 689 657 19307 1.047812223144 3.473294134058 20 0 91544.402424765 420416.20259287 21271424680.971
-331	575653 402 4118 18406 1.31066527831 3.316076215858 10 0.000275936136 0.000408001384 0.002891726752 8.5189754485936e-007
-332	576055 40 671 671 1.047874223144 1.047874223144 1 35.147081799893 35.147081799893 35.147081799893 1235.3173590484
-333	576095 38666 0 19326 0 3.473328381653 1416 0 7 1688 8108
-334	614761 19698 0 19324 0 3.473328381653 722 0 2 416 528
-335	634459 281 2295 19308 1.220671370872 3.473294381653 10 0 0.000213 0.000213 4.5369e-008
-336	634740 741 130 19308 0.842298458956 3.473294381653 21 0 58221.004775647 387789.5419543 14463320373.736
-337	635481 441 1532 18698 1.085710101729 3.338797556494 11 0.00027687296 0.00048987296 0.003258843304 1.0066951958282e-006
-338	635922 40 679 679 1.047874794508 1.047874794508 1 25.029627307323 25.029627307323 25.029627307323 626.48224314349
-339	635962 18096 0 19132 0 3.446796289773 662 0 7 768 3688
-340	654058 10102 0 19132 0 3.446796289773 370 0 2 248 376
-342	664160 533 530 19022 0.974381135212 3.446549412783 15 0 25473.252698177 78641.506074937 1062135711.6502
-344	664693 40 547 547 0.974443135212 0.974443135212 1 29.372997651096 29.372997651096 29.372997651096 862.77299101127
-345	664733 18886 0 19139 0 3.446796850624 690 0 5 512 1908
-346	683619 10110 0 19138 0 3.446796850624 370 0 2 212 268
-348	693729 524 583 19023 0.981389837475 3.446549611478 15 0 25479.377189644 80977.157767759 1200741957.7767
-350	694253 40 597 597 0.981451837475 0.981451837475 1 25.848668038273 25.848668038273 25.848668038273 668.15363935281
-351	694293 27606 0 19289 0 3.462041979409 1010 0 7 1486 7534
-352	721899 14146 0 19278 0 3.461896979409 518 0 2 308 408
-353	736045 275 977 18460 1.084564125236 3.316356339138 10 0 0 0 0
-354	736320 717 197 19158 0.963755158867 3.461619722329 21 0 44764.889250701 441039.06990574 19453519831.498
-355	737037 440 502 19279 0.964428188523 3.461896979409 11 0.000277043836 0.000382014828 0.003153518788 9.1405879675731e-007
-356	737477 40 266 266 0.963928666281 0.963928666281 1 25.871808304268 25.871808304268 25.871808304268 669.35046493277
-357	737517 65860 0 19318 0 3.47332765084 2408 0 7 6334 32956
-358	803377 36686 0 19318 0 3.47332765084 1342 0 2 954 1522
-359	840063 652 2041 19193 1.211772628032 3.461693331255 19 0 0.001677005588 0.003604978976 3.1607587870722e-006
-360	840715 865 133 19193 0.842327176151 3.461693331255 22 0 158865.33795889 1350442.3972238 108294509302.98
-361	841580 1570 1261 18840 1.085040074049 3.339317008094 39 0.000228001384 0.001905006972 0.018320190568 1.1374123246799e-005
-362	843150 40 147 147 0.842389176151 0.842389176151 1 26.303113714505 26.303113714505 26.303113714505 691.85379107816
-363	843190 19728 0 19150 0 3.447085728268 720 0 7 1674 7810
-364	862918 10114 0 19134 0 3.446796728268 370 0 2 248 376
-365	873032 221 6437 18171 1.577242249942 3.297731671688 8 0 0 0 0
-366	873253 565 529 19018 0.974380867862 3.446520974288 15 0 60518.517974968 289838.04827164 9940250279.0033
-367	873818 365 5535 19135 1.444954736983 3.446796728268 9 0.00027575398 0.000275818368 0.002482081676 6.8452549793034e-007
-368	874183 40 543 543 0.974442867862 0.974442867862 1 35.946003834119 35.946003834119 35.946003834119 1292.1151916425
-369	874223 16898 0 19137 0 3.446796779586 618 0 5 504 1904
-370	891121 8570 0 19136 0 3.446796779586 314 0 2 184 240
-372	899691 549 526 19021 0.974352631546 3.44654921082 15 0 25479.449018887 71361.96024448 909948436.93769
-374	900240 41 2213 2213 1.217979283731 1.217979283731 1 29.402319609932 29.402319609932 29.402319609932 864.49639844457
+8	13170 9 0 0 0 0 1 0 0 0 0
+10	13179 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+11	13196 10 0 0 0 0 1 0 0 0 0
+12	13206 10 0 0 0 0 1 0 0 0 0
+30	13216 10 0 0 0 0 1 0 0 0 0
+32	13226 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+33	13243 10 0 0 0 0 1 0 0 0 0
+34	13253 10 0 0 0 0 1 0 0 0 0
+51	13263 10 0 0 0 0 1 0 0 0 0
+53	13273 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+54	13290 10 0 0 0 0 1 0 0 0 0
+55	13300 10 0 0 0 0 1 0 0 0 0
+75	13310 10 0 0 0 0 1 0 0 0 0
+77	13320 17 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+78	13337 10 0 0 0 0 1 0 0 0 0
+79	13347 10 0 0 0 0 1 0 0 0 0
+99	13357 10 0 0 0 0 1 0 0 0 0
+101	13367 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+102	13385 11 0 0 0 0 1 0 0 0 0
+103	13396 11 0 0 0 0 1 0 0 0 0
+123	13407 11 0 0 0 0 1 0 0 0 0
+125	13418 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+126	13436 11 0 0 0 0 1 0 0 0 0
+127	13447 11 0 0 0 0 1 0 0 0 0
+147	13458 11 0 0 0 0 1 0 0 0 0
+149	13469 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+150	13487 11 0 0 0 0 1 0 0 0 0
+151	13498 11 0 0 0 0 1 0 0 0 0
+171	13509 11 0 0 0 0 1 0 0 0 0
+173	13520 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+174	13538 11 0 0 0 0 1 0 0 0 0
+175	13549 11 0 0 0 0 1 0 0 0 0
+195	13560 11 0 0 0 0 1 0 0 0 0
+197	13571 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+198	13589 11 0 0 0 0 1 0 0 0 0
+199	13600 11 0 0 0 0 1 0 0 0 0
+219	13611 11 0 0 0 0 1 0 0 0 0
+221	13622 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+222	13640 11 0 0 0 0 1 0 0 0 0
+223	13651 11 0 0 0 0 1 0 0 0 0
+243	13662 11 0 0 0 0 1 0 0 0 0
+245	13673 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+246	13691 11 0 0 0 0 1 0 0 0 0
+247	13702 11 0 0 0 0 1 0 0 0 0
+267	13713 11 0 0 0 0 1 0 0 0 0
+269	13724 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+270	13742 11 0 0 0 0 1 0 0 0 0
+271	13753 11 0 0 0 0 1 0 0 0 0
+291	13764 11 0 0 0 0 1 0 0 0 0
+293	13775 18 0 0 0 0 1 54000000 54000000 54000000 2.916e+015
+294	13793 11 0 0 0 0 1 0 0 0 0
+295	13804 11 0 0 0 0 1 0 0 0 0
+297	13815 22 0 0 0 0 2 0 0 0 0
+298	13837 22 0 0 0 0 2 0 0 0 0
+303	13859 22 0 0 0 0 2 0 0 0 0
+304	13881 22 0 0 0 0 2 0 0 0 0
+309	13903 22 0 0 0 0 2 0 0 0 0
+310	13925 22 0 0 0 0 2 0 0 0 0
+315	13947 22 0 0 0 0 2 0 0 0 0
+316	13969 22 0 0 0 0 2 0 0 0 0
+321	13991 22 0 0 0 0 2 0 0 0 0
+322	14013 22 0 0 0 0 2 0 0 0 0
+327	14035 22 0 0 0 0 2 0 0 0 0
+328	14057 22 0 0 0 0 2 0 0 0 0
+333	14079 22 0 0 0 0 2 0 0 0 0
+334	14101 22 0 0 0 0 2 0 0 0 0
+339	14123 22 0 0 0 0 2 0 0 0 0
+340	14145 22 0 0 0 0 2 0 0 0 0
+345	14167 22 0 0 0 0 2 0 0 0 0
+346	14189 22 0 0 0 0 2 0 0 0 0
+351	14211 22 0 0 0 0 2 0 0 0 0
+352	14233 22 0 0 0 0 2 0 0 0 0
+357	14255 22 0 0 0 0 2 0 0 0 0
+358	14277 22 0 0 0 0 2 0 0 0 0
+363	14299 22 0 0 0 0 2 0 0 0 0
+364	14321 22 0 0 0 0 2 0 0 0 0
+369	14343 22 0 0 0 0 2 0 0 0 0
+370	14365 22 0 0 0 0 2 0 0 0 0

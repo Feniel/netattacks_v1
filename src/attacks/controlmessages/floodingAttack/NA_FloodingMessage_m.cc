@@ -34,7 +34,7 @@ Register_Class(NA_FloodingMessage);
 
 NA_FloodingMessage::NA_FloodingMessage(const char *name, int kind) : cMessage(name,kind)
 {
-    this->floodingAttackQuantity_var = 0;
+    this->floodingGradeIndicator_var = 0;
 }
 
 NA_FloodingMessage::NA_FloodingMessage(const NA_FloodingMessage& other) : cMessage(other)
@@ -56,29 +56,29 @@ NA_FloodingMessage& NA_FloodingMessage::operator=(const NA_FloodingMessage& othe
 
 void NA_FloodingMessage::copy(const NA_FloodingMessage& other)
 {
-    this->floodingAttackQuantity_var = other.floodingAttackQuantity_var;
+    this->floodingGradeIndicator_var = other.floodingGradeIndicator_var;
 }
 
 void NA_FloodingMessage::parsimPack(cCommBuffer *b)
 {
     cMessage::parsimPack(b);
-    doPacking(b,this->floodingAttackQuantity_var);
+    doPacking(b,this->floodingGradeIndicator_var);
 }
 
 void NA_FloodingMessage::parsimUnpack(cCommBuffer *b)
 {
     cMessage::parsimUnpack(b);
-    doUnpacking(b,this->floodingAttackQuantity_var);
+    doUnpacking(b,this->floodingGradeIndicator_var);
 }
 
-double NA_FloodingMessage::getFloodingAttackQuantity() const
+double NA_FloodingMessage::getFloodingGradeIndicator() const
 {
-    return floodingAttackQuantity_var;
+    return floodingGradeIndicator_var;
 }
 
-void NA_FloodingMessage::setFloodingAttackQuantity(double floodingAttackQuantity)
+void NA_FloodingMessage::setFloodingGradeIndicator(double floodingGradeIndicator)
 {
-    this->floodingAttackQuantity_var = floodingAttackQuantity;
+    this->floodingGradeIndicator_var = floodingGradeIndicator;
 }
 
 class NA_FloodingMessageDescriptor : public cClassDescriptor
@@ -154,7 +154,7 @@ const char *NA_FloodingMessageDescriptor::getFieldName(void *object, int field) 
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldNames[] = {
-        "floodingAttackQuantity",
+        "floodingGradeIndicator",
     };
     return (field>=0 && field<1) ? fieldNames[field] : NULL;
 }
@@ -163,7 +163,7 @@ int NA_FloodingMessageDescriptor::findField(void *object, const char *fieldName)
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount(object) : 0;
-    if (fieldName[0]=='f' && strcmp(fieldName, "floodingAttackQuantity")==0) return base+0;
+    if (fieldName[0]=='f' && strcmp(fieldName, "floodingGradeIndicator")==0) return base+0;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
@@ -218,7 +218,7 @@ std::string NA_FloodingMessageDescriptor::getFieldAsString(void *object, int fie
     }
     NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
-        case 0: return double2string(pp->getFloodingAttackQuantity());
+        case 0: return double2string(pp->getFloodingGradeIndicator());
         default: return "";
     }
 }
@@ -233,7 +233,7 @@ bool NA_FloodingMessageDescriptor::setFieldAsString(void *object, int field, int
     }
     NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
-        case 0: pp->setFloodingAttackQuantity(string2double(value)); return true;
+        case 0: pp->setFloodingGradeIndicator(string2double(value)); return true;
         default: return false;
     }
 }

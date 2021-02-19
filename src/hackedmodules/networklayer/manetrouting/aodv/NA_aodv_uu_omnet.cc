@@ -51,6 +51,7 @@
 #include "ControlManetRouting_m.h"
 #include "Ieee802Ctrl_m.h"
 
+#include "NA_aodv-uu/NA_aodv_rreq.h"
 
 const int UDP_HEADER_BYTES = 8;
 typedef std::vector<IPv4Address> IPAddressVector;
@@ -111,11 +112,12 @@ void NS_CLASS initialize(int stage)
         sinkholeAttackIsActive = false;
         sinkholeAttackProbability = 0;
         sinkOnlyWhenRouteInTable = false;
+        numSents = 0;
         // END NA_SINKHOLE - sancale
 
         //  Blackhole Attack variables
         blackholeAttackIsActive = false;
-        numSents = 0;
+        numForged = 0;
 
         //sendMessageEvent = new cMessage();
         if ((bool)par("log_to_file"))
@@ -559,6 +561,12 @@ void NS_CLASS handleMessage (cMessage *msg)
     AODV_msg *aodvMsg=NULL;
     IPv4Datagram * ipDgram=NULL;
     UDPPacket * udpPacket=NULL;
+
+    // Flooding Attack
+    //RREQ *rreq;
+    //struct rand_addr =
+    //u_int32_t rand_seqno =
+    //rreq = rreq_create(0, rand_addr,rand_seqno);
 
     cMessage *msg_aux;
     struct in_addr src_addr;
@@ -1019,7 +1027,7 @@ void NS_CLASS processPacket(IPv4Datagram * p,unsigned int ifindex)
         }
         // END NA_SINKHOLE - sancale
 
-        // Blackhole
+        // Blackhole Attack
         // so if the route is no longer possible
         // the blackhole still receives the packages
         if(blackholeAttackIsActive){
