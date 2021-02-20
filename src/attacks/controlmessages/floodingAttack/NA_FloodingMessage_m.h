@@ -24,14 +24,14 @@ typedef cPar *ParPtr;
  * Class generated from <tt>attacks/controlmessages/floodingAttack/NA_FloodingMessage.msg</tt> by opp_msgc.
  * <pre>
  * message NA_FloodingMessage {
- *     double floodingGradeIndicator;
+ *     int floodingGradeIndicator;
  * }
  * </pre>
  */
 class NA_FloodingMessage : public ::cMessage
 {
   protected:
-    double floodingGradeIndicator_var;
+    int floodingGradeIndicator_var;
 
   private:
     void copy(const NA_FloodingMessage& other);
@@ -50,8 +50,8 @@ class NA_FloodingMessage : public ::cMessage
     virtual void parsimUnpack(cCommBuffer *b);
 
     // field getter/setter methods
-    virtual double getFloodingGradeIndicator() const;
-    virtual void setFloodingGradeIndicator(double floodingGradeIndicator);
+    virtual int getFloodingGradeIndicator() const;
+    virtual void setFloodingGradeIndicator(int floodingGradeIndicator);
 };
 
 inline void doPacking(cCommBuffer *b, NA_FloodingMessage& obj) {obj.parsimPack(b);}

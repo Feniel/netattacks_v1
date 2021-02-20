@@ -15,6 +15,7 @@ network Blackhole_Network
         int numNodes;
         int numOriginator;
         int numDestination;
+        @statistic[packet_throughput];
     submodules:
         // blackhole submodule configuration
         blackhole[numBlackholes]: NA_AttackerAdhocHost {

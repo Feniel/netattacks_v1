@@ -13,10 +13,11 @@ simple NA_BlackholeAttack extends NA_Attack
         @class(NA_BlackholeAttack);
         @display("i=misc/cloud3,red,100;is=l");
 
-        attackType = "blackhole";	//Should correspond with the tag located in the hackedModules.ned. e.g. @blackhole for this attack.       
-        double blackholeDropProbability = default(1);	//defualt(1) for blackhole attack
-														//else for greyhole attack
-
-        volatile double seqnoAdded = default(uniform(20, 30)); 	// Fake sequence number generated.
-        volatile int numHops = default(1);	// Fake number of hops.
+        attackType = "blackhole";
+        //defualt(1) for blackhole attack, else for greyhole attack	       
+        double blackholeDropProbability = default(1);
+        // Fake sequence number generated.	
+        volatile double seqnoAdded = default(uniform(20, 30)); 
+        // Fake number of hops.	
+        volatile int numHops = default(1);	
 }

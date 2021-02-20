@@ -71,12 +71,12 @@ void NA_FloodingMessage::parsimUnpack(cCommBuffer *b)
     doUnpacking(b,this->floodingGradeIndicator_var);
 }
 
-double NA_FloodingMessage::getFloodingGradeIndicator() const
+int NA_FloodingMessage::getFloodingGradeIndicator() const
 {
     return floodingGradeIndicator_var;
 }
 
-void NA_FloodingMessage::setFloodingGradeIndicator(double floodingGradeIndicator)
+void NA_FloodingMessage::setFloodingGradeIndicator(int floodingGradeIndicator)
 {
     this->floodingGradeIndicator_var = floodingGradeIndicator;
 }
@@ -176,7 +176,7 @@ const char *NA_FloodingMessageDescriptor::getFieldTypeString(void *object, int f
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldTypeStrings[] = {
-        "double",
+        "int",
     };
     return (field>=0 && field<1) ? fieldTypeStrings[field] : NULL;
 }
@@ -218,7 +218,7 @@ std::string NA_FloodingMessageDescriptor::getFieldAsString(void *object, int fie
     }
     NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
-        case 0: return double2string(pp->getFloodingGradeIndicator());
+        case 0: return long2string(pp->getFloodingGradeIndicator());
         default: return "";
     }
 }
@@ -233,7 +233,7 @@ bool NA_FloodingMessageDescriptor::setFieldAsString(void *object, int field, int
     }
     NA_FloodingMessage *pp = (NA_FloodingMessage *)object; (void)pp;
     switch (field) {
-        case 0: pp->setFloodingGradeIndicator(string2double(value)); return true;
+        case 0: pp->setFloodingGradeIndicator(string2long(value)); return true;
         default: return false;
     }
 }

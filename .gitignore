@@ -1,3 +1,6 @@
 
 *.elog
 *.sca
+*.vec
+*.vec
+*.vci

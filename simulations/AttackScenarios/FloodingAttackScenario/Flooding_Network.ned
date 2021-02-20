@@ -10,13 +10,12 @@ import nesg.netattacks.nodes.*;
 network Flooding_Network
 {
     parameters:
-        //	added blackholes
         int numFloodNodes;
         int numNodes;
         int numOriginator;
         int numDestination;
     submodules:
-        // blackhole submodule configuration
+        // flooding submodule configuration
         floodnode[numFloodNodes]: NA_AttackerAdhocHost {
             @display("p=295,219");
         }

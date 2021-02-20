@@ -62,7 +62,7 @@ simple NA_IPv4 extends IPv4
 	    @signal[delayed](type=long); // Signal for number of packet delayed
 	    @statistic[delayed](title="Number of packet delayed"; record=count, vector; interpolationmode=none); // Record the number of packet delayed
 	    
-	    //Blackhole statistics
+	    //# Blackhole statistics
 	    @signal[blacked](type=long);
 	    @statistic[blacked](title="Number of blackhole drops"; record=count, vector; interpolationmode=none);
 }

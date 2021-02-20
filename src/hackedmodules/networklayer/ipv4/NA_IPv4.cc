@@ -147,17 +147,12 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
                 << "ERROR: Message unknown in NA_IPv4::handleMessageFromAttackController. Msg: "
                 << msg->getFullName() << "\n";
     }
-    cout << simTime() << ": ipv4 aktive attack check -> " << blackholeAttackIsActive << endl;
 }
 
 void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
         InterfaceEntry *fromIE) {
 
     ASSERT(datagram);
-
-    //cout << simTime() << ": Incoming packet: " << datagram->getFullPath() << endl;
-    //cout << simTime() << ": Source address: " << datagram->getSrcAddress().str() << endl;
-    //cout << simTime() << ": Destination address: " << datagram->getDestAddress().str() << endl;
 
     // Count the number of total data packet received, for statistics.
     if (!strncmp(datagram->getName(), PING_DATA, 4)

@@ -10,5 +10,5 @@ class noncobject ParPtr;
 // 
 
 message NA_FloodingMessage {
-    double floodingGradeIndicator;
+    int floodingGradeIndicator;
 }

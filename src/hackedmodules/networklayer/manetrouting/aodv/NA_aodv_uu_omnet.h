@@ -125,6 +125,7 @@ class NA_AODVUU;
 #include "NA_HackedModule.h"
 #include "NA_SinkholeMessage_m.h"
 #include "NA_BlackholeMessage_m.h"
+#include "NA_FloodingMessage_m.h"
 // ---------------
 
 
@@ -207,6 +208,14 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     */
     int numForged;
 
+    /**
+     *  Flag to activate flooding attack
+     */
+    bool floodingAttackIsActive;
+    /**
+    *   indicates the amount of sended rreqs
+    */
+    int floodingGradeIndicator;
 
 
     char nodeName[50];

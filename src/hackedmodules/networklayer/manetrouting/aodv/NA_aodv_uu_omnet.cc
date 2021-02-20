@@ -52,6 +52,7 @@
 #include "Ieee802Ctrl_m.h"
 
 #include "NA_aodv-uu/NA_aodv_rreq.h"
+int counter = 0;
 
 const int UDP_HEADER_BYTES = 8;
 typedef std::vector<IPv4Address> IPAddressVector;
@@ -118,6 +119,13 @@ void NS_CLASS initialize(int stage)
         //  Blackhole Attack variables
         blackholeAttackIsActive = false;
         numForged = 0;
+
+        //  Flooding Attack variables
+        floodingAttackIsActive = false;
+        floodingGradeIndicator = 0;
+
+        //  statistics
+        cOutVector simulation_throughput;
 
         //sendMessageEvent = new cMessage();
         if ((bool)par("log_to_file"))
@@ -352,7 +360,6 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
 
     LOG << "NA_AODVUU: Received message: "<< msg->getFullName() << "\n";
 
-
     // BEGIN NA_SINKHOLE - sancale
     // Activate sinkhole
     if (not strcmp(msg->getFullName(), "sinkholeActivate")) {
@@ -406,9 +413,31 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
             cout << simTime() << ": Blackhole AODVUU deaktivated " << endl;
         }
 
+        /*-------------------------- Flooding ATTACK -------------------------*/
+        else if (not strcmp(msg->getFullName(), "floodingActivate")) {
+            NA_FloodingMessage *dmsg;
+            dmsg = check_and_cast<NA_FloodingMessage *>(msg);
+            LOG << "--> Activating module NA_AODVUU for Flooding...\n";
+            floodingAttackIsActive = true;
+            //Now flooding attack is activated in this module
+            floodingGradeIndicator = dmsg->getFloodingGradeIndicator();
+            //delete(msg);
+            cout << simTime() << ": Flooding AODVUU aktivated " << endl;
+
+        } else if (not strcmp(msg->getFullName(), "floodingDeactivate")) {
+            NA_FloodingMessage *dmsg;
+            dmsg = check_and_cast<NA_FloodingMessage *>(msg);
+            LOG << "Deactivating module NA_AODVUU for Flooding...\n";
+            //Now flooding attack is deactivated in this module
+            floodingAttackIsActive = false;
+            //delete(msg);
+            cout << simTime() << ": Flooding AODVUU deaktivated " << endl;
+        }
+
     else {
         LOG << "ERROR: Message unknown in NA_AODVUU::handleMessageFromAttackController. Msg: " << msg->getFullName() << "\n";
     }
+    //debug control messages
 }
 
 
@@ -562,15 +591,27 @@ void NS_CLASS handleMessage (cMessage *msg)
     IPv4Datagram * ipDgram=NULL;
     UDPPacket * udpPacket=NULL;
 
-    // Flooding Attack
-    //RREQ *rreq;
-    //struct rand_addr =
-    //u_int32_t rand_seqno =
-    //rreq = rreq_create(0, rand_addr,rand_seqno);
-
     cMessage *msg_aux;
     struct in_addr src_addr;
     struct in_addr dest_addr;
+    struct in_addr rand_addr;
+
+    // Flooding Attack
+    RREQ rreq;
+    IPv4Address rand_seed;
+    if(floodingAttackIsActive){
+        for (int i = 0; i < floodingGradeIndicator; i++ ){
+            rand_seed.set(145,236,intuniform(2,20),intuniform(2,254));
+            rand_addr.S_addr = ManetAddress(rand_seed);
+            rreq_send(rand_addr,0,NET_DIAMETER, RREQ_DEST_ONLY);
+        }
+        cout << simTime() << ": Flooded the Network with " << intuniform(500,floodingGradeIndicator) << " packages" << endl;
+        cout << rand_addr.S_addr << endl;
+    }
+
+
+    //counter++;
+    //cout << simTime() << ": test -> " << rand_addr << endl;
 
     if (is_init==false)
         opp_error ("Aodv has not been initialized ");
