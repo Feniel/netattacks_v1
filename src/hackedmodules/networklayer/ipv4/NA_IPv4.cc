@@ -164,7 +164,7 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
 
     if (blackholeAttackIsActive) {
             LOG << "Received packet after black hole attack is activated ... " << "\n";
-            cout << simTime() << ": Blackhole Received packet " << endl;
+            cout << simTime() << ": Aktive Blackhole Received packet " << endl;
             //checks if the package is ping, udp or tcp
             if (!strncmp(datagram->getName(), PING_DATA, 4)
                 || !strncmp(datagram->getName(), UDP_DATA, 3)
@@ -178,7 +178,7 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
                             << numDrops << " dropping times." << endl;
                         cout << simTime() << ": Discarding packet: "
                              << datagram->getName() << endl;
-                        delete datagram; //the package is dropped by calling the destructor
+                        delete datagram; //the package destructor is called
                     }
                     else {
                        IPv4::handlePacketFromNetwork(datagram, fromIE);

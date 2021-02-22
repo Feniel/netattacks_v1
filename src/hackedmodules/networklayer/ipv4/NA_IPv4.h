@@ -117,22 +117,22 @@ private:
 
     /*----------------- Blackhole ATTACK  -------------------------*/
     /**
-     * Flag to activate blackhole attack
+     *  Flag to activate blackhole attack
      */
     bool blackholeAttackIsActive;
 
     /**
-     * Probability for dropping packets when dropping attack is active
+     *  Probability for dropping packets when dropping attack is active
      */
     double blackholeDropProbability;
     /**
-     * Count the number of packet discarded. For dropping statistics
+     *  Count the number of packet discarded. For dropping statistics
      */
     long numDrops;
 
     /*---------------------OTHERs-------------------------------*/
     /**
-     * Number of data packet received by the host.
+     *  Number of data packet received by the host.
      */
     long numRecvPacket;
 

@@ -13,6 +13,7 @@ simple NA_FloodingAttack extends NA_Attack
         @class(NA_FloodingAttack);
         @display("i=misc/cloud3,red,100;is=l");
 
-        attackType = "flooding"; //Should correspond with the tag located in the hackedModules.ned. e.g. @flooding for this attack.
-        volatile int floodingGradeIndicator = default(0); //Quantity of false RREQ's sent into the network.
+        attackType = "flooding"; 
+        //Quantity of false RREQ's sent into the network.
+        volatile int floodingGradeIndicator = default(0); 
 }
