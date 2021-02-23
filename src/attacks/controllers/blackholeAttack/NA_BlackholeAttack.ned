@@ -20,4 +20,7 @@ simple NA_BlackholeAttack extends NA_Attack
         volatile double seqnoAdded = default(uniform(20, 30)); 
         // Fake number of hops.	
         volatile int numHops = default(1);	
+        // Countermeasures
+        bool saodvAktive = default(false);
+        bool frreqAktive = default(false);
 }

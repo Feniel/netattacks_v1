@@ -12,5 +12,7 @@ class noncobject ParPtr;
 message NA_BlackholeMessage {
     double blackholeDropProbability; 	
     ParPtr seqnoAdded; 					
-    int numHops;						
+    int numHops;
+    bool saodvAktive;
+    bool frreqAktive;						
 }

@@ -95,6 +95,10 @@ void NS_CLASS aodv_socket_init()
     int bufsize = SO_RECVBUF_SIZE;
     socklen_t optlen = sizeof(bufsize);
 
+    // SAODV Countermeasure
+    vector<vector<<AODV_msg>> saodv_que;
+    int checksum;
+
     /* Create a UDP socket */
 
     if (this_host.nif == 0)
@@ -238,6 +242,9 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         struct in_addr dst,
         int ttl, unsigned int ifindex)
 {
+    //SAODV
+
+
     /* If this was a HELLO message... Process as HELLO. */
 #ifndef OMNETPP
     if ((aodv_msg->type == AODV_RREP && ttl == 1 &&
@@ -267,6 +274,10 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         break;
     case AODV_RREP:
         DEBUG(LOG_DEBUG, 0, "Received RREP");
+
+        //SAODV
+
+
         rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
         break;
     case AODV_RERR:

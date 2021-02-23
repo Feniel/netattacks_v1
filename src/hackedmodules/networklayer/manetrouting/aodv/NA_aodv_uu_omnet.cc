@@ -127,6 +127,10 @@ void NS_CLASS initialize(int stage)
         //  statistics
         cOutVector simulation_throughput;
 
+        // Countermeasures
+        saodvAktive = false;
+        frreqAktive = false;
+
         //sendMessageEvent = new cMessage();
         if ((bool)par("log_to_file"))
             log_to_file = 1;
@@ -400,6 +404,9 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
             numHops = dmsg->getNumHops();
             //delete(msg);
             cout << simTime() << ": Blackhole AODVUU aktivated " << endl;
+            //countermeasures
+            saodvAktive = dmsg->getSaodvAktive();
+            frreqAktive = dmsg->getFrreqAktive();
 
         } else if (not strcmp(msg->getFullName(), "blackholeDeactivate")) {
             NA_BlackholeMessage *dmsg;
@@ -411,6 +418,9 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
             numHops = NULL;
             //delete(msg);
             cout << simTime() << ": Blackhole AODVUU deaktivated " << endl;
+            //countermeasures
+            saodvAktive = false;
+            frreqAktive = false;
         }
 
         /*-------------------------- Flooding ATTACK -------------------------*/
@@ -438,6 +448,7 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
         LOG << "ERROR: Message unknown in NA_AODVUU::handleMessageFromAttackController. Msg: " << msg->getFullName() << "\n";
     }
     //debug control messages
+    cout << "saodv: " << saodvAktive << " | frreq: " << frreqAktive << endl;
 }
 
 

@@ -36,6 +36,8 @@ NA_BlackholeMessage::NA_BlackholeMessage(const char *name, int kind) : cMessage(
 {
     this->blackholeDropProbability_var = 0;
     this->numHops_var = 0;
+    this->saodvAktive_var = 0;
+    this->frreqAktive_var = 0;
 }
 
 NA_BlackholeMessage::NA_BlackholeMessage(const NA_BlackholeMessage& other) : cMessage(other)
@@ -60,6 +62,8 @@ void NA_BlackholeMessage::copy(const NA_BlackholeMessage& other)
     this->blackholeDropProbability_var = other.blackholeDropProbability_var;
     this->seqnoAdded_var = other.seqnoAdded_var;
     this->numHops_var = other.numHops_var;
+    this->saodvAktive_var = other.saodvAktive_var;
+    this->frreqAktive_var = other.frreqAktive_var;
 }
 
 void NA_BlackholeMessage::parsimPack(cCommBuffer *b)
@@ -68,6 +72,8 @@ void NA_BlackholeMessage::parsimPack(cCommBuffer *b)
     doPacking(b,this->blackholeDropProbability_var);
     doPacking(b,this->seqnoAdded_var);
     doPacking(b,this->numHops_var);
+    doPacking(b,this->saodvAktive_var);
+    doPacking(b,this->frreqAktive_var);
 }
 
 void NA_BlackholeMessage::parsimUnpack(cCommBuffer *b)
@@ -76,6 +82,8 @@ void NA_BlackholeMessage::parsimUnpack(cCommBuffer *b)
     doUnpacking(b,this->blackholeDropProbability_var);
     doUnpacking(b,this->seqnoAdded_var);
     doUnpacking(b,this->numHops_var);
+    doUnpacking(b,this->saodvAktive_var);
+    doUnpacking(b,this->frreqAktive_var);
 }
 
 double NA_BlackholeMessage::getBlackholeDropProbability() const
@@ -106,6 +114,26 @@ int NA_BlackholeMessage::getNumHops() const
 void NA_BlackholeMessage::setNumHops(int numHops)
 {
     this->numHops_var = numHops;
+}
+
+bool NA_BlackholeMessage::getSaodvAktive() const
+{
+    return saodvAktive_var;
+}
+
+void NA_BlackholeMessage::setSaodvAktive(bool saodvAktive)
+{
+    this->saodvAktive_var = saodvAktive;
+}
+
+bool NA_BlackholeMessage::getFrreqAktive() const
+{
+    return frreqAktive_var;
+}
+
+void NA_BlackholeMessage::setFrreqAktive(bool frreqAktive)
+{
+    this->frreqAktive_var = frreqAktive;
 }
 
 class NA_BlackholeMessageDescriptor : public cClassDescriptor
@@ -155,7 +183,7 @@ const char *NA_BlackholeMessageDescriptor::getProperty(const char *propertyname)
 int NA_BlackholeMessageDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 3+basedesc->getFieldCount(object) : 3;
+    return basedesc ? 5+basedesc->getFieldCount(object) : 5;
 }
 
 unsigned int NA_BlackholeMessageDescriptor::getFieldTypeFlags(void *object, int field) const
@@ -170,8 +198,10 @@ unsigned int NA_BlackholeMessageDescriptor::getFieldTypeFlags(void *object, int 
         FD_ISEDITABLE,
         FD_ISCOMPOUND,
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<3) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<5) ? fieldTypeFlags[field] : 0;
 }
 
 const char *NA_BlackholeMessageDescriptor::getFieldName(void *object, int field) const
@@ -186,8 +216,10 @@ const char *NA_BlackholeMessageDescriptor::getFieldName(void *object, int field)
         "blackholeDropProbability",
         "seqnoAdded",
         "numHops",
+        "saodvAktive",
+        "frreqAktive",
     };
-    return (field>=0 && field<3) ? fieldNames[field] : NULL;
+    return (field>=0 && field<5) ? fieldNames[field] : NULL;
 }
 
 int NA_BlackholeMessageDescriptor::findField(void *object, const char *fieldName) const
@@ -197,6 +229,8 @@ int NA_BlackholeMessageDescriptor::findField(void *object, const char *fieldName
     if (fieldName[0]=='b' && strcmp(fieldName, "blackholeDropProbability")==0) return base+0;
     if (fieldName[0]=='s' && strcmp(fieldName, "seqnoAdded")==0) return base+1;
     if (fieldName[0]=='n' && strcmp(fieldName, "numHops")==0) return base+2;
+    if (fieldName[0]=='s' && strcmp(fieldName, "saodvAktive")==0) return base+3;
+    if (fieldName[0]=='f' && strcmp(fieldName, "frreqAktive")==0) return base+4;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
@@ -212,8 +246,10 @@ const char *NA_BlackholeMessageDescriptor::getFieldTypeString(void *object, int 
         "double",
         "ParPtr",
         "int",
+        "bool",
+        "bool",
     };
-    return (field>=0 && field<3) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<5) ? fieldTypeStrings[field] : NULL;
 }
 
 const char *NA_BlackholeMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
@@ -256,6 +292,8 @@ std::string NA_BlackholeMessageDescriptor::getFieldAsString(void *object, int fi
         case 0: return double2string(pp->getBlackholeDropProbability());
         case 1: {std::stringstream out; out << pp->getSeqnoAdded(); return out.str();}
         case 2: return long2string(pp->getNumHops());
+        case 3: return bool2string(pp->getSaodvAktive());
+        case 4: return bool2string(pp->getFrreqAktive());
         default: return "";
     }
 }
@@ -272,6 +310,8 @@ bool NA_BlackholeMessageDescriptor::setFieldAsString(void *object, int field, in
     switch (field) {
         case 0: pp->setBlackholeDropProbability(string2double(value)); return true;
         case 2: pp->setNumHops(string2long(value)); return true;
+        case 3: pp->setSaodvAktive(string2bool(value)); return true;
+        case 4: pp->setFrreqAktive(string2bool(value)); return true;
         default: return false;
     }
 }
@@ -288,8 +328,10 @@ const char *NA_BlackholeMessageDescriptor::getFieldStructName(void *object, int 
         NULL,
         "ParPtr",
         NULL,
+        NULL,
+        NULL,
     };
-    return (field>=0 && field<3) ? fieldStructNames[field] : NULL;
+    return (field>=0 && field<5) ? fieldStructNames[field] : NULL;
 }
 
 void *NA_BlackholeMessageDescriptor::getFieldStructPointer(void *object, int field, int i) const

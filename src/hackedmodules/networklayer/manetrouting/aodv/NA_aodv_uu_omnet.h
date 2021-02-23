@@ -217,6 +217,11 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     */
     int floodingGradeIndicator;
 
+    /**
+     *  Countermeasures
+     */
+    bool frreqAktive;
+    bool saodvAktive;
 
     char nodeName[50];
     ICMPAccess icmpAccess;

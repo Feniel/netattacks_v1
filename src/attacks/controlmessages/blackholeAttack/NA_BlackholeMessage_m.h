@@ -26,7 +26,9 @@ typedef cPar *ParPtr;
  * message NA_BlackholeMessage {
  *     double blackholeDropProbability; 	
  *     ParPtr seqnoAdded; 					
- *     int numHops;						
+ *     int numHops;
+ *     bool saodvAktive;
+ *     bool frreqAktive;						
  * }
  * </pre>
  */
@@ -36,6 +38,8 @@ class NA_BlackholeMessage : public ::cMessage
     double blackholeDropProbability_var;
     ParPtr seqnoAdded_var;
     int numHops_var;
+    bool saodvAktive_var;
+    bool frreqAktive_var;
 
   private:
     void copy(const NA_BlackholeMessage& other);
@@ -61,6 +65,10 @@ class NA_BlackholeMessage : public ::cMessage
     virtual void setSeqnoAdded(const ParPtr& seqnoAdded);
     virtual int getNumHops() const;
     virtual void setNumHops(int numHops);
+    virtual bool getSaodvAktive() const;
+    virtual void setSaodvAktive(bool saodvAktive);
+    virtual bool getFrreqAktive() const;
+    virtual void setFrreqAktive(bool frreqAktive);
 };
 
 inline void doPacking(cCommBuffer *b, NA_BlackholeMessage& obj) {obj.parsimPack(b);}
