@@ -164,20 +164,20 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
 
     if (blackholeAttackIsActive) {
             LOG << "Received packet after black hole attack is activated ... " << "\n";
-            cout << simTime() << ": Aktive Blackhole Received packet " << endl;
+            //cout << simTime() << ": Aktive Blackhole Received packet " << endl;
             //checks if the package is ping, udp or tcp
             if (!strncmp(datagram->getName(), PING_DATA, 4)
                 || !strncmp(datagram->getName(), UDP_DATA, 3)
                 || !strncmp(datagram->getName(), TCP_DATA, 3)) {
                     LOG << "Is a valid packet for dropping ..." << "\n";
-                    cout << simTime() << ": packet is valid for dropping " << endl;
+                    //cout << simTime() << ": packet is valid for dropping " << endl;
                     if (uniform(0, 1) < blackholeDropProbability) {
                         numDrops++; // The number dropped packages is updated
                         emit(blackSignal, numDrops); // Sending a signal indicating a drop
                         LOG << "Discarding packet: " << datagram->getName() << ": "
                             << numDrops << " dropping times." << endl;
-                        cout << simTime() << ": Discarding packet: "
-                             << datagram->getName() << endl;
+                        //cout << simTime() << ": Discarding packet: "
+                        //     << datagram->getName() << endl;
                         delete datagram; //the package destructor is called
                     }
                     else {

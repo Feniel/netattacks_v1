@@ -14,7 +14,5 @@ cMessage *NA_BlackholeAttack::generateAttackMessage(const char *cmsg) {
     msg->setBlackholeDropProbability(par("blackholeDropProbability").doubleValue());
     msg->setSeqnoAdded(&par("seqnoAdded"));
     msg->setNumHops(par("numHops"));
-    msg->setSaodvAktive(par("saodvAktive").boolValue());
-    msg->setFrreqAktive(par("frreqAktive").boolValue());
     return msg;
 }

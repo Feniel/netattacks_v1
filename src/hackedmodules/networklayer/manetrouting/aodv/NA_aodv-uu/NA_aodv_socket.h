@@ -51,6 +51,8 @@ struct timeval rreq_ratel[RREQ_RATELIMIT - 1], rerr_ratel[RERR_RATELIMIT - 1];
 int num_rreq;
 int num_rerr;
 
+void checkSAODVTable(void);
+
 void aodv_socket_init();
 void aodv_socket_send(AODV_msg * aodv_msg, struct in_addr dst, int len,
                       u_int8_t ttl, struct dev_info *dev,double delay=-1);

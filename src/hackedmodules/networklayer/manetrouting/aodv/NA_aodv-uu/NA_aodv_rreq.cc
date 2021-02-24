@@ -188,8 +188,6 @@ void NS_CLASS rreq_send(struct in_addr dest_addr, u_int32_t dest_seqno,
         delay = par("broadcastDelay");
 #endif
 
-
-    cout << "test: " << dest_addr.S_addr << endl;
     for (i = 0; i < MAX_NR_INTERFACES; i++)
     {
         if (!DEV_NR(i).enabled)

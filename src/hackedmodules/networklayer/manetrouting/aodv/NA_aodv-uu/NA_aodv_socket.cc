@@ -49,6 +49,21 @@
 
 #endif              /* NS_PORT */
 
+    //SAODV
+        static RREP * rrep;
+        static double last_time_value,last_time = 0;
+        static std::vector<ManetAddress> table;
+        static std::vector<int> count_table;
+        static ManetAddress output_checksum,checksum,aux;
+        static struct in_addr saodv_rrep_orig;
+        static int vector_position,max_occurrence_pointer = 0;
+        static int output_counter = 0;
+        static std::vector<RREP *> message_rrep;
+        static std::vector<int> message_len;
+        static std::vector<struct in_addr> message_src;
+        static std::vector<struct in_addr> message_dst;
+        static std::vector<int> message_ttl;
+        static std::vector<unsigned int> message_ifindex;
 
 #ifndef NS_PORT
 #define SO_RECVBUF_SIZE 256*1024
@@ -94,10 +109,6 @@ void NS_CLASS aodv_socket_init()
     int tos = IPTOS_LOWDELAY;
     int bufsize = SO_RECVBUF_SIZE;
     socklen_t optlen = sizeof(bufsize);
-
-    // SAODV Countermeasure
-    vector<vector<<AODV_msg>> saodv_que;
-    int checksum;
 
     /* Create a UDP socket */
 
@@ -237,13 +248,60 @@ void NS_CLASS aodv_socket_init()
     num_rerr = 0;
 }
 
+//SAODV
+void NS_CLASS checkSAODVTable (){
+    //collecting rrep right now ?
+    if( table.size() > 0 ){
+        //trace the time
+        if(last_time == 0){
+            last_time = simTime().dbl();
+        }else{
+            last_time_value += simTime().dbl() - last_time;
+            last_time = simTime().dbl();
+        }
+        if(last_time_value > 2){
+            //which gateway was mostly used
+            for(int i;i<count_table.size();i++){
+                if(max_occurrence_pointer<count_table[i]){
+                    max_occurrence_pointer = count_table[i];
+                }
+            }
+            //get the first rrep from this gateway out of the collected rreps
+            output_checksum = message_src[output_counter].S_addr;
+            while(!table[max_occurrence_pointer].getIPv4().equals(output_checksum.getIPv4())){
+                output_counter++;
+                output_checksum = message_src[output_counter].S_addr;
+            }
+            //send the first rrep from the most used gateway
+            rrep_process(message_rrep[output_counter],
+                    message_len[output_counter],
+                    message_src[output_counter],
+                    message_dst[output_counter],
+                    message_ttl[output_counter],
+                    message_ifindex[output_counter]);
+            //init for next rrep process
+            last_time = 0.0;
+            last_time_value = 0.0;
+            table.clear();
+            count_table.clear();
+            max_occurrence_pointer = 0;
+            output_counter = 0;
+            message_rrep.clear();
+            message_len.clear();
+            message_src.clear();
+            message_dst.clear();
+            message_ttl.clear();
+            message_ifindex.clear();
+        }
+    }
+}
+
+
 void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         struct in_addr src,
         struct in_addr dst,
         int ttl, unsigned int ifindex)
 {
-    //SAODV
-
 
     /* If this was a HELLO message... Process as HELLO. */
 #ifndef OMNETPP
@@ -276,9 +334,49 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         DEBUG(LOG_DEBUG, 0, "Received RREP");
 
         //SAODV
+        std::cout << "-> | " << saodvAktive << endl;
+        if(saodvAktive){
+            rrep = (RREP *)aodv_msg;
+            //Convert to correct byte order on affected fields
+            if (getAp(rrep->orig_addr, aux)){
+                saodv_rrep_orig.s_addr = aux;
+            }else {
+                saodv_rrep_orig.s_addr = rrep->orig_addr;
+            }
+            //is this rrep for us ?
+            saodv_rrep_orig.s_addr = rrep->getOrig_addr();
+            if( addressIsForUs(saodv_rrep_orig.S_addr) ){
+                //did we got a rrep from this gateway already ? check vector
+                checksum = src.S_addr;
+                vector_position = 99999;
+                for(int i=0;i<table.size();i++){
+                    if(table[i].getIPv4().equals(checksum.getIPv4())){
+                        vector_position = i;
+                    }
+                }
+                if( vector_position == 99999 ){
+                    //the gateway is new
+                    table.push_back(src.S_addr);
+                    count_table.push_back(1);
+                }else{
+                    //we know the gateway
+                    count_table[vector_position] = count_table[vector_position] + 1;
+                }
+                //save rrep for later
+                message_rrep.push_back((RREP *) aodv_msg);
+                message_len.push_back(len);
+                message_src.push_back(src);
+                message_dst.push_back(dst);
+                message_ttl.push_back(ttl);
+                message_ifindex.push_back(ifindex);
+            }else{
+                rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+            }
+        }else{
+            rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+        }
 
-
-        rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+        //rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
         break;
     case AODV_RERR:
         DEBUG(LOG_DEBUG, 0, "Received RERR");

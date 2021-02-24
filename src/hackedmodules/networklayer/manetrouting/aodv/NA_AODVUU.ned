@@ -84,6 +84,10 @@ simple NA_AODVUU extends BaseRouting like IManetRouting
         bool propagateProactive = default(true); // Proactive feedback
         bool checkNextHop = default(false);
         bool PublicRoutingTables = default(false);
+        
+        //Countermeasures
+        bool saodvAktive = default(false);
+        bool frreqAktive = default(false);
     gates:
         input from_ip;
         output to_ip;

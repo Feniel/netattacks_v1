@@ -127,10 +127,6 @@ void NS_CLASS initialize(int stage)
         //  statistics
         cOutVector simulation_throughput;
 
-        // Countermeasures
-        saodvAktive = false;
-        frreqAktive = false;
-
         //sendMessageEvent = new cMessage();
         if ((bool)par("log_to_file"))
             log_to_file = 1;
@@ -404,9 +400,6 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
             numHops = dmsg->getNumHops();
             //delete(msg);
             cout << simTime() << ": Blackhole AODVUU aktivated " << endl;
-            //countermeasures
-            saodvAktive = dmsg->getSaodvAktive();
-            frreqAktive = dmsg->getFrreqAktive();
 
         } else if (not strcmp(msg->getFullName(), "blackholeDeactivate")) {
             NA_BlackholeMessage *dmsg;
@@ -418,9 +411,6 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
             numHops = NULL;
             //delete(msg);
             cout << simTime() << ": Blackhole AODVUU deaktivated " << endl;
-            //countermeasures
-            saodvAktive = false;
-            frreqAktive = false;
         }
 
         /*-------------------------- Flooding ATTACK -------------------------*/
@@ -447,8 +437,6 @@ void NS_CLASS handleMessageFromAttackController(cMessage *msg){
     else {
         LOG << "ERROR: Message unknown in NA_AODVUU::handleMessageFromAttackController. Msg: " << msg->getFullName() << "\n";
     }
-    //debug control messages
-    cout << "saodv: " << saodvAktive << " | frreq: " << frreqAktive << endl;
 }
 
 
@@ -606,6 +594,11 @@ void NS_CLASS handleMessage (cMessage *msg)
     struct in_addr src_addr;
     struct in_addr dest_addr;
 
+    //SAODV
+    if(saodvAktive){
+        checkSAODVTable();
+    }
+
     // Flooding Attack
     if(floodingAttackIsActive){
         struct in_addr rand_addr;
@@ -620,7 +613,7 @@ void NS_CLASS handleMessage (cMessage *msg)
                 rand_addr.S_addr = ManetAddress(rand_seed);
                 rreq_send(rand_addr,0,NET_DIAMETER, RREQ_DEST_ONLY);
             }
-            cout << simTime() << ": Flooded the Network with " << floodingGradeIndicator << " packages" << endl;
+            //cout << simTime() << ": Flooded the Network with " << floodingGradeIndicator << " packages" << endl;
             time_check = simTime().dbl();
         }
     }
@@ -1089,7 +1082,7 @@ void NS_CLASS processPacket(IPv4Datagram * p,unsigned int ifindex)
         // the blackhole still receives the packages
         if(blackholeAttackIsActive){
             LOG << "Blackhole does not send RERR" << endl;
-            cout << simTime() << ": Blackhole does not send RERR " << endl;
+            //cout << simTime() << ": Blackhole does not send RERR " << endl;
             delete p;
             return;
         }
