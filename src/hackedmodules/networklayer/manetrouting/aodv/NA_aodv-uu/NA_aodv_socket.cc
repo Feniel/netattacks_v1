@@ -56,7 +56,8 @@
         static std::vector<int> count_table;
         static ManetAddress output_checksum,checksum,aux;
         static struct in_addr saodv_rrep_orig;
-        static int vector_position,max_occurrence_pointer = 0;
+        static int max_occurrence = 0;
+        static int vector_position = 99999;
         static int output_counter = 0;
         static std::vector<RREP *> message_rrep;
         static std::vector<int> message_len;
@@ -259,16 +260,16 @@ void NS_CLASS checkSAODVTable (){
             last_time_value += simTime().dbl() - last_time;
             last_time = simTime().dbl();
         }
-        if(last_time_value > 2){
+        if(last_time_value > 3){
             //which gateway was mostly used
             for(int i;i<count_table.size();i++){
-                if(max_occurrence_pointer<count_table[i]){
-                    max_occurrence_pointer = count_table[i];
+                if(max_occurrence<count_table[i]){
+                    max_occurrence = count_table[i];
                 }
             }
             //get the first rrep from this gateway out of the collected rreps
             output_checksum = message_src[output_counter].S_addr;
-            while(!table[max_occurrence_pointer].getIPv4().equals(output_checksum.getIPv4())){
+            while(!table[max_occurrence].getIPv4().equals(output_checksum.getIPv4())){
                 output_counter++;
                 output_checksum = message_src[output_counter].S_addr;
             }
@@ -284,7 +285,7 @@ void NS_CLASS checkSAODVTable (){
             last_time_value = 0.0;
             table.clear();
             count_table.clear();
-            max_occurrence_pointer = 0;
+            max_occurrence = 0;
             output_counter = 0;
             message_rrep.clear();
             message_len.clear();
@@ -295,7 +296,6 @@ void NS_CLASS checkSAODVTable (){
         }
     }
 }
-
 
 void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         struct in_addr src,
