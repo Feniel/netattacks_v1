@@ -387,7 +387,6 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
         rrep = rrep_create(0, 0, num_hops, rreq_dest, seqno_blackhole, rreq_orig, ACTIVE_ROUTE_TIMEOUT);
         rrep_send(rrep, rev_rt, NULL, RREP_SIZE);
         numForged = numForged + 1;
-        cout << simTime() << ": Forged RREP send " << endl;
         return;
     }
 

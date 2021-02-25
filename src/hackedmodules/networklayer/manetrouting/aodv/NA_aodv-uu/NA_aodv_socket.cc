@@ -369,14 +369,17 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 message_dst.push_back(dst);
                 message_ttl.push_back(ttl);
                 message_ifindex.push_back(ifindex);
+                break;
             }else{
                 rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+                break;
             }
         }else{
             rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+            break;
         }
 
-        //rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+        rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
         break;
     case AODV_RERR:
         DEBUG(LOG_DEBUG, 0, "Received RERR");
