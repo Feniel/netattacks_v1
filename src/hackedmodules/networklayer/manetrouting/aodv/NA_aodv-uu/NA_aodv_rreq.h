@@ -92,6 +92,12 @@ struct blacklist
 };
 #endif              /* NS_NO_GLOBALS */
 
+//frreq
+bool checkFakeRREP (IPv4Address ipv4);
+bool creatorBlacklisted (IPv4Address ipv4);
+void addBlacklist (IPv4Address ipv4);
+void init_fakerreq ();
+
 #ifndef NS_NO_DECLARATIONS
 RREQ *rreq_create(u_int8_t flags, struct in_addr dest_addr,
                   u_int32_t dest_seqno, struct in_addr orig_addr);

@@ -55,7 +55,7 @@
         static std::vector<ManetAddress> table;
         static std::vector<int> count_table;
         static ManetAddress output_checksum,checksum,aux;
-        static struct in_addr saodv_rrep_orig;
+        static struct in_addr saodv_rrep_orig,rrep_orig;
         static int max_occurrence = 0;
         static int vector_position = 99999;
         static int output_counter = 0;
@@ -334,7 +334,6 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         DEBUG(LOG_DEBUG, 0, "Received RREP");
 
         //SAODV
-        std::cout << "-> | " << saodvAktive << endl;
         if(saodvAktive){
             rrep = (RREP *)aodv_msg;
             //Convert to correct byte order on affected fields
@@ -374,12 +373,29 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
                 break;
             }
+        //frreq
+        }else if(frreqAktive){
+            rrep = (RREP *)aodv_msg;
+            rrep_orig.s_addr = rrep->getOrig_addr();
+            if( addressIsForUs(rrep_orig.S_addr) ){
+                //is it a fake rreq ?
+                if ( checkFakeRREP(rrep->init_rreq_addr.getIPv4()) ){
+                    addBlacklist(rrep->creator);
+                }else{
+                    //is the creator blacklisted ?
+                    if ( creatorBlacklisted(rrep->creator) ){
+                        break;
+                    }else{
+                        rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+                        break;
+                    }
+                }
+            }
         }else{
             rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
             break;
         }
-
-        rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
+        //rrep_process((RREP *) aodv_msg, len, src, dst, ttl, ifindex);
         break;
     case AODV_RERR:
         DEBUG(LOG_DEBUG, 0, "Received RERR");

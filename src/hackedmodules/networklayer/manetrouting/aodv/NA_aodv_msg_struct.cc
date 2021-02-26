@@ -219,6 +219,9 @@ void RREP::copy(const RREP& m)
     lifetime = m.lifetime;
     cost = m.cost;
     hopfix = m.hopfix;
+    //frreq
+    creator = m.creator;
+    init_rreq_addr = m.init_rreq_addr;
 }
 
 std::string RREP::detailedInfo() const

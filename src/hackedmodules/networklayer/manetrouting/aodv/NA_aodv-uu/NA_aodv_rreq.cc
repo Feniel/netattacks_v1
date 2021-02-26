@@ -67,6 +67,10 @@
 /* Comment this to remove packet field output: */
 //#define DEBUG_OUTPUT
 
+//frreq
+    static std::vector<IPv4Address> blacklist;
+    static std::vector<IPv4Address> fake_addr_list;
+
 #define HCNT_LIMIT 0
 
 #ifndef NS_PORT
@@ -108,6 +112,37 @@ extern int internet_gw_mode;
  *
  */
 
+//frreq
+bool NS_CLASS checkFakeRREP (IPv4Address ipv4){
+    //is the dst in our fake list ?
+    for (int i=0; i<fake_addr_list.size();i++){
+        if( ipv4.equals(fake_addr_list[i]) ){
+                return true;
+        }
+    }
+    return false;
+}
+bool NS_CLASS creatorBlacklisted (IPv4Address ipv4){
+    for (int i=0; i<blacklist.size();i++){
+        if( ipv4.equals(blacklist[i]) ){
+                return true;
+        }
+    }
+    return false;
+}
+void NS_CLASS addBlacklist (IPv4Address ipv4){
+    blacklist.push_back(ipv4);
+}
+void NS_CLASS init_fakerreq(){
+    u_int32_t dest_seqno = intuniform(2,100);
+    int ttl = 0;
+    u_int8_t flags = 0;
+    struct in_addr random_addr;
+    IPv4Address tmp = IPv4Address(intuniform(2,254),1,2,3);
+    random_addr.s_addr = ManetAddress(tmp);
+    rreq_send (random_addr,dest_seqno,ttl,flags);
+    fake_addr_list.push_back(tmp);
+}
 
 RREQ *NS_CLASS rreq_create(u_int8_t flags,struct in_addr dest_addr,
                            u_int32_t dest_seqno, struct in_addr orig_addr)
@@ -354,6 +389,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
              * Set the originator IP address in RREP (orig_addr) to the IP address of the node which originated the RREQ for which the route is supplied (rreq_orig in RREQ).
              */
             rrep = rrep_create(0, 0, num_hops, rreq_dest, seqno_sinkhole, rreq_orig, ACTIVE_ROUTE_TIMEOUT);
+            rrep->init_rreq_addr = rreq->dest_addr;
             rrep_send(rrep, rev_rt, NULL, RREP_SIZE);
             return;
         }
@@ -385,6 +421,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
 
         //  generate and send forged RREP
         rrep = rrep_create(0, 0, num_hops, rreq_dest, seqno_blackhole, rreq_orig, ACTIVE_ROUTE_TIMEOUT);
+        rrep->init_rreq_addr = rreq->dest_addr;
         rrep_send(rrep, rev_rt, NULL, RREP_SIZE);
         numForged = numForged + 1;
         return;
@@ -564,7 +601,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
             rrep = rrep_create(0, 0, 0, DEV_IFINDEX(rev_rt->ifindex).ipaddr,
                                this_host.seqno, rev_rt->dest_addr,
                                ACTIVE_ROUTE_TIMEOUT);
-
+            rrep->init_rreq_addr = rreq->dest_addr;
             ext = rrep_add_ext(rrep, RREP_INET_DEST_EXT, rrep_size,
                                sizeof(struct in_addr), (char *) &rreq_dest);
 
@@ -598,7 +635,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
             rrep = rrep_create(0, 0, 0, DEV_IFINDEX(rev_rt->ifindex).ipaddr,
                                this_host.seqno, rev_rt->dest_addr,
                                ACTIVE_ROUTE_TIMEOUT);
-
+            rrep->init_rreq_addr = rreq->dest_addr;
             ext = rrep_add_ext(rrep, RREP_INET_DEST_EXT, rrep_size,
                                sizeof(struct in_addr), (char *) &rreq_dest);
 
@@ -639,6 +676,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
         rrep = rrep_create(0, 0, 0, DEV_IFINDEX(rev_rt->ifindex).ipaddr,
                            this_host.seqno, rev_rt->dest_addr,
                            MY_ROUTE_TIMEOUT);
+        rrep->init_rreq_addr = rreq->dest_addr;
 #ifdef OMNETPP
         EV << " create a rrep" << ip_to_str(DEV_IFINDEX(rev_rt->ifindex).ipaddr) << "seq n" << this_host.seqno << " to " << ip_to_str(rev_rt->dest_addr);
 #endif
@@ -658,6 +696,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
            one in the RREQ. */
         seqno_incr(this_host.seqno);
         rrep = rrep_create(0, 0, 0, DEV_IFINDEX(rev_rt->ifindex).ipaddr,this_host.seqno, rev_rt->dest_addr, MY_ROUTE_TIMEOUT);
+        rrep->init_rreq_addr = rreq->dest_addr;
         EV << " create a rrep" << ip_to_str(DEV_IFINDEX(rev_rt->ifindex).ipaddr) << "seq n" << this_host.seqno << " to " << ip_to_str(rev_rt->dest_addr);
         rrep_send(rrep, rev_rt, NULL, RREP_SIZE);
         if (ip_ttl > 0)
@@ -707,6 +746,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                         int num_hops = numHops;
                         seqno_sinkhole = rreq_dest_seqno + seqno_added;
                         rrep = rrep_create(0, 0, num_hops, fwd_rt->dest_addr, seqno_sinkhole, rev_rt->dest_addr, lifetime);
+                        rrep->init_rreq_addr = rreq->dest_addr;
                         rrep_send(rrep, rev_rt, fwd_rt, rrep_size);
                         EV << "Sinkhole knows the route and sends false RREP with seqnoAdded = " << seqno_added << " and numHops = " << num_hops << ".\n";
                         return;
@@ -732,6 +772,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                     int num_hops = numHops;
                     seqno_blackhole = rreq_dest_seqno + seqno_added;
                     rrep = rrep_create(0, 0, num_hops, fwd_rt->dest_addr, seqno_blackhole, rev_rt->dest_addr, lifetime);
+                    rrep->init_rreq_addr = rreq->dest_addr;
                     rrep_send(rrep, rev_rt, fwd_rt, rrep_size);
                     numForged = numForged + 1;
                     EV << "Blackhole knows the route and sends forged RREP with seqnoAdded = " << seqno_added << " and numHops = " << num_hops << ".\n";
@@ -771,7 +812,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                 rrep = rrep_create(0, 0, gw_rt->hcnt, gw_rt->dest_addr,
                                    gw_rt->dest_seqno, rev_rt->dest_addr,
                                    lifetime);
-
+                rrep->init_rreq_addr = rreq->dest_addr;
                 ext = rrep_add_ext(rrep, RREP_INET_DEST_EXT, rrep_size,
                                    sizeof(struct in_addr), (char *) &rreq_dest);
 
@@ -813,6 +854,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                 rrep = rrep_create(0, 0, fwd_rt->hcnt, fwd_rt->dest_addr,
                                    fwd_rt->dest_seqno, rev_rt->dest_addr,
                                    lifetime);
+                rrep->init_rreq_addr = rreq->dest_addr;
                 rrep_send(rrep, rev_rt, fwd_rt, rrep_size);
                 /* If the GRATUITOUS flag is set, we must also unicast a
                    gratuitous RREP to the destination. */
@@ -821,6 +863,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
                     rrep = rrep_create(0, 0, rev_rt->hcnt, rev_rt->dest_addr,
                                        rev_rt->dest_seqno, fwd_rt->dest_addr,
                                        lifetime);
+                    rrep->init_rreq_addr = rreq->dest_addr;
                     rrep_send(rrep, fwd_rt, rev_rt, RREP_SIZE);
                     DEBUG(LOG_INFO, 0, "Sending G-RREP to %s with rte to %s",
                           ip_to_str(rreq_dest), ip_to_str(rreq_orig));

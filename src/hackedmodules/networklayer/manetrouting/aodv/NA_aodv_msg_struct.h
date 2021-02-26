@@ -121,6 +121,9 @@ struct RREP : public AODV_msg
     uint32_t cost;
     uint8_t  hopfix;
     AODV_ext *extension;
+    //frreq
+        IPv4Address creator;
+        ManetAddress init_rreq_addr;
 
   public:
     explicit RREP (const char *name="RREPAodvMsg") : AODV_msg (name) {setBitLength(20*8);}

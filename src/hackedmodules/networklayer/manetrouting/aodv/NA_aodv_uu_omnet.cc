@@ -52,7 +52,9 @@
 #include "Ieee802Ctrl_m.h"
 
 #include "NA_aodv-uu/NA_aodv_rreq.h"
+
 int counter = 0;
+double last_time_value,last_time = 0;
 
 const int UDP_HEADER_BYTES = 8;
 typedef std::vector<IPv4Address> IPAddressVector;
@@ -597,6 +599,21 @@ void NS_CLASS handleMessage (cMessage *msg)
     //SAODV
     if(saodvAktive){
         checkSAODVTable();
+    }
+    //frreq
+    if(frreqAktive){
+        //trace the time
+        if(last_time == 0){
+            last_time = simTime().dbl();
+        }else{
+            last_time_value += simTime().dbl() - last_time;
+            last_time = simTime().dbl();
+        }
+        //time to create a fake
+        if(last_time_value > 20){
+            last_time = 0.0;
+            init_fakerreq();
+        }
     }
 
     // Flooding Attack
