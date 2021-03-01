@@ -79,6 +79,8 @@ int NA_AODVUU::totalRerrSend=0;
 int NA_AODVUU::totalRerrRec=0;
 #endif
 
+
+
 void NS_CLASS initialize(int stage)
 {
      /*
@@ -597,11 +599,12 @@ void NS_CLASS handleMessage (cMessage *msg)
     struct in_addr dest_addr;
 
     //SAODV
-    if(saodvAktive){
+    if(saodvActive){
         checkSAODVTable();
     }
+
     //frreq
-    if(frreqAktive){
+    if(frreqActive){
         //trace the time
         if(last_time == 0){
             last_time = simTime().dbl();

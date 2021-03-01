@@ -220,8 +220,12 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     /**
      *  Countermeasures
      */
-    bool frreqAktive;
-    bool saodvAktive;
+    bool frreqActive;
+    bool saodvActive;
+    bool pbfActive;
+    int pbf_threshold;
+    int pbf_time_span;
+    bool fbfActive;
 
     char nodeName[50];
     ICMPAccess icmpAccess;

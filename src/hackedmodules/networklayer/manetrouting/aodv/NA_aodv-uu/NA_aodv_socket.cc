@@ -65,6 +65,11 @@
         static std::vector<struct in_addr> message_dst;
         static std::vector<int> message_ttl;
         static std::vector<unsigned int> message_ifindex;
+    //pbf
+        static std::vector<struct in_addr> pbf_adresses;
+        static std::vector<struct in_addr> neighbor_blacklist;
+        static std::vector<int> pbf_neighbor_amount;
+
 
 #ifndef NS_PORT
 #define SO_RECVBUF_SIZE 256*1024
@@ -328,13 +333,50 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
     {
 
     case AODV_RREQ:
-        rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
+        if( pbfActive ){
+            int index = -1;
+            for( int i=0; i < neighbor_blacklist.size();i++ ){
+                if( neighbor_blacklist[i].S_addr == src.S_addr){
+                    index = i;
+                }
+            }
+            if( index == -1 ){
+                index = -1;
+                for( int h=0; h < pbf_adresses.size();h++ ){
+                    if( pbf_adresses[h].S_addr == src.S_addr){
+                        index = h;
+                    }
+                }
+                if( index == -1 ){
+                    pbf_adresses.push_back(src);
+                    pbf_neighbor_amount.push_back(1);
+                    rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
+                    break;
+                }else{
+                    pbf_neighbor_amount[index] = pbf_neighbor_amount[index] + 1;
+                    if( pbf_neighbor_amount[index] > pbf_threshold ){
+                        neighbor_blacklist.push_back(src);
+                        break;
+                    }else{
+                        rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
+                        break;
+                    }
+                }
+            }else{
+                break;
+            }
+        }else if( fbfActive ){
+
+        }else{
+            rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
+            break;
+        }
         break;
     case AODV_RREP:
         DEBUG(LOG_DEBUG, 0, "Received RREP");
 
         //SAODV
-        if(saodvAktive){
+        if(saodvActive){
             rrep = (RREP *)aodv_msg;
             //Convert to correct byte order on affected fields
             if (getAp(rrep->orig_addr, aux)){
@@ -347,13 +389,13 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
             if( addressIsForUs(saodv_rrep_orig.S_addr) ){
                 //did we got a rrep from this gateway already ? check vector
                 checksum = src.S_addr;
-                vector_position = 99999;
+                vector_position = -1;
                 for(int i=0;i<table.size();i++){
                     if(table[i].getIPv4().equals(checksum.getIPv4())){
                         vector_position = i;
                     }
                 }
-                if( vector_position == 99999 ){
+                if( vector_position == -1 ){
                     //the gateway is new
                     table.push_back(src.S_addr);
                     count_table.push_back(1);
@@ -374,7 +416,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 break;
             }
         //frreq
-        }else if(frreqAktive){
+        }else if(frreqActive){
             rrep = (RREP *)aodv_msg;
             rrep_orig.s_addr = rrep->getOrig_addr();
             if( addressIsForUs(rrep_orig.S_addr) ){
