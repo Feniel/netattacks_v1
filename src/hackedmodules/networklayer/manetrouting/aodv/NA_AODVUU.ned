@@ -92,6 +92,7 @@ simple NA_AODVUU extends BaseRouting like IManetRouting
         bool fbfActive = default(false);
         int pbf_threshold = default(200);
     	int pbf_time_span = default(30);
+    	int fbf_threshold = default(50);
     gates:
         input from_ip;
         output to_ip;

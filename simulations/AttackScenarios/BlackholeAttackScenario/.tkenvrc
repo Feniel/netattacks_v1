@@ -1,4 +1,5 @@
 # Partial Tkenv config file -- see $HOME/.tkenvrc as well
-inspector "Blackhole" "Blackhole" "2" "690x342+52+52:normal"
+inspector "Blackhole_Network" "Blackhole_Network" "2" "788x342+78+78:normal"
 inspector "Blackhole_Network.originator[0].wlan[0].radio.RREQAodvMsg" "AirFrame" "1" "460x314+208+208:normal"
+inspector "Blackhole" "Blackhole" "2" "690x342+52+52:normal"
 

@@ -226,6 +226,7 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     int pbf_threshold;
     int pbf_time_span;
     bool fbfActive;
+    int fbf_threshold;
 
     char nodeName[50];
     ICMPAccess icmpAccess;

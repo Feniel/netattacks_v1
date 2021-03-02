@@ -67,8 +67,12 @@
         static std::vector<unsigned int> message_ifindex;
     //pbf
         static std::vector<struct in_addr> pbf_adresses;
-        static std::vector<struct in_addr> neighbor_blacklist;
+        static std::vector<struct in_addr> pbf_neighbor_blacklist;
         static std::vector<int> pbf_neighbor_amount;
+    //bfb
+        static std::vector<vector <struct in_addr> > fbf_list;
+        static std::vector<struct in_addr> fbf_neighbor_blacklist;
+        struct in_addr fbf_tmp;
 
 
 #ifndef NS_PORT
@@ -335,8 +339,8 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
     case AODV_RREQ:
         if( pbfActive ){
             int index = -1;
-            for( int i=0; i < neighbor_blacklist.size();i++ ){
-                if( neighbor_blacklist[i].S_addr == src.S_addr){
+            for( int i=0; i < pbf_neighbor_blacklist.size();i++ ){
+                if( pbf_neighbor_blacklist[i].S_addr == src.S_addr){
                     index = i;
                 }
             }
@@ -355,7 +359,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 }else{
                     pbf_neighbor_amount[index] = pbf_neighbor_amount[index] + 1;
                     if( pbf_neighbor_amount[index] > pbf_threshold ){
-                        neighbor_blacklist.push_back(src);
+                        pbf_neighbor_blacklist.push_back(src);
                         break;
                     }else{
                         rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
@@ -366,7 +370,43 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 break;
             }
         }else if( fbfActive ){
-
+            RREQ * rreq = (RREQ *) aodv_msg;
+            int index = -1;
+            for( int i=0; i < fbf_neighbor_blacklist.size();i++ ){
+                if( fbf_neighbor_blacklist[i].S_addr == src.S_addr){
+                    index = i;
+                }
+            }
+            //is there a entry for src in blacklist ?
+            if( index == -1 ){
+                for( int i=0; i < fbf_list.size();i++ ){
+                    if (fbf_list[i][0].S_addr == src.S_addr){
+                        index = i;
+                    }
+                }
+                //did we know this src ?
+                if( index == -1){
+                    //add it to the list
+                    int input_index = fbf_list.size();
+                    fbf_list[input_index][0] = src;
+                    fbf_list[input_index][1].S_addr = rreq->orig_addr;
+                    rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
+                    break;
+                }else{
+                    //increment
+                    fbf_tmp.S_addr = rreq->orig_addr;
+                    fbf_list[index].push_back(fbf_tmp);
+                    //check if to many org
+                    if (fbf_list[index].size() > fbf_threshold){
+                        fbf_neighbor_blacklist.push_back(src);
+                        break;
+                    }
+                    rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
+                    break;
+                }
+            }else{
+                break;
+            }
         }else{
             rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
             break;
