@@ -6,11 +6,11 @@ For the implementation omnetpp-4.3 and inet2.1.0 is used.
 
 Blackhole Attack<br>
 An attack similar to the sinkhole attack, but it does not exploit a routing loop, but distributes false information in the network.<br>
-Countermeasures: 
+Countermeasures: SAODV(Only the RREP Buffer), Fake RREQ
 
 Flooding Attack<br>
 The network is flooded with RREQ so that normal operation is no longer possible.<br>
-Countermeasures: 
+Countermeasures: Policy Based Filtering, Flow Based Filtering
 
 
 NETA Description
@@ -41,3 +41,6 @@ Documentation
 ==============
 All documentation can be found in the doc directory. Also you can found there
 the user and description manual. The additional attacks are inserted according to the scheme described there.
+
+The defensive measures are inserted as an attribute of the manetrouting. 
+Consequently, they must be set with bools in the simulation configurations.
