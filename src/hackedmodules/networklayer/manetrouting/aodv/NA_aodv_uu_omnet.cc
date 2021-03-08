@@ -128,6 +128,11 @@ void NS_CLASS initialize(int stage)
         floodingAttackIsActive = false;
         floodingGradeIndicator = 0;
 
+        saodvActive = false;
+        frreqActive = false;
+        pbfActive = false;
+        fbfActive = false;
+
         //  statistics
         cOutVector simulation_throughput;
 
@@ -600,11 +605,20 @@ void NS_CLASS handleMessage (cMessage *msg)
 
     //SAODV
     if(saodvActive){
+        std::cout << "saodv" << endl;
         checkSAODVTable();
+    }
+
+    if(pbfActive){
+        std::cout << "pbf" << endl;
+    }
+    if(fbfActive){
+        std::cout << "fbf" << endl;
     }
 
     //frreq
     if(frreqActive){
+        std::cout << "frreq" << endl;
         //trace the time
         if(last_time == 0){
             last_time = simTime().dbl();

@@ -72,7 +72,7 @@
     //bfb
         static std::vector<vector <struct in_addr> > fbf_list;
         static std::vector<struct in_addr> fbf_neighbor_blacklist;
-        struct in_addr fbf_tmp;
+        static struct in_addr fbf_tmp;
 
 
 #ifndef NS_PORT
@@ -337,6 +337,8 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
     {
 
     case AODV_RREQ:
+        //std::cout << pbfActive << endl;
+        //std::cout << fbfActive << endl;
         if( pbfActive ){
             int index = -1;
             for( int i=0; i < pbf_neighbor_blacklist.size();i++ ){
@@ -416,7 +418,9 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         DEBUG(LOG_DEBUG, 0, "Received RREP");
 
         //SAODV
-        if(saodvActive){
+        //std::cout << saodvActive << endl;
+        //std::cout << frreqActive << endl;
+        if( saodvActive ){
             rrep = (RREP *)aodv_msg;
             //Convert to correct byte order on affected fields
             if (getAp(rrep->orig_addr, aux)){

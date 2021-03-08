@@ -219,7 +219,7 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
 
     /**
      *  Countermeasures
-     */
+    */
     bool frreqActive;
     bool saodvActive;
     bool pbfActive;
