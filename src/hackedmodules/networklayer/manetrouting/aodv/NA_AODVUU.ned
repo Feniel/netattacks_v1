@@ -85,7 +85,7 @@ simple NA_AODVUU extends BaseRouting like IManetRouting
         bool checkNextHop = default(false);
         bool PublicRoutingTables = default(false);
         
-        //Countermeasures
+        //Countermeasures        
         bool saodvActive = default(false);
         bool frreqActive = default(false);
         bool pbfActive = default(false);

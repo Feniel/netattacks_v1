@@ -630,16 +630,20 @@ void NS_CLASS handleMessage (cMessage *msg)
         struct in_addr rand_addr;
         IPv4Address rand_seed;
         double time_check = 0;
+        u_int32_t seqno;
         RREQ rreq;
 
         if((simTime().dbl() - time_check) > 1.0){
+
             LOG << "Flooding Proceed";
             for (int i = 0; i < floodingGradeIndicator; i++ ){
                 rand_seed.set(145,236,intuniform(2,20),intuniform(2,254));
                 rand_addr.S_addr = ManetAddress(rand_seed);
-                rreq_send(rand_addr,0,NET_DIAMETER, RREQ_DEST_ONLY);
+                seqno = intuniform(2,50);
+                rreq_send(rand_addr,seqno,NET_DIAMETER, RREQ_DEST_ONLY);
             }
-            //cout << simTime() << ": Flooded the Network with " << floodingGradeIndicator << " packages" << endl;
+            cout << simTime() << " Flooded the Network with " << floodingGradeIndicator << " packages" << endl;
+            cout << rand_addr.S_addr << " | " << seqno << endl;
             time_check = simTime().dbl();
         }
     }

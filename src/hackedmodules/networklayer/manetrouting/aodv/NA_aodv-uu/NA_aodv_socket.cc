@@ -50,30 +50,32 @@
 #endif              /* NS_PORT */
 
     //SAODV
-        static RREP * rrep;
-        static double last_time_value,last_time = 0;
-        static std::vector<ManetAddress> table;
-        static std::vector<int> count_table;
-        static ManetAddress output_checksum,checksum,aux;
-        static struct in_addr saodv_rrep_orig,rrep_orig;
-        static int max_occurrence = 0;
-        static int vector_position = 99999;
-        static int output_counter = 0;
-        static std::vector<RREP *> message_rrep;
-        static std::vector<int> message_len;
-        static std::vector<struct in_addr> message_src;
-        static std::vector<struct in_addr> message_dst;
-        static std::vector<int> message_ttl;
-        static std::vector<unsigned int> message_ifindex;
+//        static RREP * rrep;
+//        static double last_time_value,last_time = 0;
+//       static std::vector<ManetAddress> table;
+//        static std::vector<int> count_table;
+//        static ManetAddress output_checksum,checksum,aux;
+//        static struct in_addr saodv_rrep_orig,rrep_orig;
+//        static int max_occurrence = 0;
+//        static int vector_position = 99999;
+//        static int output_counter = 0;
+//        static std::vector<RREP *> message_rrep;
+//        static std::vector<int> message_len;
+//        static std::vector<struct in_addr> message_src;
+//        static std::vector<struct in_addr> message_dst;
+//        static std::vector<int> message_ttl;
+//        static std::vector<unsigned int> message_ifindex;
     //pbf
-        static std::vector<struct in_addr> pbf_adresses;
-        static std::vector<struct in_addr> pbf_neighbor_blacklist;
-        static std::vector<int> pbf_neighbor_amount;
+//        static std::vector<struct in_addr> pbf_adresses;
+//        static std::vector<struct in_addr> pbf_neighbor_blacklist;
+//        static std::vector<int> pbf_neighbor_amount;
     //bfb
-        static std::vector<vector <struct in_addr> > fbf_list;
-        static std::vector<struct in_addr> fbf_neighbor_blacklist;
-        static struct in_addr fbf_tmp;
-
+//        static std::vector<vector <struct in_addr> > fbf_list;
+//        static std::vector<struct in_addr> fbf_neighbor_blacklist;
+//        static struct in_addr fbf_tmp;
+    //debug
+//        static std::vector<struct in_addr> checklist;
+//        static std::vector<int> amount;
 
 #ifndef NS_PORT
 #define SO_RECVBUF_SIZE 256*1024
@@ -339,6 +341,33 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
     case AODV_RREQ:
         //std::cout << pbfActive << endl;
         //std::cout << fbfActive << endl;
+
+        if( true ){
+            int index = -1;
+            for( int i=0; i < checklist.size();i++ ){
+                if( checklist[i].S_addr == src.S_addr){
+                    index = i;
+                }
+            }
+            if ( index == -1){
+                checklist.push_back(src);
+                amount.push_back(1);
+            }else{
+                amount[index] += 1 ;
+            }
+            int output = 0;
+            int second = 0;
+            int third = 0;
+            for (int j=0; j< amount.size();j++){
+                if(output < amount[j]){
+                    third = second;
+                    second = output;
+                    output = amount[j];
+                    std::cout << this->info() << " " << output << " | " << second << " | " << third << endl;
+                }
+            }
+        }
+
         if( pbfActive ){
             int index = -1;
             for( int i=0; i < pbf_neighbor_blacklist.size();i++ ){
