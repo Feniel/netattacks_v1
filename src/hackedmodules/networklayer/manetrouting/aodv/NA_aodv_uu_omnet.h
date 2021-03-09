@@ -223,6 +223,8 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     //SAODV
         RREP * rrep;
         double last_time_value,last_time = 0;
+        double frreq_last_time_value,frreq_last_time = 0;
+        double flooding_last_time_value,flooding_last_time = 0;
         std::vector<ManetAddress> table;
         std::vector<int> count_table;
         ManetAddress output_checksum,checksum,aux;
@@ -247,6 +249,8 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     //debug
         std::vector<struct in_addr> checklist;
         std::vector<int> amount;
+        int debug_counter = 0;
+        int output,second,third = 0;
 
     bool frreqActive;
     bool saodvActive;

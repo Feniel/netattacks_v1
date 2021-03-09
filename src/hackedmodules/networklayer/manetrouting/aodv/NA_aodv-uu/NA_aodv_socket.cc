@@ -355,9 +355,6 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
             }else{
                 amount[index] += 1 ;
             }
-            int output = 0;
-            int second = 0;
-            int third = 0;
             for (int j=0; j< amount.size();j++){
                 if(output < amount[j]){
                     third = second;

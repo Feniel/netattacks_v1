@@ -135,12 +135,12 @@ void NS_CLASS addBlacklist (IPv4Address ipv4){
 }
 void NS_CLASS init_fakerreq(){
     u_int32_t dest_seqno = intuniform(2,100);
-    int ttl = 0;
+    int ttl = 1;
     u_int8_t flags = 0;
     struct in_addr random_addr;
     IPv4Address tmp = IPv4Address(intuniform(2,254),1,2,3);
     random_addr.s_addr = ManetAddress(tmp);
-    rreq_send (random_addr,dest_seqno,ttl,flags);
+    rreq_send (random_addr,0,ttl,flags);
     fake_addr_list.push_back(tmp);
 }
 
@@ -979,6 +979,8 @@ void NS_CLASS rreq_route_discovery(struct in_addr dest_addr, u_int8_t flags,
     }
 
     rreq_send(dest_addr, dest_seqno, ttl, flags);
+    //std::cout << dest_addr.S_addr << "|" << dest_seqno << "|" << ttl << "|" << flags << endl;
+    //std::cout << (char *)flags << endl;
 
     /* Remember that we are seeking this destination */
     seek_entry = seek_list_insert(dest_addr, dest_seqno, ttl, flags, ipd);

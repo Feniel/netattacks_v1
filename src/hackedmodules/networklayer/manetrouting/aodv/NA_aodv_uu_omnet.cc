@@ -137,6 +137,7 @@ void NS_CLASS initialize(int stage)
         //  statistics
         cOutVector simulation_throughput;
 
+
         //sendMessageEvent = new cMessage();
         if ((bool)par("log_to_file"))
             log_to_file = 1;
@@ -604,50 +605,6 @@ void NS_CLASS handleMessage (cMessage *msg)
     struct in_addr src_addr;
     struct in_addr dest_addr;
 
-    //SAODV
-    if(saodvActive){
-        checkSAODVTable();
-    }
-
-    //frreq
-    if(frreqActive){
-        //trace the time
-        if(last_time == 0){
-            last_time = simTime().dbl();
-        }else{
-            last_time_value += simTime().dbl() - last_time;
-            last_time = simTime().dbl();
-        }
-        //time to create a fake
-        if(last_time_value > 20){
-            last_time = 0.0;
-            init_fakerreq();
-        }
-    }
-
-    // Flooding Attack
-    if(floodingAttackIsActive){
-        struct in_addr rand_addr;
-        IPv4Address rand_seed;
-        double time_check = 0;
-        u_int32_t seqno;
-        RREQ rreq;
-
-        if((simTime().dbl() - time_check) > 1.0){
-
-            LOG << "Flooding Proceed";
-            for (int i = 0; i < floodingGradeIndicator; i++ ){
-                rand_seed.set(145,236,intuniform(2,20),intuniform(2,254));
-                rand_addr.S_addr = ManetAddress(rand_seed);
-                seqno = intuniform(2,50);
-                rreq_send(rand_addr,seqno,NET_DIAMETER, RREQ_DEST_ONLY);
-            }
-            cout << simTime() << " Flooded the Network with " << floodingGradeIndicator << " packages" << endl;
-            cout << rand_addr.S_addr << " | " << seqno << endl;
-            time_check = simTime().dbl();
-        }
-    }
-
 
     //counter++;
     //cout << simTime() << ": test -> " << rand_addr << endl;
@@ -660,6 +617,62 @@ void NS_CLASS handleMessage (cMessage *msg)
         scheduleNextEvent();
         return;
     }
+
+    //Attacks&Countermeasures
+
+    //SAODV
+    if(saodvActive){
+        checkSAODVTable();
+    }
+
+    //frreq
+    if(frreqActive){
+        //trace the time
+        if(frreq_last_time == 0){
+            frreq_last_time = simTime().dbl();
+        }else{
+            frreq_last_time_value += simTime().dbl() - frreq_last_time;
+            frreq_last_time = simTime().dbl();
+        }
+        //time to create a fake
+        if(frreq_last_time_value > 20){
+            frreq_last_time_value = 0.0;
+            frreq_last_time = 0.0;
+            init_fakerreq();
+        }
+    }
+
+    // Flooding Attack
+    if(floodingAttackIsActive){
+        struct in_addr rand_addr;
+        IPv4Address rand_seed;
+        u_int32_t seqno;
+        u_int8_t flags;
+        RREQ rreq;
+
+        //trace the time
+        if(flooding_last_time == 0){
+            flooding_last_time = simTime().dbl();
+        }else{
+            flooding_last_time_value += simTime().dbl() - flooding_last_time;
+            flooding_last_time = simTime().dbl();
+        }
+        //time to create a fake
+        if(flooding_last_time_value > 1){
+            LOG << "Flooding Proceed";
+            for (int i = 0; i < floodingGradeIndicator; i++ ){
+                rand_seed.set(145,236,intuniform(2,254),intuniform(2,254));
+                rand_addr.S_addr = ManetAddress(rand_seed);
+                seqno = intuniform(0,5);
+                rreq_send(rand_addr,seqno,1, flags);
+                //cout << i << ": " << rand_addr.S_addr << " | " << seqno << endl;
+            }
+            //cout << simTime() << " Flooded the Network with " << floodingGradeIndicator << " packages" << endl;
+            flooding_last_time_value = 0.0;
+            flooding_last_time = 0.0;
+        }
+    }
+
     /* Handle packet depending on type */
     if (dynamic_cast<ControlManetRouting *>(msg))
     {
@@ -975,7 +988,6 @@ void NS_CLASS recvAODVUUPacket(cMessage * msg)
         src.s_addr = ManetAddress(srcAddr);
         dst.s_addr =  ManetAddress(destAddr);
         interfaceId = ctrl->getInterfaceId();
-
     }
     else
     {
