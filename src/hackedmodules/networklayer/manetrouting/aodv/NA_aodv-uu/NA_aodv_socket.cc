@@ -412,18 +412,20 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                         index = i;
                     }
                 }
+                struct in_addr tmp;
+                tmp.S_addr = rreq->orig_addr;
                 //did we know this src ?
                 if( index == -1){
                     //add it to the list
-                    int input_index = fbf_list.size();
-                    fbf_list[input_index][0] = src;
-                    fbf_list[input_index][1].S_addr = rreq->orig_addr;
+                    vector <struct in_addr> node;
+                    node.push_back(src);
+                    node.push_back(tmp);
+                    fbf_list.push_back(node);
                     rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
                     break;
                 }else{
                     //increment
-                    fbf_tmp.S_addr = rreq->orig_addr;
-                    fbf_list[index].push_back(fbf_tmp);
+                    fbf_list[index].push_back(tmp);
                     //check if to many org
                     if (fbf_list[index].size() > fbf_threshold){
                         fbf_neighbor_blacklist.push_back(src);

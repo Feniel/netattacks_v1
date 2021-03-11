@@ -274,6 +274,11 @@ void NS_CLASS initialize(int stage)
         useHover = par("useHover");
         proactive_rreq_timeout= par("proactiveRreqTimeout").longValue();
 
+        //vector <struct in_addr> tmp;
+        //for(int i; i<25;i++){
+        //    fbf_list[i].push_back(tmp);
+        //}
+
         if (isRoot)
         {
             timer_init(&proactive_rreq_timer,&NS_CLASS rreq_proactive, NULL);
