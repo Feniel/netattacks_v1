@@ -342,7 +342,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         //std::cout << pbfActive << endl;
         //std::cout << fbfActive << endl;
 
-        if( true ){
+        if( false ){
             int index = -1;
             for( int i=0; i < checklist.size();i++ ){
                 if( checklist[i].S_addr == src.S_addr){
