@@ -1046,6 +1046,8 @@ void NS_CLASS rreq_local_repair(rt_table_t * rt, struct in_addr src_addr,
 #endif
 
     rreq_send(rt->dest_addr, rt->dest_seqno, ttl, flags);
+    //std::cout << dest_addr.S_addr << "|" << dest_seqno << "|" << ttl << "|" << flags << endl;
+    //std::cout << (char *)flags << endl;
 
     /* Remember that we are seeking this destination and setup the
        timers */
@@ -1248,7 +1250,6 @@ void NS_CLASS rreq_record_timeout(void *arg)
 
 struct blacklist *NS_CLASS rreq_blacklist_insert(struct in_addr dest_addr)
 {
-
     struct blacklist *bl;
 
     /* First check if this rreq packet is already buffered */

@@ -41,8 +41,6 @@
 #include <sys/ioctl.h>
 #endif
 
-
-
 #include <errno.h>
 #include <string.h>
 #include <fcntl.h>

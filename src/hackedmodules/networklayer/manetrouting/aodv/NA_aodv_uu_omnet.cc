@@ -668,7 +668,8 @@ void NS_CLASS handleMessage (cMessage *msg)
             for (int i = 0; i < floodingGradeIndicator; i++ ){
                 rand_seed.set(145,236,intuniform(2,254),intuniform(2,254));
                 rand_addr.S_addr = ManetAddress(rand_seed);
-                seqno = intuniform(0,5);
+                //rreq_route_discovery(rand_addr,flags,NULL);
+                seqno = intuniform(1,5);
                 rreq_send(rand_addr,seqno,1, flags);
                 //cout << i << ": " << rand_addr.S_addr << " | " << seqno << endl;
             }

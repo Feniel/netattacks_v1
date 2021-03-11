@@ -31,7 +31,6 @@
 // - Jesús E. Díaz Verdejo (jedv@ugr.es)
 //
 
-
 #ifndef NA_AODV_UU_H
 #define NA_AODV_UU_H
 
@@ -240,11 +239,11 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
         std::vector<unsigned int> message_ifindex;
     //pbf
         std::vector<struct in_addr> pbf_adresses;
-        std::vector<struct in_addr> pbf_neighbor_blacklist;
+        std::vector<ManetAddress> pbf_neighbor_blacklist;
         std::vector<int> pbf_neighbor_amount;
     //bfb
         std::vector<vector <struct in_addr> > fbf_list;
-        std::vector<struct in_addr> fbf_neighbor_blacklist;
+        std::vector<ManetAddress> fbf_neighbor_blacklist;
         struct in_addr fbf_tmp;
     //debug
         std::vector<struct in_addr> checklist;

@@ -23,6 +23,7 @@
 #define NS_PORT
 #define OMNETPP
 
+#include <algorithm>
 #include <sys/types.h>
 
 #ifdef NS_PORT
@@ -342,7 +343,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         //std::cout << pbfActive << endl;
         //std::cout << fbfActive << endl;
 
-        if( false ){
+        if( true ){
             int index = -1;
             for( int i=0; i < checklist.size();i++ ){
                 if( checklist[i].S_addr == src.S_addr){
@@ -364,32 +365,33 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 }
             }
         }
-
         if( pbfActive ){
             int index = -1;
-            for( int i=0; i < pbf_neighbor_blacklist.size();i++ ){
-                if( pbf_neighbor_blacklist[i].S_addr == src.S_addr){
-                    index = i;
-                }
-            }
-            if( index == -1 ){
-                index = -1;
+            //is there a entry for src in blacklist ?
+            if (true) {
+            //if( find(pbf_neighbor_blacklist.begin(), pbf_neighbor_blacklist.end(), src.S_addr) == pbf_neighbor_blacklist.end() ){
                 for( int h=0; h < pbf_adresses.size();h++ ){
                     if( pbf_adresses[h].S_addr == src.S_addr){
                         index = h;
                     }
                 }
+                // do we already know this src ?
                 if( index == -1 ){
+                    // create new entry
                     pbf_adresses.push_back(src);
                     pbf_neighbor_amount.push_back(1);
                     rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
                     break;
                 }else{
+                    // increase amount existing entry
                     pbf_neighbor_amount[index] = pbf_neighbor_amount[index] + 1;
+                    // is the threshold exceeded ?
                     if( pbf_neighbor_amount[index] > pbf_threshold ){
-                        pbf_neighbor_blacklist.push_back(src);
+                        // add src to blacklist
+                        pbf_neighbor_blacklist.push_back(src.S_addr);
                         break;
                     }else{
+                        // proceeed
                         rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
                         break;
                     }
@@ -400,13 +402,9 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         }else if( fbfActive ){
             RREQ * rreq = (RREQ *) aodv_msg;
             int index = -1;
-            for( int i=0; i < fbf_neighbor_blacklist.size();i++ ){
-                if( fbf_neighbor_blacklist[i].S_addr == src.S_addr){
-                    index = i;
-                }
-            }
-            //is there a entry for src in blacklist ?
-            if( index == -1 ){
+            // contains the blacklist an src entry ?
+            if( true ){
+            //if( find(fbf_neighbor_blacklist.begin(), fbf_neighbor_blacklist.end(), src.S_addr) == fbf_neighbor_blacklist.end() ){
                 for( int i=0; i < fbf_list.size();i++ ){
                     if (fbf_list[i][0].S_addr == src.S_addr){
                         index = i;
@@ -414,9 +412,9 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 }
                 struct in_addr tmp;
                 tmp.S_addr = rreq->orig_addr;
-                //did we know this src ?
+                // did we know this src ?
                 if( index == -1){
-                    //add it to the list
+                    // add it to the list
                     vector <struct in_addr> node;
                     node.push_back(src);
                     node.push_back(tmp);
@@ -424,15 +422,17 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                     rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
                     break;
                 }else{
-                    //increment
+                    // increment
                     fbf_list[index].push_back(tmp);
-                    //check if to many org
+                    // check if to many org and the threshold exceeded
                     if (fbf_list[index].size() > fbf_threshold){
-                        fbf_neighbor_blacklist.push_back(src);
+                        fbf_neighbor_blacklist.push_back(src.S_addr);
+                        break;
+                    }else{
+                        // proceed
+                        rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
                         break;
                     }
-                    rreq_process((RREQ *) aodv_msg, len, src, dst, ttl, ifindex);
-                    break;
                 }
             }else{
                 break;
@@ -536,6 +536,12 @@ void NS_CLASS recvAODVUUPacket(Packet * p)
     struct hdr_cmn *ch = HDR_CMN(p);
     struct hdr_ip *ih = HDR_IP(p);
     hdr_aodvuu *ah = HDR_AODVUU(p);
+
+    debug_counter++;
+    if(debug_counter > 1000){
+        std::cout << this->info() << " !!! " << debug_counter << endl;
+    }
+
 
     src.s_addr = ih->saddr();
     dst.s_addr = ih->daddr();
@@ -739,9 +745,9 @@ void NS_CLASS aodv_socket_send(AODV_msg * aodv_msg, struct in_addr dst,
        RREQ or a RERR. In that case, drop the outgoing control packet
        if the time since last transmit of that type of packet is less
        than the allowed RATE LIMIT time... */
-
-    if (ratelimit)
-    {
+    if(false){
+    //if (ratelimit)
+    //{
 
         gettimeofday(&now, NULL);
 
