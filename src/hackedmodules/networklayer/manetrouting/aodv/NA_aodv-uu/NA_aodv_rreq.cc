@@ -338,6 +338,7 @@ void NS_CLASS rreq_process(RREQ * rreq, int rreqlen, struct in_addr ip_src,
        or we buffer our own sent RREQ's as we do with others we
        receive. */
     ifaddr = DEV_IFINDEX(ifindex).ipaddr.s_addr.getIPv4().getInt();
+    logMsg = processTimeLayer();
 #ifndef OMNETPP
     if (rreq_orig.s_addr == DEV_IFINDEX(ifindex).ipaddr.s_addr)
         return;
@@ -931,6 +932,7 @@ void NS_CLASS rreq_route_discovery(struct in_addr dest_addr, u_int8_t flags,
 {
     aodv_delay_dst.push_back(dest_addr);
     aodv_delay_time.push_back(simTime().dbl());
+    emit(aodv_total_discovery, 1);
 
     struct timeval now;
     rt_table_t *rt;

@@ -54,6 +54,8 @@
 #include "NA_aodv-uu/NA_aodv_rreq.h"
 
 simsignal_t NA_AODVUU::aodv_delay = SIMSIGNAL_NULL;
+simsignal_t NA_AODVUU::aodv_total_routes_establisht = SIMSIGNAL_NULL;
+simsignal_t NA_AODVUU::aodv_total_discovery = SIMSIGNAL_NULL;
 
 int counter = 0;
 double last_time_value,last_time = 0;
@@ -86,6 +88,8 @@ int NA_AODVUU::totalRerrRec=0;
 void NS_CLASS initialize(int stage)
 {
     aodv_delay = registerSignal("aodv_delay");
+    aodv_total_routes_establisht = registerSignal("aodv_total_routes_establisht");
+    aodv_total_discovery = registerSignal("aodv_total_discovery");
      /*
        Enable usage of some of the configuration variables from Tcl.
 
@@ -166,6 +170,7 @@ void NS_CLASS initialize(int stage)
         if ((bool)par("debug"))
             debug = 1;
 
+        timeDebug = 1;
         useIndex = par("UseIndex");
         unidir_hack = (int) par("unidir_hack");
 
@@ -679,7 +684,7 @@ void NS_CLASS handleMessage (cMessage *msg)
         struct in_addr rand_addr;
         IPv4Address rand_seed;
         u_int32_t seqno;
-        u_int8_t flags = 0;
+        u_int8_t flags;
         RREQ rreq;
 
         //trace the time
@@ -690,15 +695,16 @@ void NS_CLASS handleMessage (cMessage *msg)
             flooding_last_time = simTime().dbl();
         }
         //time to create a fake
-        if(flooding_last_time_value > 1){
+        if(flooding_last_time_value > 0.2){
             LOG << "Flooding Proceed";
-            for (int i = 0; i < floodingGradeIndicator; i++ ){
+            for (int i = 0; i < floodingGradeIndicator/5; i++ ){
                 rand_seed.set(145,236,intuniform(2,254),intuniform(2,254));
                 rand_addr.S_addr = ManetAddress(rand_seed);
                 //rreq_route_discovery(rand_addr,flags,NULL);
-                seqno = intuniform(1,5);
-                rreq_send(rand_addr,seqno,50, flags);
-                //cout << i << ": " << rand_addr.S_addr << " | " << seqno << endl;
+                flags |=  RREQ_DEST_ONLY;
+                seqno = intuniform(1,6);
+                rreq_send(rand_addr,seqno,25, flags);
+                cout << simTime() << ": " << i << " | " << rand_addr.S_addr << endl;
             }
             flooding_last_time_value = 0.0;
             flooding_last_time = 0.0;
@@ -1005,6 +1011,7 @@ void NS_CLASS recvAODVUUPacket(cMessage * msg)
     struct in_addr src, dst;
     int ttl;
     int interfaceId;
+
 
     AODV_msg *aodv_msg = check_and_cast<AODV_msg *> (msg);
     int len = aodv_msg->getByteLength();
@@ -1398,6 +1405,18 @@ void NS_CLASS setRefreshRoute(const ManetAddress &destination, const ManetAddres
     scheduleNextEvent();
 }
 
+bool NS_CLASS processTimeLayer()
+{
+    bool output = false;
+    for (int index = 0; index < (NODE_TRAVERSAL_TIME)*2; index++){
+        timeDebug++;
+        if ( timeDebug > 75 & output==false){
+            output = true;
+            index = 0;
+        }
+    }
+    return output;
+}
 
 bool NS_CLASS isOurType(cPacket * msg)
 {

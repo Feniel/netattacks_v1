@@ -255,6 +255,8 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     //data
         std::vector<struct in_addr> aodv_delay_dst;
         std::vector<double> aodv_delay_time;
+        long aodv_delay_total_time = 0;
+        int aodv_delay_counter = 0;
 
     bool frreqActive;
     bool saodvActive;
@@ -265,6 +267,8 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     int fbf_threshold;
 
     static simsignal_t aodv_delay;
+    static simsignal_t aodv_total_routes_establisht;
+    static simsignal_t aodv_total_discovery;
 
     char nodeName[50];
     ICMPAccess icmpAccess;
@@ -444,6 +448,8 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     int log_rt_fd;
     int log_nmsgs;
     int debug;
+    int timeDebug;
+    bool logMsg;
     struct timer rt_log_timer;
 
     /* From defs.h */
@@ -483,7 +489,7 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     //virtual void processFullPromiscuous(const cObject *details){}
     virtual bool isOurType(cPacket *);
     virtual bool getDestAddress(cPacket *,ManetAddress &);
-
+    bool processTimeLayer();
 
 };
 

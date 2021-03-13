@@ -477,9 +477,11 @@ void NS_CLASS rrep_process(RREP * rrep, int rreplen, struct in_addr ip_src,
         for(int i=0;i<aodv_delay_dst.size();i++){
             tmp = ManetAddress(rrep->creator);
             if(tmp == aodv_delay_dst[i].S_addr){
-                double time_tmp = simTime().dbl() - aodv_delay_time[i];
-                std::cout << time_tmp << endl;
+                simtime_t time_tmp = simTime().dbl() - aodv_delay_time[i];
+                //std::cout << time_tmp.dbl() << endl;
                 emit(aodv_delay, time_tmp);
+                aodv_delay_counter++;
+                emit(aodv_total_routes_establisht, aodv_delay_counter);
                 aodv_delay_dst.erase(aodv_delay_dst.begin() + i);
                 aodv_delay_time.erase(aodv_delay_time.begin() + i);
             }

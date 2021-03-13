@@ -985,6 +985,7 @@ AODV_msg *NS_CLASS aodv_socket_queue_msg(AODV_msg * aodv_msg, int size)
     return (AODV_msg *) send_buf;
 }
 #endif
+
 void aodv_socket_cleanup(void)
 {
 #ifndef NS_PORT
