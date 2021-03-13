@@ -241,6 +241,8 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
         std::vector<struct in_addr> pbf_adresses;
         std::vector<ManetAddress> pbf_neighbor_blacklist;
         std::vector<int> pbf_neighbor_amount;
+        double pbf_last_time_value = 0;
+        double pbf_last_time = 0;
     //bfb
         std::vector<vector <struct in_addr> > fbf_list;
         std::vector<ManetAddress> fbf_neighbor_blacklist;
@@ -250,6 +252,9 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
         std::vector<int> amount;
         int debug_counter = 0;
         int output,second,third = 0;
+    //data
+        std::vector<struct in_addr> aodv_delay_dst;
+        std::vector<double> aodv_delay_time;
 
     bool frreqActive;
     bool saodvActive;
@@ -258,6 +263,8 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     int pbf_time_span;
     bool fbfActive;
     int fbf_threshold;
+
+    static simsignal_t aodv_delay;
 
     char nodeName[50];
     ICMPAccess icmpAccess;

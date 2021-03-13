@@ -53,6 +53,8 @@
 
 #include "NA_aodv-uu/NA_aodv_rreq.h"
 
+simsignal_t NA_AODVUU::aodv_delay = SIMSIGNAL_NULL;
+
 int counter = 0;
 double last_time_value,last_time = 0;
 
@@ -83,6 +85,7 @@ int NA_AODVUU::totalRerrRec=0;
 
 void NS_CLASS initialize(int stage)
 {
+    aodv_delay = registerSignal("aodv_delay");
      /*
        Enable usage of some of the configuration variables from Tcl.
 
@@ -133,6 +136,9 @@ void NS_CLASS initialize(int stage)
         frreqActive = par("frreqActive");
         pbfActive = par("pbfActive");
         fbfActive = par("fbfActive");
+        pbf_threshold = par("pbf_threshold");
+        pbf_time_span = par("pbf_time_span");
+        fbf_threshold = par("fbf_threshold");
 
         //  statistics
         cOutVector simulation_throughput;
@@ -647,12 +653,33 @@ void NS_CLASS handleMessage (cMessage *msg)
         }
     }
 
+    if(pbfActive){
+        //trace the time
+        if(pbf_last_time == 0){
+            pbf_last_time = simTime().dbl();
+        }else{
+            pbf_last_time_value += simTime().dbl() - pbf_last_time;
+            pbf_last_time = simTime().dbl();
+        }
+        //time to create a fake
+        if(pbf_last_time_value > 2){
+            pbf_last_time_value = 0.0;
+            pbf_last_time = 0.0;
+            for(int i=0;i<pbf_neighbor_amount.size();i++){
+                pbf_neighbor_amount[i] -= 5;
+                if(pbf_neighbor_amount[i]<0){
+                    pbf_neighbor_amount[i] = 0;
+                }
+            }
+        }
+    }
+
     // Flooding Attack
     if(floodingAttackIsActive){
         struct in_addr rand_addr;
         IPv4Address rand_seed;
         u_int32_t seqno;
-        u_int8_t flags;
+        u_int8_t flags = 0;
         RREQ rreq;
 
         //trace the time
@@ -670,10 +697,9 @@ void NS_CLASS handleMessage (cMessage *msg)
                 rand_addr.S_addr = ManetAddress(rand_seed);
                 //rreq_route_discovery(rand_addr,flags,NULL);
                 seqno = intuniform(1,5);
-                rreq_send(rand_addr,seqno,1, flags);
+                rreq_send(rand_addr,seqno,50, flags);
                 //cout << i << ": " << rand_addr.S_addr << " | " << seqno << endl;
             }
-            //cout << simTime() << " Flooded the Network with " << floodingGradeIndicator << " packages" << endl;
             flooding_last_time_value = 0.0;
             flooding_last_time = 0.0;
         }

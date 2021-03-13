@@ -54,6 +54,8 @@ simple NA_AODVUU extends BaseRouting like IManetRouting
         @display("i=,red;i2=status/excl3");
         @class(NA_AODVUU);
         
+        @signal[aodv_delay](type=long);
+        @statistic[aodv_delay](title="AODV Route delay"; record=count, vector; interpolationmode=none);
         
         @reactive;                             // IP module will send control messages when no route is present to the destination 
         bool log_to_file = default(false);     // dump AODV log files (non RFC parameter)

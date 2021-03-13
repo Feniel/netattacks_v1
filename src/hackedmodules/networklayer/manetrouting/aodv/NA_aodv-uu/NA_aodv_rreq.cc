@@ -929,6 +929,9 @@ forward:
 void NS_CLASS rreq_route_discovery(struct in_addr dest_addr, u_int8_t flags,
                                    struct ip_data *ipd)
 {
+    aodv_delay_dst.push_back(dest_addr);
+    aodv_delay_time.push_back(simTime().dbl());
+
     struct timeval now;
     rt_table_t *rt;
     seek_list_t *seek_entry;

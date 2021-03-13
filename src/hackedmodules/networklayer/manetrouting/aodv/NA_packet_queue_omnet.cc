@@ -328,6 +328,7 @@ void NS_CLASS packet_queue_add(cPacket * p, struct in_addr dest_addr)
 
     if (PQ.pkQueue.size() >= MAX_QUEUE_LENGTH)
     {
+        std::cout << "removed packet" << endl;
         DEBUG(LOG_DEBUG, 0, "MAX Queue length! Removing first packet.");
         qp = PQ.pkQueue.front();
         PQ.pkQueue.erase(PQ.pkQueue.begin());

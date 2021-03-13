@@ -343,7 +343,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         //std::cout << pbfActive << endl;
         //std::cout << fbfActive << endl;
 
-        if( true ){
+        if( false ){
             int index = -1;
             for( int i=0; i < checklist.size();i++ ){
                 if( checklist[i].S_addr == src.S_addr){
@@ -368,8 +368,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         if( pbfActive ){
             int index = -1;
             //is there a entry for src in blacklist ?
-            if (true) {
-            //if( find(pbf_neighbor_blacklist.begin(), pbf_neighbor_blacklist.end(), src.S_addr) == pbf_neighbor_blacklist.end() ){
+            if( find(pbf_neighbor_blacklist.begin(), pbf_neighbor_blacklist.end(), src.S_addr) == pbf_neighbor_blacklist.end() ){
                 for( int h=0; h < pbf_adresses.size();h++ ){
                     if( pbf_adresses[h].S_addr == src.S_addr){
                         index = h;
