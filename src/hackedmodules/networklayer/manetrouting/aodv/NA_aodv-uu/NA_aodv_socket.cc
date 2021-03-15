@@ -402,15 +402,18 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
             RREQ * rreq = (RREQ *) aodv_msg;
             int index = -1;
             // contains the blacklist an src entry ?
-            if( true ){
-            //if( find(fbf_neighbor_blacklist.begin(), fbf_neighbor_blacklist.end(), src.S_addr) == fbf_neighbor_blacklist.end() ){
+            if(simTime().dbl() > 150){
+                int lol = 1;
+            }
+            //if( true ){
+            if( find(fbf_neighbor_blacklist.begin(), fbf_neighbor_blacklist.end(), src.S_addr) == fbf_neighbor_blacklist.end() ){
                 for( int i=0; i < fbf_list.size();i++ ){
                     if (fbf_list[i][0].S_addr == src.S_addr){
                         index = i;
                     }
                 }
                 struct in_addr tmp;
-                tmp.S_addr = rreq->orig_addr;
+                tmp.S_addr = rreq->dest_addr;
                 // did we know this src ?
                 if( index == -1){
                     // add it to the list
@@ -535,12 +538,6 @@ void NS_CLASS recvAODVUUPacket(Packet * p)
     struct hdr_cmn *ch = HDR_CMN(p);
     struct hdr_ip *ih = HDR_IP(p);
     hdr_aodvuu *ah = HDR_AODVUU(p);
-
-    debug_counter++;
-    if(debug_counter > 1000){
-        std::cout << this->info() << " !!! " << debug_counter << endl;
-    }
-
 
     src.s_addr = ih->saddr();
     dst.s_addr = ih->daddr();

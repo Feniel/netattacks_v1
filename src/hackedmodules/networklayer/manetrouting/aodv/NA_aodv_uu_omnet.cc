@@ -658,23 +658,36 @@ void NS_CLASS handleMessage (cMessage *msg)
         }
     }
 
-    if(pbfActive){
-        //trace the time
-        if(pbf_last_time == 0){
-            pbf_last_time = simTime().dbl();
-        }else{
-            pbf_last_time_value += simTime().dbl() - pbf_last_time;
-            pbf_last_time = simTime().dbl();
-        }
-        //time to create a fake
-        if(pbf_last_time_value > 2){
-            pbf_last_time_value = 0.0;
-            pbf_last_time = 0.0;
+    //trace the time
+    if(pbf_last_time == 0){
+        pbf_last_time = simTime().dbl();
+    }else{
+        pbf_last_time_value += simTime().dbl() - pbf_last_time;
+        pbf_last_time = simTime().dbl();
+    }
+    //time to create a fake
+    int time = 2;
+    if(fbfActive){ time = 20;}
+    if(pbf_last_time_value > time){
+        pbf_last_time_value = 0.0;
+        pbf_last_time = 0.0;
+        if(pbfActive){
             for(int i=0;i<pbf_neighbor_amount.size();i++){
-                pbf_neighbor_amount[i] -= 5;
+                pbf_neighbor_amount[i] -= 1;
                 if(pbf_neighbor_amount[i]<0){
                     pbf_neighbor_amount[i] = 0;
                 }
+            }
+        }
+        if(fbfActive){
+            fbf_counter++;
+            for(int i=0;i<fbf_list.size();i++){
+                if(fbf_list[i].size()>2){
+                    fbf_list[i].erase(fbf_list[i].begin() + 2);
+                }
+            }
+            if(fbf_counter==3){
+                fbf_neighbor_blacklist.clear();
             }
         }
     }
@@ -695,19 +708,20 @@ void NS_CLASS handleMessage (cMessage *msg)
             flooding_last_time = simTime().dbl();
         }
         //time to create a fake
-        if(flooding_last_time_value > 0.2){
+        if(flooding_last_time_value > 0.1){
             LOG << "Flooding Proceed";
-            for (int i = 0; i < floodingGradeIndicator/5; i++ ){
-                rand_seed.set(145,236,intuniform(2,254),intuniform(2,254));
+            for (int i = 0; i < floodingGradeIndicator; i++ ){
+                rand_seed.set(intuniform(2,254),intuniform(2,254),intuniform(2,254),intuniform(2,254));
                 rand_addr.S_addr = ManetAddress(rand_seed);
                 //rreq_route_discovery(rand_addr,flags,NULL);
                 flags |=  RREQ_DEST_ONLY;
                 seqno = intuniform(1,6);
                 rreq_send(rand_addr,seqno,25, flags);
-                cout << simTime() << ": " << i << " | " << rand_addr.S_addr << endl;
+                //cout << simTime() << ": " << i << " | " << rand_addr.S_addr << endl;
             }
             flooding_last_time_value = 0.0;
             flooding_last_time = 0.0;
+            cout << getId() << ": " << simTime() << endl;
         }
     }
 
@@ -1408,9 +1422,9 @@ void NS_CLASS setRefreshRoute(const ManetAddress &destination, const ManetAddres
 bool NS_CLASS processTimeLayer()
 {
     bool output = false;
-    for (int index = 0; index < (NODE_TRAVERSAL_TIME)*2; index++){
+    for (int index = 0; index < (NODE_TRAVERSAL_TIME)*13; index++){
         timeDebug++;
-        if ( timeDebug > 75 & output==false){
+        if ( timeDebug > 500 & output==false){
             output = true;
             index = 0;
         }

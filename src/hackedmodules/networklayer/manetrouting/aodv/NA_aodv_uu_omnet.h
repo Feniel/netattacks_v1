@@ -247,6 +247,7 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
         std::vector<vector <struct in_addr> > fbf_list;
         std::vector<ManetAddress> fbf_neighbor_blacklist;
         struct in_addr fbf_tmp;
+        int fbf_counter = 0;
     //debug
         std::vector<struct in_addr> checklist;
         std::vector<int> amount;
