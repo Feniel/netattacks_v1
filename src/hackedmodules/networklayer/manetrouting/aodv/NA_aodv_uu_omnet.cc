@@ -667,7 +667,7 @@ void NS_CLASS handleMessage (cMessage *msg)
     }
     //time to create a fake
     int time = 2;
-    if(fbfActive){ time = 20;}
+    if(fbfActive){ time = 2;}
     if(pbf_last_time_value > time){
         pbf_last_time_value = 0.0;
         pbf_last_time = 0.0;
@@ -686,8 +686,9 @@ void NS_CLASS handleMessage (cMessage *msg)
                     fbf_list[i].erase(fbf_list[i].begin() + 2);
                 }
             }
-            if(fbf_counter==3){
+            if(fbf_counter==30){
                 fbf_neighbor_blacklist.clear();
+                fbf_counter=0;
             }
         }
     }

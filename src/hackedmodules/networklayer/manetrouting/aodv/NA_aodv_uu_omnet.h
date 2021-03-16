@@ -226,11 +226,9 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
         double flooding_last_time_value,flooding_last_time = 0;
         std::vector<ManetAddress> table;
         std::vector<int> count_table;
-        ManetAddress output_checksum,checksum,aux;
+        ManetAddress checksum,aux;
         struct in_addr saodv_rrep_orig,rrep_orig;
-        int max_occurrence = 0;
         int vector_position = 99999;
-        int output_counter = 0;
         std::vector<RREP *> message_rrep;
         std::vector<int> message_len;
         std::vector<struct in_addr> message_src;

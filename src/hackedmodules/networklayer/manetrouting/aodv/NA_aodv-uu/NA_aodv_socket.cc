@@ -273,17 +273,27 @@ void NS_CLASS checkSAODVTable (){
             last_time = simTime().dbl();
         }
         if(last_time_value > 3){
+            ManetAddress output_checksum;
+            int max_occurrence, output_counter, index = 0;
+            bool outOfBound = true;
             //which gateway was mostly used
             for(int i;i<count_table.size();i++){
                 if(max_occurrence<count_table[i]){
                     max_occurrence = count_table[i];
+                    index = i;
                 }
             }
             //get the first rrep from this gateway out of the collected rreps
             output_checksum = message_src[output_counter].S_addr;
-            while(!table[max_occurrence].getIPv4().equals(output_checksum.getIPv4())){
-                output_counter++;
-                output_checksum = message_src[output_counter].S_addr;
+            //while(!table[max_occurrence].getIPv4().equals(output_checksum.getIPv4())){
+            while(table[index] != output_checksum & outOfBound){
+                if(output_counter > message_src.size()){
+                    output_counter = 0;
+                    outOfBound = false;
+                }else{
+                    output_counter++;
+                    output_checksum = message_src[output_counter].S_addr;
+                }
             }
             //send the first rrep from the most used gateway
             rrep_process(message_rrep[output_counter],
@@ -297,8 +307,6 @@ void NS_CLASS checkSAODVTable (){
             last_time_value = 0.0;
             table.clear();
             count_table.clear();
-            max_occurrence = 0;
-            output_counter = 0;
             message_rrep.clear();
             message_len.clear();
             message_src.clear();
@@ -399,21 +407,20 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 break;
             }
         }else if( fbfActive ){
+            if(simTime().dbl() > 94.0){
+                std::cout << "here" << endl;
+            }
             RREQ * rreq = (RREQ *) aodv_msg;
             int index = -1;
-            // contains the blacklist an src entry ?
-            if(simTime().dbl() > 150){
-                int lol = 1;
-            }
-            //if( true ){
-            if( find(fbf_neighbor_blacklist.begin(), fbf_neighbor_blacklist.end(), src.S_addr) == fbf_neighbor_blacklist.end() ){
-                for( int i=0; i < fbf_list.size();i++ ){
-                    if (fbf_list[i][0].S_addr == src.S_addr){
-                        index = i;
-                    }
+            struct in_addr tmp;
+            tmp.S_addr = rreq->dest_addr;
+            for( int i=0; i < fbf_list.size();i++ ){
+                if (fbf_list[i][0].S_addr == src.S_addr){
+                    index = i;
                 }
-                struct in_addr tmp;
-                tmp.S_addr = rreq->dest_addr;
+            }
+            // contains the blacklist an src entry ?
+            if( find(fbf_neighbor_blacklist.begin(), fbf_neighbor_blacklist.end(), src.S_addr) == fbf_neighbor_blacklist.end() ){
                 // did we know this src ?
                 if( index == -1){
                     // add it to the list
@@ -427,7 +434,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                     // increment
                     fbf_list[index].push_back(tmp);
                     // check if to many org and the threshold exceeded
-                    if (fbf_list[index].size() > fbf_threshold){
+                    if (fbf_list[index].size()-1 > fbf_threshold){
                         fbf_neighbor_blacklist.push_back(src.S_addr);
                         break;
                     }else{
@@ -437,6 +444,7 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                     }
                 }
             }else{
+                fbf_list[index].push_back(tmp);
                 break;
             }
         }else{
@@ -453,19 +461,19 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         if( saodvActive ){
             rrep = (RREP *)aodv_msg;
             //Convert to correct byte order on affected fields
-            if (getAp(rrep->orig_addr, aux)){
-                saodv_rrep_orig.s_addr = aux;
-            }else {
-                saodv_rrep_orig.s_addr = rrep->orig_addr;
-            }
+            //if (getAp(rrep->orig_addr, aux)){
+            //    saodv_rrep_orig.s_addr = aux;
+            //}else {
+            //    saodv_rrep_orig.s_addr = rrep->orig_addr;
+            //}
+
             //is this rrep for us ?
-            saodv_rrep_orig.s_addr = rrep->getOrig_addr();
-            if( addressIsForUs(saodv_rrep_orig.S_addr) ){
+            saodv_rrep_orig.s_addr = rrep->orig_addr;
+            if( isLocalAddress( saodv_rrep_orig.S_addr )){
                 //did we got a rrep from this gateway already ? check vector
-                checksum = src.S_addr;
                 vector_position = -1;
                 for(int i=0;i<table.size();i++){
-                    if(table[i].getIPv4().equals(checksum.getIPv4())){
+                    if( table[i] == src.S_addr ){
                         vector_position = i;
                     }
                 }
