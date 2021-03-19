@@ -229,7 +229,7 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
         ManetAddress checksum,aux;
         struct in_addr saodv_rrep_orig,rrep_orig;
         int vector_position = 99999;
-        std::vector<RREP *> message_rrep;
+        std::vector<RREP> message_rrep;
         std::vector<int> message_len;
         std::vector<struct in_addr> message_src;
         std::vector<struct in_addr> message_dst;
@@ -257,6 +257,7 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
         long aodv_delay_total_time = 0;
         int aodv_delay_counter = 0;
 
+    //countermeasures
     bool frreqActive;
     bool saodvActive;
     bool pbfActive;

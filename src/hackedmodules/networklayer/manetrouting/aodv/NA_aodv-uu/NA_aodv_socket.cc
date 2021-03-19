@@ -272,7 +272,7 @@ void NS_CLASS checkSAODVTable (){
             last_time_value += simTime().dbl() - last_time;
             last_time = simTime().dbl();
         }
-        if(last_time_value > 3){
+        if(last_time_value > 6){
             ManetAddress output_checksum;
             int max_occurrence, output_counter, index = 0;
             bool outOfBound = true;
@@ -285,8 +285,8 @@ void NS_CLASS checkSAODVTable (){
             }
             //get the first rrep from this gateway out of the collected rreps
             output_checksum = message_src[output_counter].S_addr;
-            //while(!table[max_occurrence].getIPv4().equals(output_checksum.getIPv4())){
             while(table[index] != output_checksum & outOfBound){
+                //out of bound detection
                 if(output_counter > message_src.size()){
                     output_counter = 0;
                     outOfBound = false;
@@ -296,7 +296,8 @@ void NS_CLASS checkSAODVTable (){
                 }
             }
             //send the first rrep from the most used gateway
-            rrep_process(message_rrep[output_counter],
+            RREP * buffer = &message_rrep[output_counter];
+            rrep_process(buffer,
                     message_len[output_counter],
                     message_src[output_counter],
                     message_dst[output_counter],
@@ -407,9 +408,6 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                 break;
             }
         }else if( fbfActive ){
-            if(simTime().dbl() > 94.0){
-                std::cout << "here" << endl;
-            }
             RREQ * rreq = (RREQ *) aodv_msg;
             int index = -1;
             struct in_addr tmp;
@@ -456,20 +454,17 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
         DEBUG(LOG_DEBUG, 0, "Received RREP");
 
         //SAODV
-        //std::cout << saodvActive << endl;
-        //std::cout << frreqActive << endl;
         if( saodvActive ){
             rrep = (RREP *)aodv_msg;
             //Convert to correct byte order on affected fields
-            //if (getAp(rrep->orig_addr, aux)){
-            //    saodv_rrep_orig.s_addr = aux;
-            //}else {
-            //    saodv_rrep_orig.s_addr = rrep->orig_addr;
-            //}
-
+            if (getAp(rrep->orig_addr, aux)){
+                saodv_rrep_orig.s_addr = aux;
+            }else {
+                saodv_rrep_orig.s_addr = rrep->orig_addr;
+            }
             //is this rrep for us ?
             saodv_rrep_orig.s_addr = rrep->orig_addr;
-            if( isLocalAddress( saodv_rrep_orig.S_addr )){
+            if( addressIsForUs( saodv_rrep_orig.S_addr )){
                 //did we got a rrep from this gateway already ? check vector
                 vector_position = -1;
                 for(int i=0;i<table.size();i++){
@@ -485,8 +480,10 @@ void NS_CLASS aodv_socket_process_packet(AODV_msg * aodv_msg, int len,
                     //we know the gateway
                     count_table[vector_position] = count_table[vector_position] + 1;
                 }
+                //cast aodv_msg into RREP pointer to save the message pointer
+                RREP * tmp = (RREP *) aodv_msg;
                 //save rrep for later
-                message_rrep.push_back((RREP *) aodv_msg);
+                message_rrep.push_back(*tmp);
                 message_len.push_back(len);
                 message_src.push_back(src);
                 message_dst.push_back(dst);
