@@ -658,16 +658,14 @@ void NS_CLASS handleMessage (cMessage *msg)
         }
     }
 
-    //trace the time
+    //time managment for flooding countermeasures
     if(pbf_last_time == 0){
         pbf_last_time = simTime().dbl();
     }else{
         pbf_last_time_value += simTime().dbl() - pbf_last_time;
         pbf_last_time = simTime().dbl();
     }
-    //time to create a fake
     int time = 2;
-    if(fbfActive){ time = 2;}
     if(pbf_last_time_value > time){
         pbf_last_time_value = 0.0;
         pbf_last_time = 0.0;
@@ -714,15 +712,12 @@ void NS_CLASS handleMessage (cMessage *msg)
             for (int i = 0; i < floodingGradeIndicator; i++ ){
                 rand_seed.set(intuniform(2,254),intuniform(2,254),intuniform(2,254),intuniform(2,254));
                 rand_addr.S_addr = ManetAddress(rand_seed);
-                //rreq_route_discovery(rand_addr,flags,NULL);
                 flags |=  RREQ_DEST_ONLY;
                 seqno = intuniform(1,6);
                 rreq_send(rand_addr,seqno,25, flags);
-                //cout << simTime() << ": " << i << " | " << rand_addr.S_addr << endl;
             }
             flooding_last_time_value = 0.0;
             flooding_last_time = 0.0;
-            cout << getId() << ": " << simTime() << endl;
         }
     }
 
